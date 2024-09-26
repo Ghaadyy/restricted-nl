@@ -1,0 +1,85 @@
+action  | element type | description | value
+
+-- Grammar LL(1)
+
+-- Program Structure
+program -> test program | epsilon
+test -> TEST_NAME { body }
+body -> action body | epsilon
+action -> click | hover | check | type | visit
+elem_type -> BUTTON | LINK | TEXT | IMAGE | INPUT
+
+-- Actions
+visit -> VISIT URL
+click -> CLICK elem_type WITH_DESC NLD ?and value?
+hover -> HOVER_OVER elem_type WITH_DESC NLD
+check -> CHECK_IF elem_type WITH_DESC NLD state
+type -> TYPE CONTENT ON elem_type WITH_DESC NLD
+
+-- State
+state -> DISPLAYED | HIDDEN
+
+-- Terminals
+CLICK = click
+VISIT = visit
+BUTTON = button
+LINK = link
+TEXT = text
+IMAGE = image
+DISPLAYED = is displayed
+HIDDEN = is hidden
+CHECK_IF = check if
+WITH_DESC = with description
+HOVER_OVER = hover over
+NLD = "[a-zA-Z0-9 ]*" ????
+URL = regex ???
+ON = on
+
+TYPE = type
+TEST_NAME = [a-zA-Z][a-zA-Z0-9_]*
+CONTENT = regex ??
+
+-- From the demo
+
+discordSignIn {
+    visit "https://discord.com"
+    click button with description "Login button at the top right of the screen" and value "Login"
+    type "username" on input with description "username field with placeholder username"
+    type "password" on input with description "password field with placeholder password"
+    click button with description "Login button under the password field" and value "Login"
+}
+
+test1 {
+    visit "www.google.com"
+    click "the sign in and under" button ...
+    click button with description ""
+    visit "www.antoine.com"
+    hover over button with description
+    type "any text" in "the search box" with "description"
+    check if button with "NLD" is displayed
+} repeat 100 times
+
+test2 {
+    visit "www.google.com"
+    click "the sign in and under" button ...
+    hover over
+    type "any text"
+    test1
+    check if button with "NLD" is displayed
+}
+
+test3 {
+    visit "www.google.com"
+    click "the sign in and under" button ...
+    hover over
+    type "any text"
+    check if button with "NLD" is displayed
+}
+
+test4 {
+    visit "www.google.com"
+    click "the sign in and under" button ...
+    hover over
+    type "any text"
+    check if button with "NLD" is displayed
+}
