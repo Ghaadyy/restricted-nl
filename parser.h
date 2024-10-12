@@ -6,7 +6,7 @@
 #define RESTRICTED_NL_PARSER_H
 
 #include <string>
-#include "Scanner.h"
+#include "scanner.h"
 
 using namespace std;
 

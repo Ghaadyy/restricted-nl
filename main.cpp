@@ -1,4 +1,4 @@
-#include "Scanner.h"
+#include "scanner.h"
 #include "parser.h"
 
 int main() {

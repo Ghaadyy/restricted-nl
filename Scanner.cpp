@@ -1,4 +1,4 @@
-#include "Scanner.h"
+#include "scanner.h"
 
 bool Scanner::read_file(const string &path) {
     // isOpen = false;
