@@ -1,21 +1,25 @@
 #include "Scanner.h"
 
 bool Scanner::read_file(const string &path) {
-    isOpen = false;
-    ifstream infile = ifstream(path);
-    string line;
-    yyinput = "";
-    if (infile.is_open()) {
-        while (getline(infile, line)) {
-            yyinput += line + "\n";
-        }
-        infile.close();
-        isOpen = true;
-    }
-    else {
-        cerr << "Unable to open file!" << endl;
-        return false;
-    }
+    // isOpen = false;
+    // ifstream infile = ifstream(path);
+    // string line;
+    // yyinput = "";
+    // if (infile.is_open()) {
+    //     while (getline(infile, line)) {
+    //         yyinput += line + "\n";
+    //     }
+    //     infile.close();
+    //     isOpen = true;
+    // }
+    // else {
+    //     cerr << "Unable to open file!" << endl;
+    //     return false;
+    // }
+
+    // TODO: ability to either read from file or take from stdin
+    isOpen = true;
+    yyinput = path;
     return true;
 }
 

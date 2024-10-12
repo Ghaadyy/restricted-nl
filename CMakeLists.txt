@@ -6,7 +6,11 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(restricted_nl main.cpp
         Scanner.cpp
         Scanner.h
-        Parser.cpp
-        Parser.cpp
         parser.cpp
         parser.h)
+
+add_library(restricted_nl_lib SHARED 
+        parser.cpp 
+        parser.h 
+        Scanner.cpp 
+        Scanner.h)

@@ -50,4 +50,10 @@ public:
     bool parse();
 };
 
+extern "C" inline __declspec(dllexport) bool parse(const char *path) {
+  string code = path;
+  parser p(std::move(path));
+  return p.parse();
+}
+
 #endif //RESTRICTED_NL_PARSER_H
