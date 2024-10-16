@@ -50,10 +50,15 @@ public:
     bool parse();
 };
 
-extern "C" inline __declspec(dllexport) bool parse(const char *path) {
-  string code = path;
-  parser p(std::move(path));
-  return p.parse();
+#ifdef _WIN32
+#define DLL_API __declspec(dllexport)
+#else
+#define DLL_API __attribute__((visibility("default")))
+#endif
+
+extern "C" inline DLL_API bool parse(const char *path) {
+    parser p(path);
+    return p.parse();
 }
 
 #endif //RESTRICTED_NL_PARSER_H
