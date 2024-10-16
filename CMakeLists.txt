@@ -9,7 +9,7 @@ add_executable(restricted_nl main.cpp
         parser.cpp
         parser.h)
 
-add_library(restricted_nl_lib SHARED 
+add_library(restricted_nl_lib SHARED
         parser.cpp 
         parser.h 
         Scanner.cpp 
