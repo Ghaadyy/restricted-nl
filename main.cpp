@@ -1,5 +1,5 @@
-#include "scanner.h"
-#include "parser.h"
+#include "src/scanner.h"
+#include "src/parser.h"
 
 int main() {
   std::string s = R"(discordSignIn {
