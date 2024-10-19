@@ -1,16 +1,26 @@
 #include "src/scanner.h"
 #include "src/parser.h"
+#include "src/codegen/selenium.h"
+#include <fstream>
+
+using namespace std;
 
 int main() {
-  std::string s = R"(discordSignIn {
-    visit url
-    click button with description "Login button at the top right of the screen"
-    type "username" on input with description "username field with placeholder username"
-    type "password" on input with description "password field with placeholder password"
-    click button with description "Login button under the password field"
-})";
+  ifstream infile = ifstream("tests.txt");
+  string line;
+  string file;
+  if (infile.is_open()) {
+      while (getline(infile, line)) {
+          file += line + "\n";
+      }
+      infile.close();
+  }
+  else {
+      cerr << "Unable to open file!" << endl;
+      return false;
+  }
 
-  parser p(std::move(s));
+  parser p(std::move(file), new SeleniumCodeGen());
 
   if (p.parse()) {
     cout << "Compiled successfully" << endl;

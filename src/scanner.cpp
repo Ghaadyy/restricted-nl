@@ -1,5 +1,7 @@
 #include "scanner.h"
 
+string yysval;
+
 bool Scanner::read_file(const string &path) {
     // isOpen = false;
     // ifstream infile = ifstream(path);
@@ -41,13 +43,13 @@ Scanner::Scanner(string &&file_name) :
         {"check if", [&](const string & s) { return CHECK_IF;}},
         {"with description", [&](const string & s) { return WITH_DESC;}},
         {"hover over", [&](const string & s) { return HOVER_OVER;}},
-        {"url", [&](const string & s) { return URL;}},
         {"on", [&](const string & s) { return ON;}},
         {"type", [&](const string & s) { return TYPE;}},
         {"[{]", [&](const string & s) { return LEFT_BRACE;}},
         {"[}]", [&](const string & s) { return RIGHT_BRACE;}},
-        {"[a-zA-Z][a-zA-Z0-9]*", [&](const string & s) { return TEST_NAME;}},
-        {"[\"][a-zA-Z0-9 ]*[\"]", [&](const string & s) { return NLD;}},
+        {"[\"]https://[a-zA-Z0-9./]*[\"]", [&](const string & s) { yysval = s; return URL;}},
+        {"[a-zA-Z][a-zA-Z0-9]*", [&](const string & s) { yysval = s; return TEST_NAME;}},
+        {"[\"][a-zA-Z0-9 /@='\\]\\[]*[\"]", [&](const string & s) { yysval = s; return NLD;}},
         {"[[:space:]]+",[&](const string&) { return -1; }}, // (\s, \t et \n)
         {".", [&](const string& s) { error("Unknown character", "Lexical"); return (int)s[0]; }}
     });

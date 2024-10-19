@@ -11,11 +11,10 @@
 
 using namespace std;
 
-enum Tokens { TEST_NAME = 257, CLICK, VISIT, BUTTON, LINK, TEXT, IMAGE, DISPLAYED, HIDDEN, CHECK_IF, WITH_DESC, HOVER_OVER, NLD, URL, ON, TYPE, CONTENT, LEFT_BRACE, RIGHT_BRACE, INPUT };
+enum Tokens {   TEST_NAME = 257, CLICK, VISIT, BUTTON, LINK, TEXT, IMAGE, DISPLAYED, HIDDEN, CHECK_IF, 
+                WITH_DESC, HOVER_OVER, NLD, URL, ON, TYPE, CONTENT, LEFT_BRACE, RIGHT_BRACE, INPUT };
 
-//long long yylval = 0;   // Value of the number
-//string yysval;          // Name of the identifier
-//map<string, long long> vars;    // Table of variables
+extern string yysval;
 
 struct lex_rule {
     string regex;

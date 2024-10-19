@@ -1,23 +1,7 @@
 #include "parser.h"
 
-//-- Program Structure
-//program -> test program | epsilon
-//test -> TEST_NAME { body }
-//body -> action body | epsilon
-//action -> click | hover | check | type | visit
-//elem_type -> BUTTON | LINK | TEXT | IMAGE | INPUT
-//
-//-- Actions
-//visit -> VISIT URL
-//click -> CLICK elem_type WITH_DESC NLD ?and value?
-//hover -> HOVER_OVER elem_type WITH_DESC NLD
-//check -> CHECK_IF elem_type WITH_DESC NLD state
-//type -> TYPE CONTENT ON elem_type WITH_DESC NLD
-//
-//-- State
-//state -> DISPLAYED | HIDDEN
-
-parser::parser(string&& path) : scanner { Scanner(std::move(path)) } {}
+parser::parser(string&& path, CodeGen* codeGen) 
+    : scanner { Scanner(std::move(path)) }, codeGen(codeGen) {}
 
 bool parser::program() { //program -> test program | epsilon
     if(token == 0) return true; // program -> epsilon
@@ -29,6 +13,7 @@ bool parser::program() { //program -> test program | epsilon
 
 bool parser::test() {
     if(token == TEST_NAME) {
+        codeGen->createTest(yysval);
         token = scanner.yylex();
         if(token == LEFT_BRACE) {
             token = scanner.yylex();
@@ -41,6 +26,7 @@ bool parser::test() {
             return false;
         }
 
+        codeGen->finishTest();
         token = scanner.yylex();
         return true;
     }
@@ -66,8 +52,9 @@ bool parser::visit() {
             return false;
         }
 
+        codeGen->visit(yysval);
+        
         token = scanner.yylex();
-
         return true;
     }
 
@@ -104,6 +91,8 @@ bool parser::click() {
             return false;
         }
 
+        codeGen->click(yysval);
+
         token = scanner.yylex();
         return true;
     }
@@ -118,15 +107,12 @@ bool parser::check() {
         if(token == WITH_DESC) {
             token = scanner.yylex();
             if(token != NLD) return false;
-
+            
+            string xpath = yysval;
             token = scanner.yylex();
-            if(!state()) return false;
-        } else {
-            return false;
+            codeGen->check(xpath, token == DISPLAYED);
+            return state();
         }
-
-        token = scanner.yylex();
-        return true;
     }
 
     return false;
@@ -155,6 +141,7 @@ bool parser::type() {
     if(token != TYPE) return false;
     token = scanner.yylex();
     if(token != NLD) return false; // TODO: IT SHOULD BE CONTENT
+    string content = yysval;
     token = scanner.yylex();
     if(token != ON) return false;
     token = scanner.yylex();
@@ -162,6 +149,9 @@ bool parser::type() {
     if(token != WITH_DESC) return false;
     token = scanner.yylex();
     if(token != NLD) return false;
+
+    codeGen->type(yysval, content);
+
     token = scanner.yylex();
     return true;
 }
@@ -176,11 +166,13 @@ bool parser::state() {
 }
 
 bool parser::parse() {
+    codeGen->init();
     token = scanner.yylex();
     if (program()) {
+        cout << codeGen->generate() << endl;
         return true;
     }
-
+    
     cerr << "Syntax error\n";
     return false;
 }

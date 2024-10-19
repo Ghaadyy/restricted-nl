@@ -7,33 +7,20 @@
 
 #include <string>
 #include "scanner.h"
+#include "codegen/codegen.h"
+#include "codegen/selenium.h"
 
 using namespace std;
 
-//-- Program Structure
-//program -> test program | epsilon
-//        test -> TEST_NAME { body }
-//body -> action body | epsilon
-//        action -> click | hover | check | type | visit
-//        elem_type -> BUTTON | LINK | TEXT | IMAGE | INPUT
-//
-//-- Actions
-//        visit -> VISIT URL
-//click -> CLICK elem_type WITH_DESC NLD ?and value?
-//hover -> HOVER_OVER elem_type WITH_DESC NLD
-//check -> CHECK_IF elem_type WITH_DESC NLD state
-//        type -> TYPE CONTENT ON elem_type WITH_DESC NLD
-//
-//-- State
-//state -> DISPLAYED | HIDDEN
-
 class parser {
+private:
+    CodeGen* codeGen;
 public:
     Scanner scanner;
     int token {};
     long long number {};
 
-    explicit parser(string&&);
+    parser(string&&, CodeGen*);
 
     bool program();
     bool body();
@@ -57,7 +44,7 @@ public:
 #endif
 
 extern "C" inline DLL_API bool parse(const char *path) {
-    parser p(path);
+    parser p(path, new SeleniumCodeGen());
     return p.parse();
 }
 
