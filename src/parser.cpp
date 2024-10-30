@@ -1,4 +1,5 @@
 #include "parser.h"
+#include <string.h>
 
 parser::parser(string&& path, CodeGen* codeGen) 
     : scanner { Scanner(std::move(path)) }, codeGen(codeGen) {}
@@ -165,14 +166,14 @@ bool parser::state() {
     return false;
 }
 
-bool parser::parse() {
+bool parser::parse(const char** code) {
     codeGen->init();
     token = scanner.yylex();
     if (program()) {
-        cout << codeGen->generate() << endl;
+        string output = codeGen->generate();
+        *code = strdup(output.c_str());
         return true;
     }
     
-    cerr << "Syntax error\n";
     return false;
 }

@@ -1,17 +1,58 @@
 #include "selenium.h"
 
+// TODO
+// IMPLEMENT ALL STATE: IS_DISPLAYED, HIDDEN, EQUAL
+// WITH VALUE ??
+
 void SeleniumCodeGen::init() {
     ss  << "import { Builder, Browser, By } from \"selenium-webdriver\";" << std::endl;
     ss  << "import assert from \"assert\";" << std::endl;
+    ss  << "import websocket from \"websocket\";" << std::endl;
+    ss  << "const { w3cwebsocket: WebSocket } = websocket;" << std::endl;
 
-    ss  << R"(describe('Script', function () {
-    let driver;
-    this.timeout(0);
+    ss  << R"(
+    function sendAssert(socket, test) {
+        if (socket.readyState == socket.OPEN) {
+            socket.send(JSON.stringify(test));
+        }
+    }
 
-    before(async function () {
-        driver = await new Builder().forBrowser(Browser.CHROME).build();
-        await driver.manage().setTimeouts({ implicit: 2147483647, pageLoad: 2147483647 });
-    });)" 
+    describe('Script', function () {
+        let driver;
+        let socket;
+        this.timeout(0);
+
+        before(async function () {
+            driver = await new Builder().forBrowser(Browser.CHROME).build();
+            socket = new WebSocket("ws://localhost:5064/ws/selenium");
+            await driver.manage().setTimeouts({ implicit: 2147483647, pageLoad: 2147483647 });
+
+            socket.onopen = async function () {
+                console.log("open");
+            };
+
+            socket.onerror = function (err) {
+                console.log("Error here!!!");
+                console.log(err.message);
+            };
+
+            socket.onclose = function (event) {
+                console.log(event.reason);
+            };
+        });
+
+        afterEach(function () {
+            sendAssert(socket, {
+                testName: this.currentTest.title,
+                passed: this.currentTest.state === "passed",
+            });
+        });
+
+        after(async () => {
+            await driver.quit();
+        });
+
+        after(() => socket.close());)"
         << std::endl;
 }
 
@@ -78,7 +119,7 @@ void SeleniumCodeGen::type(const string& xpath, const string& text) {
     id++;
 }
 
-string SeleniumCodeGen::generate() {
-    ss  << "after(async () => await driver.quit());\n});";
-    return ss.str();
+string SeleniumCodeGen::generate() { 
+    ss  << "});\n";
+    return ss.str(); 
 }

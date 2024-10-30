@@ -22,8 +22,11 @@ int main() {
 
   parser p(std::move(file), new SeleniumCodeGen());
 
-  if (p.parse()) {
-    cout << "Compiled successfully" << endl;
+  const char* code;
+
+  if (p.parse(&code)) {
+    cout  << "Compiled successfully" << endl
+          << code << endl;
   } else {
     cout << "Failed to compile" << endl;
   }
