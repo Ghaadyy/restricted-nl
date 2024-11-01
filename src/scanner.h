@@ -27,8 +27,6 @@ private:
     string yyinput;
     int token;
     long long position = 0;
-    string file_name;
-    bool isOpen = false;
     vector<lex_rule> rules;
 
     bool read_file(const string&);

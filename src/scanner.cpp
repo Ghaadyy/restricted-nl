@@ -2,33 +2,10 @@
 
 string yysval;
 
-bool Scanner::read_file(const string &path) {
-    // isOpen = false;
-    // ifstream infile = ifstream(path);
-    // string line;
-    // yyinput = "";
-    // if (infile.is_open()) {
-    //     while (getline(infile, line)) {
-    //         yyinput += line + "\n";
-    //     }
-    //     infile.close();
-    //     isOpen = true;
-    // }
-    // else {
-    //     cerr << "Unable to open file!" << endl;
-    //     return false;
-    // }
+Scanner::Scanner(string&& code) :
+    yyinput { code }, position { 0 }, token { 0ll } {
 
-    // TODO: ability to either read from file or take from stdin
-    isOpen = true;
-    yyinput = path;
-    return true;
-}
-
-Scanner::Scanner(string &&file_name) :
-    file_name { file_name }, isOpen { false }, position { 0 }, token { 0ll } {
-
-    if(!read_file(file_name)) return;
+    if(code.empty()) return;
 
     rules = vector<lex_rule>({
         {"click", [&](const string & s) { return CLICK;}},
@@ -56,7 +33,6 @@ Scanner::Scanner(string &&file_name) :
 }
 
 int Scanner::yylex() {
-    if (!isOpen) return 0;
     smatch m;
     while (true) {
         if (yyinput.length() == position) return 0;
