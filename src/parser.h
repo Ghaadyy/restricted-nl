@@ -37,15 +37,4 @@ public:
     bool parse(const char**);
 };
 
-#ifdef _WIN32
-#define DLL_API __declspec(dllexport)
-#else
-#define DLL_API __attribute__((visibility("default")))
-#endif
-
-extern "C" DLL_API bool parse(const char *path, const char** code) {
-    parser p(path, new SeleniumCodeGen());
-    return p.parse(code);
-}
-
 #endif //RESTRICTED_NL_PARSER_H
