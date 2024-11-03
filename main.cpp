@@ -30,7 +30,7 @@ int main(int argc, const char** argv) {
   }
   else {
       cerr << "Unable to open file!" << endl;
-      return false;
+      return -1;
   }
 
   parser p(std::move(file), new SeleniumCodeGen());
