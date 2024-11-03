@@ -43,7 +43,7 @@ public:
 #define DLL_API __attribute__((visibility("default")))
 #endif
 
-extern "C" inline DLL_API bool parse(const char *path, const char** code) {
+extern "C" DLL_API bool parse(const char *path, const char** code) {
     parser p(path, new SeleniumCodeGen());
     return p.parse(code);
 }
