@@ -23,6 +23,7 @@ struct lex_rule {
 
 class Scanner {
 private:
+    int line_count = 1;
     string yytext;
     string yyinput;
     int token;
@@ -33,6 +34,10 @@ private:
 
 public:
     explicit Scanner(string&& path);
+
+    static string getTokenName(int tokenId);
+
+    int line_number();
 
     int yylex();
 
