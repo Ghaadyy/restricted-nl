@@ -2,10 +2,10 @@
 
 string yysval;
 
-Scanner::Scanner(string&& code) :
-    yyinput { code }, position { 0 }, token { 0ll } {
+Scanner::Scanner(string&& content) :
+    yyinput { content }, position { 0 }, token { 0ll } {
 
-    if(code.empty()) return;
+    if(content.empty()) return;
 
     rules = vector<lex_rule>({
         {"click", [&](const string & s) { return CLICK;}},
@@ -35,7 +35,7 @@ Scanner::Scanner(string&& code) :
             }
             return -1;
         }}, // (\s, \t et \n)
-        {".", [&](const string& s) { error("Unknown character: " + s, "Lexical"); return (int)s[0]; }}
+        {".", [&](const string& s) { return (int)s[0]; }}
     });
 }
 
@@ -52,7 +52,7 @@ string Scanner::getTokenName(int tokenId) {
     return it != tokenNames.end() ? it->second : "UNKNOWN";
 }
 
-int Scanner::line_number() {
+int Scanner::line_number() const {
     return line_count;
 }
 
@@ -71,8 +71,4 @@ int Scanner::yylex() {
             }
         }
     }
-}
-
-void Scanner::error(const string& error = "Unknown character", const string& type = "Lexical") {
-    cout << "[" << type << " Error] " << error << endl;
 }

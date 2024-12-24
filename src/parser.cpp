@@ -1,8 +1,8 @@
 #include "parser.h"
-#include <string.h>
+#include <cstring>
 
-parser::parser(string&& path, CodeGen* codeGen) 
-    : scanner { Scanner(std::move(path)) }, codeGen(codeGen) {}
+parser::parser(string&& content, CodeGen* codeGen)
+    : scanner { Scanner(std::move(content)) }, codeGen(codeGen) {}
 
 bool parser::program() { //program -> test program | epsilon
     if(token == 0) return true; // program -> epsilon
@@ -12,7 +12,6 @@ bool parser::program() { //program -> test program | epsilon
     return true; // program -> test program
 }
 
-//If fault in test function, RECOVER BY SKIPPING TO THE NEXT TEST
 bool parser::test() {
     if(token == TEST_NAME) {
         codeGen->createTest(yysval);
@@ -41,7 +40,6 @@ bool parser::test() {
     return recoverFromError({TEST_NAME});
 }
 
-//If fault in action function, RECOVER BY SKIPPING TO THE NEXT ACTION OR END OF TEST (RIGHT BRACE)
 bool parser::action() {
     switch (token) {
         case CLICK:
@@ -79,12 +77,8 @@ bool parser::visit() {
 }
 
 bool parser::body() {
-    if(token == CLICK || token == HOVER_OVER || token == TYPE || token == CHECK_IF || token == VISIT){
-        if(action()) {
-            return body();
-        }else{
-            return false;
-        }
+    if(token == CLICK || token == HOVER_OVER || token == TYPE || token == CHECK_IF || token == VISIT) {
+        return action() && body();
     }
 
     return true;
@@ -232,7 +226,7 @@ bool parser::recoverFromError(const vector<enum Tokens>& syncSet) {
     while (token != 0) {
         for (auto syncToken : syncSet) {
             if (token == syncToken) {
-                errors.push_back("[Recovery] Found synchronizing token: " + scanner.getTokenName(token) + " at line " +
+                errors.push_back("[Recovery] Found synchronizing token: " + Scanner::getTokenName(token) + " at line " +
                                          to_string(scanner.line_number()) + "\n");
                 return true;
             }
@@ -245,7 +239,7 @@ bool parser::recoverFromError(const vector<enum Tokens>& syncSet) {
 }
 
 void parser::reportError(const string& expectedToken) {
-    errors.push_back("[Error] Expected " + expectedToken + ", but found " + scanner.getTokenName(token) + " instead at line " + std::to_string(scanner.line_number()) + "\n");
+    errors.push_back("[Error] Expected " + expectedToken + ", but found " + Scanner::getTokenName(token) + " instead at line " + std::to_string(scanner.line_number()));
 }
 
 bool parser::parse(const char** code) {
@@ -258,7 +252,7 @@ bool parser::parse(const char** code) {
     }
 
     for(const auto & error : errors){
-        cout << error;
+        cout << error << endl;
     }
 
     return false;

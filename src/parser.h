@@ -17,13 +17,9 @@ using namespace std;
 class parser {
 private:
     CodeGen* codeGen;
-public:
     vector<string> errors;
     Scanner scanner;
     int token {};
-    long long number {};
-
-    parser(string&&, CodeGen*);
 
     bool program();
     bool body();
@@ -37,10 +33,13 @@ public:
     bool type();
     bool state();
 
-    bool parse(const char**);
-
     bool recoverFromError(const vector<enum Tokens>&);
     void reportError(const string& expectedToken);
+
+public:
+    parser(string&& content, CodeGen* codeGen);
+
+    bool parse(const char**);
 };
 
 #endif //RESTRICTED_NL_PARSER_H

@@ -30,18 +30,14 @@ private:
     long long position = 0;
     vector<lex_rule> rules;
 
-    bool read_file(const string&);
-
 public:
-    explicit Scanner(string&& path);
+    explicit Scanner(string&& content);
 
     static string getTokenName(int tokenId);
 
-    int line_number();
+    int line_number() const;
 
     int yylex();
-
-    static void error(const string&, const string&);
 };
 
 #endif //RESTRICTED_NL_SCANNER_H
