@@ -70,9 +70,12 @@ bool parser::visit() {
 }
 
 bool parser::body() {
-    if(action()) {
-        if(!body()) return false;
-        return true;
+    if(token == CLICK || token == HOVER_OVER || token == TYPE || token == CHECK_IF || token == VISIT){
+        if(action()) {
+            return body();
+        }else{
+            return false;
+        }
     }
 
     return true;
