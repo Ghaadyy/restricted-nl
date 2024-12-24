@@ -6,6 +6,8 @@
 #define RESTRICTED_NL_PARSER_H
 
 #include <string>
+#include <vector>
+#include <unordered_map>
 #include "scanner.h"
 #include "codegen/codegen.h"
 #include "codegen/selenium.h"
@@ -15,12 +17,9 @@ using namespace std;
 class parser {
 private:
     CodeGen* codeGen;
-public:
+    vector<string> errors;
     Scanner scanner;
     int token {};
-    long long number {};
-
-    parser(string&&, CodeGen*);
 
     bool program();
     bool body();
@@ -33,6 +32,12 @@ public:
     bool check();
     bool type();
     bool state();
+
+    bool recoverFromError(const vector<enum Tokens>&);
+    void reportError(const string& expectedToken);
+
+public:
+    parser(string&& content, CodeGen* codeGen);
 
     bool parse(const char**);
 };

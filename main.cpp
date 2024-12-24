@@ -14,11 +14,11 @@ int main(int argc, const char** argv) {
     return -1;
   }
 
-  string inpath = argv[1];
-  string outpath = argv[2];
+  string in_path = argv[1];
+  string out_path = argv[2];
 
-  ifstream infile = ifstream(inpath);
-  ofstream outfile = ofstream(outpath);
+  ifstream infile = ifstream(in_path);
+  ofstream outfile = ofstream(out_path);
 
   string line;
   string file;
@@ -41,6 +41,8 @@ int main(int argc, const char** argv) {
     cerr << "Failed to compile" << endl;
     return -1;
   }
+
+  cout << "Compiled Successfully" << endl;
 
   outfile << code;
 

@@ -1,8 +1,8 @@
 #include "parser.h"
-#include <string.h>
+#include <cstring>
 
-parser::parser(string&& path, CodeGen* codeGen) 
-    : scanner { Scanner(std::move(path)) }, codeGen(codeGen) {}
+parser::parser(string&& content, CodeGen* codeGen)
+    : scanner { Scanner(std::move(content)) }, codeGen(codeGen) {}
 
 bool parser::program() { //program -> test program | epsilon
     if(token == 0) return true; // program -> epsilon
@@ -18,13 +18,17 @@ bool parser::test() {
         token = scanner.yylex();
         if(token == LEFT_BRACE) {
             token = scanner.yylex();
-            if(!body()) return false;
+            if(!body()){
+                return recoverFromError({TEST_NAME});
+            }
 
             if(token != RIGHT_BRACE) {
-                return false;
+                reportError("RIGHT BRACE");
+                return recoverFromError({TEST_NAME});
             }
         }else{
-            return false;
+            reportError("LEFT BRACE");
+            return recoverFromError({TEST_NAME});
         }
 
         codeGen->finishTest();
@@ -32,7 +36,8 @@ bool parser::test() {
         return true;
     }
 
-    return false;
+    reportError("TEST NAME");
+    return recoverFromError({TEST_NAME});
 }
 
 bool parser::action() {
@@ -52,16 +57,18 @@ bool parser::action() {
     }
 }
 
+
 bool parser::visit() {
     if(token == VISIT) {
         token = scanner.yylex();
 
         if(token != URL) {
-            return false;
+            reportError("URL");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
 
         codeGen->visit(yysval);
-        
+
         token = scanner.yylex();
         return true;
     }
@@ -70,12 +77,8 @@ bool parser::visit() {
 }
 
 bool parser::body() {
-    if(token == CLICK || token == HOVER_OVER || token == TYPE || token == CHECK_IF || token == VISIT){
-        if(action()) {
-            return body();
-        }else{
-            return false;
-        }
+    if(token == CLICK || token == HOVER_OVER || token == TYPE || token == CHECK_IF || token == VISIT) {
+        return action() && body();
     }
 
     return true;
@@ -93,13 +96,20 @@ bool parser::elem_type() {
 bool parser::click() {
     if(token == CLICK) {
         token = scanner.yylex();
-        if(!elem_type()) return false;
+        if(!elem_type()){
+            reportError("ELEMENT TYPE");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        }
         if(token == WITH_DESC) {
             token = scanner.yylex();
 
-            if(token != NLD) return false;
+            if(token != NLD) {
+                reportError("NLD");
+                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            }
         }else{
-            return false;
+            reportError("WITH DESCRIPTION");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
 
         codeGen->click(yysval);
@@ -114,15 +124,29 @@ bool parser::click() {
 bool parser::check() {
     if(token == CHECK_IF) {
         token = scanner.yylex();
-        if(!elem_type()) return false;
+        if(!elem_type()){
+            reportError("ELEMENT TYPE");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        }
         if(token == WITH_DESC) {
             token = scanner.yylex();
-            if(token != NLD) return false;
+            if(token != NLD){
+                reportError("NLD");
+                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            }
             
             string xpath = yysval;
             token = scanner.yylex();
             codeGen->check(xpath, token == DISPLAYED);
-            return state();
+            if(state()){
+                return true;
+            }else{
+                reportError("STATE");
+                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            }
+        }else{
+            reportError("WITH DESCRIPTION");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
     }
 
@@ -132,13 +156,20 @@ bool parser::check() {
 bool parser::hover() {
     if(token == HOVER_OVER) {
         token = scanner.yylex();
-        if(!elem_type()) return false;
+        if(!elem_type()){
+            reportError("ELEMENT TYPE");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        }
         if(token == WITH_DESC) {
             token = scanner.yylex();
 
-            if(token != NLD) return false;
+            if(token != NLD){
+                reportError("NLD");
+                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            }
         } else {
-            return false;
+            reportError("WITH DESCRIPTION");
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
 
         token = scanner.yylex();
@@ -151,15 +182,30 @@ bool parser::hover() {
 bool parser::type() {
     if(token != TYPE) return false;
     token = scanner.yylex();
-    if(token != NLD) return false; // TODO: IT SHOULD BE CONTENT
+    if(token != NLD) {
+        reportError("CONTENT");
+        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+    } // TODO: IT SHOULD BE CONTENT
     string content = yysval;
     token = scanner.yylex();
-    if(token != ON) return false;
+    if(token != ON){
+        reportError("ON");
+        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+    }
     token = scanner.yylex();
-    if(!elem_type()) return false;
-    if(token != WITH_DESC) return false;
+    if(!elem_type()){
+        reportError("ELEMENT TYPE");
+        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+    }
+    if(token != WITH_DESC){
+        reportError("WITH DESCRIPTION");
+        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+    }
     token = scanner.yylex();
-    if(token != NLD) return false;
+    if(token != NLD){
+        reportError("NLD");
+        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+    }
 
     codeGen->type(yysval, content);
 
@@ -176,15 +222,39 @@ bool parser::state() {
     return false;
 }
 
+bool parser::recoverFromError(const vector<enum Tokens>& syncSet) {
+    while (token != 0) {
+        for (auto syncToken : syncSet) {
+            if (token == syncToken) {
+                errors.push_back("[Recovery] Found synchronizing token: " + Scanner::getTokenName(token) + " at line " +
+                                         to_string(scanner.line_number()) + "\n");
+                return true;
+            }
+        }
+        token = scanner.yylex();
+    }
+
+    cerr << "Failed to recover. Reached EOF.\n";
+    return false;
+}
+
+void parser::reportError(const string& expectedToken) {
+    errors.push_back("[Error] Expected " + expectedToken + ", but found " + Scanner::getTokenName(token) + " instead at line " + std::to_string(scanner.line_number()));
+}
+
 bool parser::parse(const char** code) {
     codeGen->init();
     token = scanner.yylex();
-    if (program()) {
+    if (program() && errors.empty()) {
         string output = codeGen->generate();
         *code = strdup(output.c_str());
         return true;
     }
-    
+
+    for(const auto & error : errors){
+        cout << error << endl;
+    }
+
     return false;
 }
 

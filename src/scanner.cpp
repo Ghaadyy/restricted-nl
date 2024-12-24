@@ -2,10 +2,10 @@
 
 string yysval;
 
-Scanner::Scanner(string&& code) :
-    yyinput { code }, position { 0 }, token { 0ll } {
+Scanner::Scanner(string&& content) :
+    yyinput { content }, position { 0 }, token { 0ll } {
 
-    if(code.empty()) return;
+    if(content.empty()) return;
 
     rules = vector<lex_rule>({
         {"click", [&](const string & s) { return CLICK;}},
@@ -26,10 +26,34 @@ Scanner::Scanner(string&& code) :
         {"[}]", [&](const string & s) { return RIGHT_BRACE;}},
         {"[\"]https://[a-zA-Z0-9./]*[\"]", [&](const string & s) { yysval = s; return URL;}},
         {"[a-zA-Z][a-zA-Z0-9]*", [&](const string & s) { yysval = s; return TEST_NAME;}},
-        {"[\"][a-zA-Z0-9 /@='\\]\\[]*[\"]", [&](const string & s) { yysval = s; return NLD;}},
-        {"[[:space:]]+",[&](const string&) { return -1; }}, // (\s, \t et \n)
-        {".", [&](const string& s) { error("Unknown character", "Lexical"); return (int)s[0]; }}
+        {R"(["][a-zA-Z0-9 /@='\]\[]*["])", [&](const string & s) { yysval = s; return NLD;}},
+        {"[[:space:]]+", [&](const string& match) {
+            for (char c : match) {
+                if (c == '\n') {
+                    ++line_count;
+                }
+            }
+            return -1;
+        }}, // (\s, \t et \n)
+        {".", [&](const string& s) { return (int)s[0]; }}
     });
+}
+
+string Scanner::getTokenName(int tokenId) {
+    static const std::unordered_map<int, std::string> tokenNames = {
+            {257, "TEST_NAME"}, {258, "CLICK"}, {259, "VISIT"}, {260, "BUTTON"},
+            {261, "LINK"}, {262, "TEXT"}, {263, "IMAGE"}, {264, "DISPLAYED"},
+            {265, "HIDDEN"}, {266, "CHECK_IF"}, {267, "WITH_DESC"}, {268, "HOVER_OVER"},
+            {269, "NLD"}, {270, "URL"}, {271, "ON"}, {272, "TYPE"},
+            {273, "CONTENT"}, {274, "LEFT_BRACE"}, {275, "RIGHT_BRACE"}, {276, "INPUT"}
+    };
+
+    auto it = tokenNames.find(tokenId);
+    return it != tokenNames.end() ? it->second : "UNKNOWN";
+}
+
+int Scanner::line_number() const {
+    return line_count;
 }
 
 int Scanner::yylex() {
@@ -47,8 +71,4 @@ int Scanner::yylex() {
             }
         }
     }
-}
-
-void Scanner::error(const string& error = "Unknown character", const string& type = "Lexical") {
-    cout << type << " error : " << error << endl;
 }
