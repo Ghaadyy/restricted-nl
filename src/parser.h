@@ -8,18 +8,18 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <expected>
 #include "scanner.h"
-#include "codegen/codegen.h"
-#include "codegen/selenium.h"
+#include "ast/AST.h"
 
 using namespace std;
 
 class parser {
 private:
-    CodeGen* codeGen;
     vector<string> errors;
     Scanner scanner;
     int token {};
+    AST tree;
 
     bool program();
     bool body();
@@ -37,9 +37,9 @@ private:
     void reportError(const string& expectedToken);
 
 public:
-    parser(string&& content, CodeGen* codeGen);
+    explicit parser(string&& content);
 
-    bool parse(const char**);
+    expected<AST, vector<string>> parse();
 };
 
 #endif //RESTRICTED_NL_PARSER_H

@@ -1,8 +1,9 @@
 #include "parser.h"
 #include <cstring>
+#include "ast/SeleniumASTVisitor.h"
 
-parser::parser(string&& content, CodeGen* codeGen)
-    : scanner { Scanner(std::move(content)) }, codeGen(codeGen) {}
+parser::parser(string&& content)
+    : scanner { Scanner(std::move(content)) } {}
 
 bool parser::program() { //program -> test program | epsilon
     if(token == 0) return true; // program -> epsilon
@@ -14,7 +15,7 @@ bool parser::program() { //program -> test program | epsilon
 
 bool parser::test() {
     if(token == TEST_NAME) {
-        codeGen->createTest(yysval);
+        tree.tests.push_back(TestNode(yysval, vector<ActionNode*>()));
         token = scanner.yylex();
         if(token == LEFT_BRACE) {
             token = scanner.yylex();
@@ -31,7 +32,6 @@ bool parser::test() {
             return recoverFromError({TEST_NAME});
         }
 
-        codeGen->finishTest();
         token = scanner.yylex();
         return true;
     }
@@ -67,7 +67,7 @@ bool parser::visit() {
             return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
 
-        codeGen->visit(yysval);
+        tree.tests.back().actions.push_back(new VisitNode(std::move(yysval)));
 
         token = scanner.yylex();
         return true;
@@ -100,6 +100,7 @@ bool parser::click() {
             reportError("ELEMENT TYPE");
             return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
+        string element_type = yysval;
         if(token == WITH_DESC) {
             token = scanner.yylex();
 
@@ -112,7 +113,7 @@ bool parser::click() {
             return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
 
-        codeGen->click(yysval);
+        tree.tests.back().actions.push_back(new ClickNode(std::move(element_type), std::move(yysval)));
 
         token = scanner.yylex();
         return true;
@@ -128,6 +129,7 @@ bool parser::check() {
             reportError("ELEMENT TYPE");
             return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
         }
+        string element_type = yysval;
         if(token == WITH_DESC) {
             token = scanner.yylex();
             if(token != NLD){
@@ -137,7 +139,7 @@ bool parser::check() {
             
             string xpath = yysval;
             token = scanner.yylex();
-            codeGen->check(xpath, token == DISPLAYED);
+            tree.tests.back().actions.push_back(new CheckNode(std::move(element_type), std::move(xpath), token == DISPLAYED));
             if(state()){
                 return true;
             }else{
@@ -197,6 +199,7 @@ bool parser::type() {
         reportError("ELEMENT TYPE");
         return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
     }
+    string element_type = yysval;
     if(token != WITH_DESC){
         reportError("WITH DESCRIPTION");
         return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
@@ -207,7 +210,8 @@ bool parser::type() {
         return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
     }
 
-    codeGen->type(yysval, content);
+
+    tree.tests.back().actions.push_back(new TypeNode(std::move(content), std::move(element_type), std::move(yysval)));
 
     token = scanner.yylex();
     return true;
@@ -242,20 +246,13 @@ void parser::reportError(const string& expectedToken) {
     errors.push_back("[Error] Expected " + expectedToken + ", but found " + Scanner::getTokenName(token) + " instead at line " + std::to_string(scanner.line_number()));
 }
 
-bool parser::parse(const char** code) {
-    codeGen->init();
+expected<AST, vector<string>> parser::parse() {
     token = scanner.yylex();
     if (program() && errors.empty()) {
-        string output = codeGen->generate();
-        *code = strdup(output.c_str());
-        return true;
+        return tree;
     }
 
-    for(const auto & error : errors){
-        cout << error << endl;
-    }
-
-    return false;
+    return unexpected(errors);
 }
 
 #ifdef _WIN32
@@ -264,6 +261,14 @@ bool parser::parse(const char** code) {
 #define DLL_API __attribute__((visibility("default")))
 #endif
 extern "C" DLL_API bool parse(const char *path, const char** code) {
-    parser p(path, new SeleniumCodeGen());
-    return p.parse(code);
+    parser p(path);
+    auto res =  p.parse();
+    if(res.has_value()) {
+        const auto& tree = res.value();
+        SeleniumASTVisitor visitor;
+        string output = tree.accept(visitor);
+        *code = strdup(output.c_str());
+        return true;
+    }
+    return "Compilation failed";
 }

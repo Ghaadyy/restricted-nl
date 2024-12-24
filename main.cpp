@@ -1,6 +1,6 @@
 #include "src/scanner.h"
 #include "src/parser.h"
-#include "src/codegen/selenium.h"
+#include "src/ast/SeleniumASTVisitor.h"
 #include <fstream>
 
 #define NUM_ARGS  (3)
@@ -33,18 +33,20 @@ int main(int argc, const char** argv) {
       return -1;
   }
 
-  parser p(std::move(file), new SeleniumCodeGen());
-
-  const char* code;
-
-  if (!p.parse(&code)) {
-    cerr << "Failed to compile" << endl;
-    return -1;
+  parser p(std::move(file));
+  auto res =  p.parse();
+  if(res.has_value()) {
+      const auto& tree = res.value();
+      SeleniumASTVisitor visitor;
+      string code = tree.accept(visitor);
+      outfile << code;
+      cout << "Compiled Successfully" << endl;
+  } else{
+      for(const auto& err : res.error()) {
+          cout << err << endl;
+      }
+      cerr << "Compilation failed";
   }
-
-  cout << "Compiled Successfully" << endl;
-
-  outfile << code;
 
   return 0;
 }
