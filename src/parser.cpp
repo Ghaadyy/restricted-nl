@@ -36,13 +36,20 @@ bool parser::test() {
 }
 
 bool parser::action() {
-    if(click()) return true;
-    if(hover()) return true;
-    if(visit()) return true;
-    if(type()) return true;
-    if(check()) return true;
-
-    return false;
+    switch (token) {
+        case CLICK:
+            return click();
+        case HOVER_OVER:
+            return hover();
+        case VISIT:
+            return visit();
+        case TYPE:
+            return type();
+        case CHECK_IF:
+            return check();
+        default:
+            return false;
+    }
 }
 
 bool parser::visit() {
