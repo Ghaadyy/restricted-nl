@@ -279,7 +279,6 @@ extern "C" DLL_API bool parse(const char *path, const char** code, const char** 
         char* err = new char[errs[i].size() + 1];
         strcpy(err, errs[i].c_str());
         (*errors)[i] = err;
-        cout << (*errors)[i] << endl;
     }
 
     return false;
