@@ -230,8 +230,8 @@ bool parser::recoverFromError(const vector<enum Tokens>& syncSet) {
     while (token != 0) {
         for (auto syncToken : syncSet) {
             if (token == syncToken) {
-                errors.push_back("[Recovery] Found synchronizing token: " + Scanner::getTokenName(token) + " at line " +
-                                         to_string(scanner.line_number()) + "\n");
+                cout << "[Recovery] Found synchronizing token: " << Scanner::getTokenName(token) << " at line " <<
+                        to_string(scanner.line_number()) << endl;
                 return true;
             }
         }
@@ -243,7 +243,7 @@ bool parser::recoverFromError(const vector<enum Tokens>& syncSet) {
 }
 
 void parser::reportError(const string& expectedToken) {
-    errors.push_back("[Error] Expected " + expectedToken + ", but found " + Scanner::getTokenName(token) + " instead at line " + std::to_string(scanner.line_number()));
+    errors.push_back("Expected " + expectedToken + ", but found " + Scanner::getTokenName(token) + " instead at line " + std::to_string(scanner.line_number()));
 }
 
 expected<AST, vector<string>> parser::parse() {
@@ -260,7 +260,7 @@ expected<AST, vector<string>> parser::parse() {
 #else
 #define DLL_API __attribute__((visibility("default")))
 #endif
-extern "C" DLL_API bool parse(const char *path, const char** code) {
+extern "C" DLL_API bool parse(const char *path, const char** code, const char** errors[], size_t* error_count) {
     parser p(path);
     auto res =  p.parse();
     if(res.has_value()) {
@@ -270,5 +270,16 @@ extern "C" DLL_API bool parse(const char *path, const char** code) {
         *code = strdup(output.c_str());
         return true;
     }
-    return "Compilation failed";
+
+    auto& errs = res.error();
+
+    *error_count = errs.size();
+    *errors = new const char*[*error_count];
+    for (size_t i = 0; i < *error_count; ++i) {
+        char* err = new char[errs[i].size() + 1];
+        strcpy(err, errs[i].c_str());
+        (*errors)[i] = err;
+    }
+
+    return false;
 }
