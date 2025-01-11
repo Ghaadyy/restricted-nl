@@ -1,5 +1,5 @@
 //
-// Created by Ghady Youssef on 24/12/2024.
+// Created by King Antoine on 24/12/2024.
 //
 
 #ifndef RESTRICTED_NL_SELENIUMASTVISITOR_H
@@ -8,8 +8,6 @@
 #include "AST.h"
 
 class SeleniumASTVisitor : public ASTVisitor {
-private:
-    int id = 0;
 public:
     string visit(const VisitNode& node) override;
     string visit(const ClickNode& node) override;
