@@ -9,13 +9,13 @@ string SeleniumASTVisitor::visit(const VisitNode &node) {
 
 string SeleniumASTVisitor::visit(const ClickNode &node) {
     stringstream ss;
-    ss << "await clickNode(browsingContext, driver, " << node.get_description() << ");" << std::endl;
+    ss << "await clickNode(browsingContext, driver, " << node.get_description() << ", \"" << node.get_element_type() << "\");" << std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const TypeNode &node) {
     stringstream ss;
-    ss << "await typeNode(browsingContext, driver, " << node.get_description() << ", " << node.get_content() << ");" << std::endl;
+    ss << "await typeNode(browsingContext, driver, " << node.get_description() << ", " << node.get_content() << ", \"" << node.get_element_type() << "\");" << std::endl;
     return ss.str();
 }
 
@@ -61,7 +61,7 @@ string SeleniumASTVisitor::visit(const AST &tree) {
     ss  << "function getToken() {}"                                                         << std::endl;
     ss  << "function getServerURL() {}"                                                     << std::endl;
 
-    ss << R"(async function getCoordinates(browsingContext, description) {
+    ss << R"(async function getCoordinates(browsingContext, description, element_type) {
         try {
             const res = await fetch(getServerURL(), {
                 method: "POST",
@@ -72,6 +72,7 @@ string SeleniumASTVisitor::visit(const AST &tree) {
                 body: JSON.stringify({
                     image: await browsingContext.captureScreenshot(),
                     description: description,
+                    element_type: element_type
                 }),
             });
 
@@ -95,18 +96,18 @@ string SeleniumASTVisitor::visit(const AST &tree) {
       );
     })" << std::endl;
 
-    ss << R"(async function clickNode(browsingContext, driver, description) {
-        const [x, y] = await getCoordinates(browsingContext, description);
+    ss << R"(async function clickNode(browsingContext, driver, description, element_type) {
+        const [x, y] = await getCoordinates(browsingContext, description, element_type);
         const actions = driver.actions({ async: true });
         await actions.move({ x, y }).click().perform();
     })" << std::endl;
-    ss << R"(async function typeNode(browsingContext, driver, description, content) {
-        const [x, y] = await getCoordinates(browsingContext, description);
+    ss << R"(async function typeNode(browsingContext, driver, description, content, element_type) {
+        const [x, y] = await getCoordinates(browsingContext, description, element_type);
         const actions = driver.actions({ async: true });
         await actions.move({ x, y }).click().sendKeys(content).perform();
     })" << std::endl;
         ss << R"(async function checkNode(browsingContext, driver, element_type, description, state, test) {
-        const [x, y] = await getCoordinates(browsingContext, description);
+        const [x, y] = await getCoordinates(browsingContext, description, element_type);
         let element = await elementFromPoint(driver, x, y);
         let isDisplayed = await element.isDisplayed();
         await afterEachAssertHook(`${element_type} with description "${description}" should be ${state ? 'displayed' : 'hidden'}`, isDisplayed == state, test);
