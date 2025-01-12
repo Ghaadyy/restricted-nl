@@ -21,7 +21,8 @@ string SeleniumASTVisitor::visit(const TypeNode &node) {
 
 string SeleniumASTVisitor::visit(const CheckNode &node) {
     stringstream ss;
-    ss << "assert.equal(await checkNode(browsingContext, driver, " << node.get_description() << "), " << (node.get_state() ? "true" : "false") << ");" << std::endl;
+    string state = (node.get_state() ? "true" : "false");
+    ss << "assert.equal(await checkNode(browsingContext, driver, \"" << node.get_element_type() << "\", " << node.get_description() << ", " << state << ", title), " << state  << ");" << std::endl;
     return ss.str();
 }
 
@@ -31,6 +32,7 @@ string SeleniumASTVisitor::visit(const TestNode &node) {
     ss  << "it('"
         << node.testName
         << "', async function () {" << std::endl
+        << "const title = '" << node.testName << "';"
         << std::endl;
 
     for(auto& action : node.actions) {
@@ -51,10 +53,11 @@ string SeleniumASTVisitor::visit(const AST &tree) {
     ss  << "const chrome = require(\"selenium-webdriver/chrome\");"                         << std::endl;
     ss  << "const fs = require(\"fs\");"                                                    << std::endl;
 
-    ss  << "function beforeTestHook() {}"                                                   << std::endl;
-    ss  << "function beforeEachTestHook() {}"                                               << std::endl;
-    ss  << "function afterTestHook() {}"                                                    << std::endl;
-    ss  << "function afterEachTestHook() {}"                                                << std::endl;
+    ss  << "function beforeHook() {}"                                                   << std::endl;
+    ss  << "function beforeEachHook() {}"                                               << std::endl;
+    ss  << "function afterHook() {}"                                                    << std::endl;
+    ss  << "function afterEachHook() {}"                                                << std::endl;
+    ss  << "function afterEachAssertHook() {}"                                              << std::endl;
     ss  << "function getToken() {}"                                                         << std::endl;
     ss  << "function getServerURL() {}"                                                     << std::endl;
 
@@ -102,10 +105,12 @@ string SeleniumASTVisitor::visit(const AST &tree) {
         const actions = driver.actions({ async: true });
         await actions.move({ x, y }).click().sendKeys(content).perform();
     })" << std::endl;
-    ss << R"(async function checkNode(browsingContext, driver, description) {
+        ss << R"(async function checkNode(browsingContext, driver, element_type, description, state, test) {
         const [x, y] = await getCoordinates(browsingContext, description);
         let element = await elementFromPoint(driver, x, y);
-        return await element.isDisplayed();
+        let isDisplayed = await element.isDisplayed();
+        await afterEachAssertHook(`${element_type} with description "${description}" should be ${state ? 'displayed' : 'hidden'}`, isDisplayed == state, test);
+        return isDisplayed;
     })" << std::endl;
 
     ss  << R"(describe("Script", function () {
@@ -114,10 +119,10 @@ string SeleniumASTVisitor::visit(const AST &tree) {
   let browsingContext;
   this.timeout(0);
 
-  before(beforeTestHook);
-  beforeEach(beforeEachTestHook);
-  after(afterTestHook);
-  afterEach(afterEachTestHook);
+  before(beforeHook);
+  beforeEach(beforeEachHook);
+  after(afterHook);
+  afterEach(afterEachHook);
 
   before(async function () {
     driver = await new Builder().forBrowser(Browser.CHROME)
