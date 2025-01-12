@@ -94,23 +94,24 @@ bool parser::elem_type() {
 }
 
 bool parser::click() {
+    vector<Tokens> recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
     if(token == CLICK) {
         token = scanner.yylex();
+        string element_type = yysval;
         if(!elem_type()){
             reportError("ELEMENT TYPE");
-            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            return recoverFromError(recoveryTokens);
         }
-        string element_type = yysval;
         if(token == WITH_DESC) {
             token = scanner.yylex();
 
             if(token != NLD) {
                 reportError("NLD");
-                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+                return recoverFromError(recoveryTokens);
             }
         }else{
             reportError("WITH DESCRIPTION");
-            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            return recoverFromError(recoveryTokens);
         }
 
         tree.tests.back().actions.push_back(new ClickNode(std::move(element_type), std::move(yysval)));
@@ -123,18 +124,19 @@ bool parser::click() {
 }
 
 bool parser::check() {
+    vector<Tokens> recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
     if(token == CHECK_IF) {
         token = scanner.yylex();
+        string element_type = yysval;
         if(!elem_type()){
             reportError("ELEMENT TYPE");
-            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            return recoverFromError(recoveryTokens);
         }
-        string element_type = yysval;
         if(token == WITH_DESC) {
             token = scanner.yylex();
             if(token != NLD){
                 reportError("NLD");
-                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+                return recoverFromError(recoveryTokens);
             }
             
             string xpath = yysval;
@@ -144,11 +146,11 @@ bool parser::check() {
                 return true;
             }else{
                 reportError("STATE");
-                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+                return recoverFromError(recoveryTokens);
             }
         }else{
             reportError("WITH DESCRIPTION");
-            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            return recoverFromError(recoveryTokens);
         }
     }
 
@@ -156,22 +158,23 @@ bool parser::check() {
 }
 
 bool parser::hover() {
+    vector<Tokens> recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
     if(token == HOVER_OVER) {
         token = scanner.yylex();
         if(!elem_type()){
             reportError("ELEMENT TYPE");
-            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            return recoverFromError(recoveryTokens);
         }
         if(token == WITH_DESC) {
             token = scanner.yylex();
 
             if(token != NLD){
                 reportError("NLD");
-                return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+                return recoverFromError(recoveryTokens);
             }
         } else {
             reportError("WITH DESCRIPTION");
-            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+            return recoverFromError(recoveryTokens);
         }
 
         token = scanner.yylex();
@@ -182,32 +185,33 @@ bool parser::hover() {
 }
 
 bool parser::type() {
+    vector<Tokens> recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
     if(token != TYPE) return false;
     token = scanner.yylex();
     if(token != NLD) {
         reportError("CONTENT");
-        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        return recoverFromError(recoveryTokens);
     } // TODO: IT SHOULD BE CONTENT
     string content = yysval;
     token = scanner.yylex();
     if(token != ON){
         reportError("ON");
-        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        return recoverFromError(recoveryTokens);
     }
     token = scanner.yylex();
+    string element_type = yysval;
     if(!elem_type()){
         reportError("ELEMENT TYPE");
-        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        return recoverFromError(recoveryTokens);
     }
-    string element_type = yysval;
     if(token != WITH_DESC){
         reportError("WITH DESCRIPTION");
-        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        return recoverFromError(recoveryTokens);
     }
     token = scanner.yylex();
     if(token != NLD){
         reportError("NLD");
-        return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        return recoverFromError(recoveryTokens);
     }
 
 
