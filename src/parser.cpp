@@ -269,8 +269,8 @@ extern "C" DLL_API bool parse(const char *path, const char** code, const char** 
     auto res =  p.parse();
     if(res.has_value()) {
         const auto& tree = res.value();
-        SeleniumASTVisitor visitor;
-        string output = tree.accept(visitor);
+        ASTVisitor* visitor = new SeleniumASTVisitor(true); // defaults to true but this will be removed later
+        string output = tree.accept(*visitor);
         *code = strdup(output.c_str());
         return true;
     }
