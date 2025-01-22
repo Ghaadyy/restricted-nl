@@ -13,11 +13,11 @@ nav:
       - Natural Language Descriptions: nat-lang.md
   - Compiler Reference:
       - API:
-          - AST: compiler/_a_s_t_8h.md
+          - AST: compiler/AST_8h.md
           - Parser: compiler/parser_8h.md
           - Scanner: compiler/scanner_8h.md
-          - JsonASTVisitor: compiler/_selenium_a_s_t_visitor_8h.md
-          - SeleniumASTVisitor: compiler/_json_a_s_t_visitor_8h.md
+          - JsonASTVisitor: compiler/SeleniumASTVisitor_8h.md
+          - SeleniumASTVisitor: compiler/JsonASTVisitor_8h.md
 
 theme:
   name: readthedocs
