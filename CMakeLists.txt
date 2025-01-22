@@ -32,5 +32,3 @@ add_executable(restricted_nl main.cpp ${SOURCE_FILES})
 target_link_libraries(restricted_nl PRIVATE CLI11)
 
 target_include_directories(restricted_nl PRIVATE ${json_SOURCE_DIR}/include)
-
-add_library(restricted_nl_lib SHARED ${SOURCE_FILES})

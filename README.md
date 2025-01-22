@@ -40,7 +40,6 @@ elem_type -> BUTTON | LINK | TEXT | IMAGE | INPUT
 
 visit -> VISIT URL
 click -> CLICK elem_type WITH_DESC NLD
-hover -> HOVER_OVER elem_type WITH_DESC NLD
 check -> CHECK_IF elem_type WITH_DESC NLD state
 type -> TYPE CONTENT ON elem_type WITH_DESC NLD
 
@@ -62,9 +61,7 @@ In order to use the compiler on your machine or within another project, you will
 ```bash
 git clone https://github.com/Ghaadyy/restricted-nl.git
 cd restricted-nl/
-mkdir build/ && cd build/
-cmake .. && cd ..
-cmake --build .
+./install.sh
 ```
 
 ### Using the compiler
