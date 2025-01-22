@@ -4,6 +4,7 @@ project(restricted_nl)
 include(FetchContent)
 
 set(CMAKE_CXX_STANDARD 23)
+set(FETCHCONTENT_QUIET OFF)
 
 FetchContent_Declare(
     CLI11
