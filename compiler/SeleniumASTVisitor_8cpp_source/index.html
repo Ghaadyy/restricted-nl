@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Antoine Karam and Ghady Youssef" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File SeleniumASTVisitor.cpp - RNL Compiler</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File SeleniumASTVisitor.cpp";
+        var mkdocs_page_input_path = "compiler/SeleniumASTVisitor_8cpp_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> RNL Compiler
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Contributing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../codegen/">Adding a Code Generator</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hooks/">Hooks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nat-lang/">Natural Language Descriptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compiler Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >API</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../_a_s_t_8h.md">AST</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parser_8h/">Parser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../scanner_8h/">Scanner</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_selenium_a_s_t_visitor_8h.md">JsonASTVisitor</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_json_a_s_t_visitor_8h.md">SeleniumASTVisitor</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">RNL Compiler</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File SeleniumASTVisitor.cpp</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Ghaadyy/restricted-nl/edit/main/docs/compiler/SeleniumASTVisitor_8cpp_source.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-seleniumastvisitorcpp">File SeleniumASTVisitor.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_203e5988f1ed315d29383d699972de6f/"><strong>ast</strong></a> <strong>&gt;</strong> <a href="../SeleniumASTVisitor_8cpp/"><strong>SeleniumASTVisitor.cpp</strong></a></p>
+<p><a href="../SeleniumASTVisitor_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">#include &quot;SeleniumASTVisitor.h&quot;
+#include &lt;sstream&gt;
+
+string SeleniumASTVisitor::visit(const VisitNode &amp;node) {
+    stringstream ss;
+    ss &lt;&lt; &quot;await driver.get(&quot; &lt;&lt; node.get_url() &lt;&lt; &quot;);&quot; &lt;&lt; std::endl;
+    return ss.str();
+}
+
+string SeleniumASTVisitor::visit(const ClickNode &amp;node) {
+    stringstream ss;
+    ss &lt;&lt; &quot;await clickNode(browsingContext, driver, &quot; &lt;&lt; node.get_description() &lt;&lt; &quot;, \&quot;&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;\&quot;);&quot; &lt;&lt; std::endl;
+    return ss.str();
+}
+
+string SeleniumASTVisitor::visit(const TypeNode &amp;node) {
+    stringstream ss;
+    ss &lt;&lt; &quot;await typeNode(browsingContext, driver, &quot; &lt;&lt; node.get_description() &lt;&lt; &quot;, &quot; &lt;&lt; node.get_content() &lt;&lt; &quot;, \&quot;&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;\&quot;);&quot; &lt;&lt; std::endl;
+    return ss.str();
+}
+
+string SeleniumASTVisitor::visit(const CheckNode &amp;node) {
+    stringstream ss;
+    string state = (node.get_state() ? &quot;true&quot; : &quot;false&quot;);
+    ss &lt;&lt; &quot;assert.equal(await checkNode(browsingContext, driver, \&quot;&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;\&quot;, &quot; &lt;&lt; node.get_description() &lt;&lt; &quot;, &quot; &lt;&lt; state &lt;&lt; &quot;, title), &quot; &lt;&lt; state  &lt;&lt; &quot;);&quot; &lt;&lt; std::endl;
+    return ss.str();
+}
+
+string SeleniumASTVisitor::visit(const TestNode &amp;node) {
+    stringstream ss;
+
+    ss  &lt;&lt; &quot;it('&quot;
+        &lt;&lt; node.testName
+        &lt;&lt; &quot;', async function () {&quot; &lt;&lt; std::endl
+        &lt;&lt; &quot;const title = '&quot; &lt;&lt; node.testName &lt;&lt; &quot;';&quot;
+        &lt;&lt; std::endl;
+
+    for(auto&amp; action : node.actions) {
+        ss &lt;&lt; action-&gt;accept(*this);
+    }
+
+    ss  &lt;&lt; &quot;});&quot; &lt;&lt; std::endl;
+
+    return ss.str();
+}
+
+string SeleniumASTVisitor::visit(const AST &amp;tree) {
+    stringstream ss;
+
+    ss &lt;&lt; init_hooks();
+
+    if(!keep_xpath) { ss &lt;&lt; get_coordinates() &lt;&lt; element_from_point(); }
+
+    if(keep_xpath) {        // with xpath
+        ss &lt;&lt; generate_xpath_helper();
+    } else {                // with NL description
+        ss &lt;&lt; generate_seeclick_helper();
+    }
+
+    ss &lt;&lt; generate_init();
+
+    for(auto&amp; test : tree.tests) {
+        ss &lt;&lt; test.accept(*this);
+    }
+
+    ss &lt;&lt; end();
+
+    return ss.str();
+}
+
+string SeleniumASTVisitor::generate_xpath_helper() {
+    stringstream ss;
+    ss &lt;&lt; R&quot;(
+async function clickNode(browsingContext, driver, description, element_type) {
+    const element = await driver.findElement(By.xpath(description));
+    await element.click();
+})&quot; &lt;&lt; std::endl;
+
+    ss &lt;&lt; R&quot;(
+async function typeNode(browsingContext, driver, description, content, element_type) {
+    const element = await driver.findElement(By.xpath(description));
+    await element.sendKeys(content);
+})&quot; &lt;&lt; std::endl;
+
+    ss &lt;&lt; R&quot;(
+async function checkNode(browsingContext, driver, element_type, description, state, test) {
+    const element = await driver.findElement(By.xpath(description));
+    let isDisplayed = await element.isDisplayed();
+    await afterEachAssertHook(`${element_type} with description &quot;${description}&quot; should be ${state ? 'displayed' : 'hidden'}`, isDisplayed == state, test);
+    return isDisplayed;
+})&quot; &lt;&lt; std::endl;
+    return ss.str();
+}
+
+string SeleniumASTVisitor::generate_seeclick_helper() {
+    stringstream ss;
+
+    ss &lt;&lt; R&quot;(
+async function clickNode(browsingContext, driver, description, element_type) {
+    const [x, y] = await getCoordinates(browsingContext, description, element_type);
+    const actions = driver.actions({ async: true });
+    await actions.move({ x, y }).click().perform();
+})&quot; &lt;&lt; std::endl;
+
+    ss &lt;&lt; R&quot;(
+async function typeNode(browsingContext, driver, description, content, element_type) {
+    const [x, y] = await getCoordinates(browsingContext, description, element_type);
+    const actions = driver.actions({ async: true });
+    await actions.move({ x, y }).click().sendKeys(content).perform();
+})&quot; &lt;&lt; std::endl;
+
+    ss &lt;&lt; R&quot;(
+async function checkNode(browsingContext, driver, element_type, description, state, test) {
+    const [x, y] = await getCoordinates(browsingContext, description, element_type);
+    let element = await elementFromPoint(driver, x, y);
+    let isDisplayed = await element.isDisplayed();
+    await afterEachAssertHook(`${element_type} with description &quot;${description}&quot; should be ${state ? 'displayed' : 'hidden'}`, isDisplayed == state, test);
+    return isDisplayed;
+})&quot; &lt;&lt; std::endl;
+
+    return ss.str();
+}
+
+string SeleniumASTVisitor::generate_init() {
+    stringstream ss;
+
+    ss  &lt;&lt; R&quot;(describe(&quot;Script&quot;, function () {
+  let driver;
+  let id;
+  let browsingContext;
+  this.timeout(0);
+
+  before(beforeHook);
+  beforeEach(beforeEachHook);
+  after(afterHook);
+  afterEach(afterEachHook);
+
+  before(async function () {
+    driver = await new Builder().forBrowser(Browser.CHROME)
+        .setChromeOptions(new chrome.Options().enableBidi())
+        .build();
+    await driver
+      .manage()
+      .setTimeouts({ implicit: 2147483647, pageLoad: 2147483647 });
+    id = await driver.getWindowHandle();
+    browsingContext = await BrowsingContext(driver, {
+        browsingContextId: id,
+    });
+  });
+
+  after(async () =&gt; {
+    await driver.quit();
+  });)&quot;
+        &lt;&lt; std::endl;
+
+    return ss.str();
+}
+
+string SeleniumASTVisitor::element_from_point() {
+    stringstream ss;
+    ss &lt;&lt; R&quot;(async function elementFromPoint(driver, x, y) {
+      return await driver.executeScript(
+        &quot;return document.elementFromPoint(arguments[0], arguments[1]);&quot;,
+        x,
+        y
+      );
+    })&quot; &lt;&lt; std::endl;
+    return ss.str();
+}
+
+string SeleniumASTVisitor::get_coordinates() {
+    stringstream ss;
+
+    ss &lt;&lt; R&quot;(async function getCoordinates(browsingContext, description, element_type) {
+        try {
+            const res = await fetch(getServerURL(), {
+                method: &quot;POST&quot;,
+                headers: {
+                    &quot;Content-Type&quot;: &quot;application/json&quot;,
+                    &quot;Authorization&quot;: `Bearer ${getToken()}`
+                },
+                body: JSON.stringify({
+                    image: await browsingContext.captureScreenshot(),
+                    description: description,
+                    element_type: element_type
+                }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                return data;
+            } else {
+                throw new Error(&quot;Error in fetching coordinates&quot;);
+            }
+        } catch (error) {
+            throw new Error(&quot;Error in fetching coordinates&quot;);
+        }
+    })&quot; &lt;&lt; std::endl;
+
+    return ss.str();
+}
+
+string SeleniumASTVisitor::init_hooks() {
+    stringstream ss;
+
+    ss  &lt;&lt; &quot;const { Builder, Browser, By } = require('selenium-webdriver');&quot;                &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;const assert = require('assert');&quot;                                              &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;const BrowsingContext = require(\&quot;selenium-webdriver/bidi/browsingContext\&quot;);&quot;  &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;const chrome = require(\&quot;selenium-webdriver/chrome\&quot;);&quot;                         &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;const fs = require(\&quot;fs\&quot;);&quot;                                                    &lt;&lt; std::endl;
+
+    ss  &lt;&lt; &quot;function beforeHook() {}&quot;                                                   &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;function beforeEachHook() {}&quot;                                               &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;function afterHook() {}&quot;                                                    &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;function afterEachHook() {}&quot;                                                &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;function afterEachAssertHook() {}&quot;                                              &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;function getToken() {}&quot;                                                         &lt;&lt; std::endl;
+    ss  &lt;&lt; &quot;function getServerURL() {}&quot;                                                     &lt;&lt; std::endl;
+
+    return ss.str();
+}
+
+string SeleniumASTVisitor::end() {
+    stringstream ss;
+    ss  &lt;&lt; &quot;});\n&quot;;
+    return ss.str();
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><b>Antoine Karam & Ghady Youssef</b></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Ghaadyy/restricted-nl/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Antoine Karam and Ghady Youssef" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Adding a Code Generator - RNL Compiler</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Adding a Code Generator";
+        var mkdocs_page_input_path = "codegen.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> RNL Compiler
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Contributing</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Adding a Code Generator</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-visitor-pattern">The Visitor Pattern</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serialized-ast-with-json">Serialized AST with JSON</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#supporting-a-new-target">Supporting a New Target</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../hooks/">Hooks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nat-lang/">Natural Language Descriptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compiler Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >API</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../compiler/_a_s_t_8h.md">AST</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../compiler/parser_8h/">Parser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../compiler/scanner_8h/">Scanner</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../compiler/_selenium_a_s_t_visitor_8h.md">JsonASTVisitor</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../compiler/_json_a_s_t_visitor_8h.md">SeleniumASTVisitor</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">RNL Compiler</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Contributing</li>
+      <li class="breadcrumb-item active">Adding a Code Generator</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Ghaadyy/restricted-nl/edit/main/docs/codegen.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="adding-a-code-generator">Adding a Code Generator</h1>
+<p>Currently, our compiler supports generating code for the <a href="https://www.selenium.dev">Selenium</a> library. We also have the option to serialize the Abstract Syntax Tree (AST) to JSON. </p>
+<h2 id="the-visitor-pattern">The Visitor Pattern</h2>
+<p>Our implementation should be straightforward if you are already familiar with the Visitor design pattern.</p>
+<ul>
+<li>The JSON serializer is done though the <code>JsonASTVisitor</code></li>
+<li>The Selenium codegen is done through the <code>SeleniumASTVisitor</code></li>
+</ul>
+<h2 id="serialized-ast-with-json">Serialized AST with JSON</h2>
+<p>The GitHub example present in the <a href="../">home page</a> produces the following JSON output.
+This feature is useful if you aim to use this compiler within another project to represent this test visually as seen <a href="https://github.com/Ghaadyy/fyp">here</a>.</p>
+<pre><code class="language-json">{
+  &quot;tests&quot;: [
+    {
+      &quot;actions&quot;: [
+        { &quot;type&quot;: &quot;VisitNode&quot;, &quot;url&quot;: &quot;\&quot;https://github.com\&quot;&quot; },
+        {
+          &quot;description&quot;: &quot;\&quot;sign in present in the top right corner\&quot;&quot;,
+          &quot;element_type&quot;: &quot;link&quot;,
+          &quot;type&quot;: &quot;ClickNode&quot;
+        },
+        {
+          &quot;description&quot;: &quot;\&quot;GitHub logo\&quot;&quot;,
+          &quot;element_type&quot;: &quot;image&quot;,
+          &quot;state&quot;: true,
+          &quot;type&quot;: &quot;CheckNode&quot;
+        },
+        {
+          &quot;content&quot;: &quot;\&quot;johndoe\&quot;&quot;,
+          &quot;description&quot;: &quot;\&quot;the username input field\&quot;&quot;,
+          &quot;element_type&quot;: &quot;input&quot;,
+          &quot;type&quot;: &quot;TypeNode&quot;
+        },
+        {
+          &quot;content&quot;: &quot;\&quot;secretpassword\&quot;&quot;,
+          &quot;description&quot;: &quot;\&quot;the password input filed\&quot;&quot;,
+          &quot;element_type&quot;: &quot;input&quot;,
+          &quot;type&quot;: &quot;TypeNode&quot;
+        },
+        {
+          &quot;description&quot;: &quot;\&quot;sign in button\&quot;&quot;,
+          &quot;element_type&quot;: &quot;button&quot;,
+          &quot;type&quot;: &quot;ClickNode&quot;
+        }
+      ],
+      &quot;testName&quot;: &quot;githubSignIn&quot;,
+      &quot;type&quot;: &quot;TestNode&quot;
+    }
+  ],
+  &quot;type&quot;: &quot;AST&quot;
+}
+</code></pre>
+<h2 id="supporting-a-new-target">Supporting a New Target</h2>
+<p>To generate code for an unsupported library or format, you can create a new visitor class for your target which implements the <code>ASTVisitor</code> interface.</p>
+<p>To achieve this you have to implement the following functions:</p>
+<pre><code class="language-cpp">class ASTVisitor {
+public:
+    virtual string visit(const VisitNode&amp; node) = 0;
+    virtual string visit(const ClickNode&amp; node) = 0;
+    virtual string visit(const TypeNode&amp; node) = 0;
+    virtual string visit(const CheckNode&amp; node) = 0;
+    virtual string visit(const TestNode&amp; node) = 0;
+    virtual string visit(const AST&amp; tree) = 0;
+};
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hooks/" class="btn btn-neutral float-right" title="Hooks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><b>Antoine Karam & Ghady Youssef</b></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Ghaadyy/restricted-nl/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../hooks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

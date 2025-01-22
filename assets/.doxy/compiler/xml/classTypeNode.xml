@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTypeNode" kind="class" language="C++" prot="public">
+    <compoundname>TypeNode</compoundname>
+    <basecompoundref refid="classActionNode" prot="public" virt="non-virtual">ActionNode</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classTypeNode_1aa9ba7a63accb0edc70477f17c939624b" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string TypeNode::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <qualifiedname>TypeNode::content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="42" column="12" bodyfile="src/ast/AST.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTypeNode_1a65c7ce78bc44ce4895a703c8cb792ed9" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string TypeNode::element_type</definition>
+        <argsstring></argsstring>
+        <name>element_type</name>
+        <qualifiedname>TypeNode::element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="43" column="12" bodyfile="src/ast/AST.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTypeNode_1a37d308f4c1d63100fcd472742172d267" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string TypeNode::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>TypeNode::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="44" column="12" bodyfile="src/ast/AST.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTypeNode_1abc8d5020fb4efa89507673bb14c8da17" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TypeNode::TypeNode</definition>
+        <argsstring>(string &amp;&amp;content, string &amp;&amp;element_type, string &amp;&amp;description)</argsstring>
+        <name>TypeNode</name>
+        <qualifiedname>TypeNode::TypeNode</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>content</declname>
+        </param>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>element_type</declname>
+        </param>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="46" column="14" bodyfile="src/ast/AST.cpp" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classTypeNode_1a3b573a359d4803a1b69e258786ec0f64" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string TypeNode::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const override</argsstring>
+        <name>accept</name>
+        <qualifiedname>TypeNode::accept</qualifiedname>
+        <reimplements refid="classActionNode_1a7eb8e8964012e90b58a924404e350ce8">accept</reimplements>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="47" column="12" bodyfile="src/ast/AST.cpp" bodystart="19" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classTypeNode_1a75d76722c58d4155385709f9997040bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string TypeNode::get_content</definition>
+        <argsstring>() const</argsstring>
+        <name>get_content</name>
+        <qualifiedname>TypeNode::get_content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="48" column="12" bodyfile="src/ast/AST.cpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classTypeNode_1aea2001d582ce9885776e612bbdcbf2f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string TypeNode::get_element_type</definition>
+        <argsstring>() const</argsstring>
+        <name>get_element_type</name>
+        <qualifiedname>TypeNode::get_element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="49" column="12" bodyfile="src/ast/AST.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classTypeNode_1af1cc36213bab28343a889fcf72dbfcd5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string TypeNode::get_description</definition>
+        <argsstring>() const</argsstring>
+        <name>get_description</name>
+        <qualifiedname>TypeNode::get_description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="50" column="12" bodyfile="src/ast/AST.cpp" bodystart="43" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>TypeNode</label>
+        <link refid="classTypeNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>TypeNode</label>
+        <link refid="classTypeNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/ast/AST.h" line="41" column="1" bodyfile="src/ast/AST.h" bodystart="41" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classTypeNode_1a3b573a359d4803a1b69e258786ec0f64" prot="public" virt="virtual"><scope>TypeNode</scope><name>accept</name></member>
+      <member refid="classActionNode_1a8fdbd1874948957c218f44c2698d3695" prot="public" virt="non-virtual"><scope>TypeNode</scope><name>ActionNode</name></member>
+      <member refid="classTypeNode_1aa9ba7a63accb0edc70477f17c939624b" prot="private" virt="non-virtual"><scope>TypeNode</scope><name>content</name></member>
+      <member refid="classTypeNode_1a37d308f4c1d63100fcd472742172d267" prot="private" virt="non-virtual"><scope>TypeNode</scope><name>description</name></member>
+      <member refid="classTypeNode_1a65c7ce78bc44ce4895a703c8cb792ed9" prot="private" virt="non-virtual"><scope>TypeNode</scope><name>element_type</name></member>
+      <member refid="classTypeNode_1a75d76722c58d4155385709f9997040bc" prot="public" virt="non-virtual"><scope>TypeNode</scope><name>get_content</name></member>
+      <member refid="classTypeNode_1af1cc36213bab28343a889fcf72dbfcd5" prot="public" virt="non-virtual"><scope>TypeNode</scope><name>get_description</name></member>
+      <member refid="classTypeNode_1aea2001d582ce9885776e612bbdcbf2f9" prot="public" virt="non-virtual"><scope>TypeNode</scope><name>get_element_type</name></member>
+      <member refid="classTypeNode_1abc8d5020fb4efa89507673bb14c8da17" prot="public" virt="non-virtual"><scope>TypeNode</scope><name>TypeNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

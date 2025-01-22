@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classAST" kind="class" language="C++" prot="public">
+    <compoundname>AST</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classAST_1a935cca79ff1094ef84a3eaeb5b519535" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classTestNode" kindref="compound">TestNode</ref> &gt;</type>
+        <definition>vector&lt;TestNode&gt; AST::tests</definition>
+        <argsstring></argsstring>
+        <name>tests</name>
+        <qualifiedname>AST::tests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="75" column="12" bodyfile="src/ast/AST.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAST_1abe2e8b0027f2aa49137697dc1f35dcdb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string AST::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const</argsstring>
+        <name>accept</name>
+        <qualifiedname>AST::accept</qualifiedname>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="76" column="12" bodyfile="src/ast/AST.cpp" bodystart="31" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ast/AST.h" line="73" column="1" bodyfile="src/ast/AST.h" bodystart="73" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classAST_1abe2e8b0027f2aa49137697dc1f35dcdb" prot="public" virt="non-virtual"><scope>AST</scope><name>accept</name></member>
+      <member refid="classAST_1a935cca79ff1094ef84a3eaeb5b519535" prot="public" virt="non-virtual"><scope>AST</scope><name>tests</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

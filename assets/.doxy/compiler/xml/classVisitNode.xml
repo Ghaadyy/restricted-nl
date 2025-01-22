@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classVisitNode" kind="class" language="C++" prot="public">
+    <compoundname>VisitNode</compoundname>
+    <basecompoundref refid="classActionNode" prot="public" virt="non-virtual">ActionNode</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVisitNode_1a3e84a39545ce0e4bd2f99c63a2823d9c" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string VisitNode::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <qualifiedname>VisitNode::url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="21" column="12" bodyfile="src/ast/AST.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVisitNode_1a7297f8489195aa3c216528ec87164128" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VisitNode::VisitNode</definition>
+        <argsstring>(string &amp;&amp;url)</argsstring>
+        <name>VisitNode</name>
+        <qualifiedname>VisitNode::VisitNode</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="23" column="14" bodyfile="src/ast/AST.cpp" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classVisitNode_1a136c7a923fa60c5acc418d41c3b816f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string VisitNode::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const override</argsstring>
+        <name>accept</name>
+        <qualifiedname>VisitNode::accept</qualifiedname>
+        <reimplements refid="classActionNode_1a7eb8e8964012e90b58a924404e350ce8">accept</reimplements>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="24" column="12" bodyfile="src/ast/AST.cpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classVisitNode_1a3af4428ee7a6522b4e92212586481b03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string VisitNode::get_url</definition>
+        <argsstring>() const</argsstring>
+        <name>get_url</name>
+        <qualifiedname>VisitNode::get_url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="25" column="12" bodyfile="src/ast/AST.h" bodystart="25" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>VisitNode</label>
+        <link refid="classVisitNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>VisitNode</label>
+        <link refid="classVisitNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/ast/AST.h" line="19" column="1" bodyfile="src/ast/AST.h" bodystart="19" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classVisitNode_1a136c7a923fa60c5acc418d41c3b816f3" prot="public" virt="virtual"><scope>VisitNode</scope><name>accept</name></member>
+      <member refid="classActionNode_1a8fdbd1874948957c218f44c2698d3695" prot="public" virt="non-virtual"><scope>VisitNode</scope><name>ActionNode</name></member>
+      <member refid="classVisitNode_1a3af4428ee7a6522b4e92212586481b03" prot="public" virt="non-virtual"><scope>VisitNode</scope><name>get_url</name></member>
+      <member refid="classVisitNode_1a3e84a39545ce0e4bd2f99c63a2823d9c" prot="private" virt="non-virtual"><scope>VisitNode</scope><name>url</name></member>
+      <member refid="classVisitNode_1a7297f8489195aa3c216528ec87164128" prot="public" virt="non-virtual"><scope>VisitNode</scope><name>VisitNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

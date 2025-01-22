@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classClickNode" kind="class" language="C++" prot="public">
+    <compoundname>ClickNode</compoundname>
+    <basecompoundref refid="classActionNode" prot="public" virt="non-virtual">ActionNode</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classClickNode_1a839eb69047df83fce1ee49d1449ff32a" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ClickNode::element_type</definition>
+        <argsstring></argsstring>
+        <name>element_type</name>
+        <qualifiedname>ClickNode::element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="32" column="12" bodyfile="src/ast/AST.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classClickNode_1abe8e534243f29d63a926aadab0096949" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string ClickNode::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>ClickNode::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="33" column="12" bodyfile="src/ast/AST.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classClickNode_1a4156fa2ef9fea2687e7f9d9bed25de0a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ClickNode::ClickNode</definition>
+        <argsstring>(string &amp;&amp;element_type, string &amp;&amp;description)</argsstring>
+        <name>ClickNode</name>
+        <qualifiedname>ClickNode::ClickNode</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>element_type</declname>
+        </param>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="35" column="14" bodyfile="src/ast/AST.cpp" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classClickNode_1aa974ec33eee5672c0b49567d5c1dcefc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string ClickNode::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const override</argsstring>
+        <name>accept</name>
+        <qualifiedname>ClickNode::accept</qualifiedname>
+        <reimplements refid="classActionNode_1a7eb8e8964012e90b58a924404e350ce8">accept</reimplements>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="36" column="12" bodyfile="src/ast/AST.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classClickNode_1abd9e196bd30154bd7d1a9b8d7ea6b925" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ClickNode::get_element_type</definition>
+        <argsstring>() const</argsstring>
+        <name>get_element_type</name>
+        <qualifiedname>ClickNode::get_element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="37" column="12" bodyfile="src/ast/AST.cpp" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classClickNode_1acd7324bf36cc1f3a853c079dc083dae8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string ClickNode::get_description</definition>
+        <argsstring>() const</argsstring>
+        <name>get_description</name>
+        <qualifiedname>ClickNode::get_description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="38" column="12" bodyfile="src/ast/AST.cpp" bodystart="67" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>ClickNode</label>
+        <link refid="classClickNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>ClickNode</label>
+        <link refid="classClickNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/ast/AST.h" line="30" column="1" bodyfile="src/ast/AST.h" bodystart="30" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classClickNode_1aa974ec33eee5672c0b49567d5c1dcefc" prot="public" virt="virtual"><scope>ClickNode</scope><name>accept</name></member>
+      <member refid="classActionNode_1a8fdbd1874948957c218f44c2698d3695" prot="public" virt="non-virtual"><scope>ClickNode</scope><name>ActionNode</name></member>
+      <member refid="classClickNode_1a4156fa2ef9fea2687e7f9d9bed25de0a" prot="public" virt="non-virtual"><scope>ClickNode</scope><name>ClickNode</name></member>
+      <member refid="classClickNode_1abe8e534243f29d63a926aadab0096949" prot="private" virt="non-virtual"><scope>ClickNode</scope><name>description</name></member>
+      <member refid="classClickNode_1a839eb69047df83fce1ee49d1449ff32a" prot="private" virt="non-virtual"><scope>ClickNode</scope><name>element_type</name></member>
+      <member refid="classClickNode_1acd7324bf36cc1f3a853c079dc083dae8" prot="public" virt="non-virtual"><scope>ClickNode</scope><name>get_description</name></member>
+      <member refid="classClickNode_1abd9e196bd30154bd7d1a9b8d7ea6b925" prot="public" virt="non-virtual"><scope>ClickNode</scope><name>get_element_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

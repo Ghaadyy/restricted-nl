@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerdir refid="dir_203e5988f1ed315d29383d699972de6f">src/ast</innerdir>
+    <innerfile refid="parser_8cpp">parser.cpp</innerfile>
+    <innerfile refid="parser_8h">parser.h</innerfile>
+    <innerfile refid="scanner_8cpp">scanner.cpp</innerfile>
+    <innerfile refid="scanner_8h">scanner.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

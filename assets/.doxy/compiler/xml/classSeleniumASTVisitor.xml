@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSeleniumASTVisitor" kind="class" language="C++" prot="public">
+    <compoundname>SeleniumASTVisitor</compoundname>
+    <basecompoundref refid="classASTVisitor" prot="public" virt="non-virtual">ASTVisitor</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSeleniumASTVisitor_1a0be09c2b330fc02681b5415566962db1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SeleniumASTVisitor::keep_xpath</definition>
+        <argsstring></argsstring>
+        <name>keep_xpath</name>
+        <qualifiedname>SeleniumASTVisitor::keep_xpath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="12" column="10" bodyfile="src/ast/SeleniumASTVisitor.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a82d7780bb5c07b75d519140709e815f8" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::generate_init</definition>
+        <argsstring>()</argsstring>
+        <name>generate_init</name>
+        <qualifiedname>SeleniumASTVisitor::generate_init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="13" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="93" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a6ea19e7e034109cbbaea10f8f2ff753a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::generate_xpath_helper</definition>
+        <argsstring>()</argsstring>
+        <name>generate_xpath_helper</name>
+        <qualifiedname>SeleniumASTVisitor::generate_xpath_helper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="14" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="71" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1aab137f0966d4f3bcb686eed007b63f02" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::generate_seeclick_helper</definition>
+        <argsstring>()</argsstring>
+        <name>generate_seeclick_helper</name>
+        <qualifiedname>SeleniumASTVisitor::generate_seeclick_helper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="15" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="81" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1ab45b4de204310b368157ac1f579a05df" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::init_hooks</definition>
+        <argsstring>()</argsstring>
+        <name>init_hooks</name>
+        <qualifiedname>SeleniumASTVisitor::init_hooks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="16" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="116" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a85cc29818f4b7161ef8285339c5defb4" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::get_coordinates</definition>
+        <argsstring>()</argsstring>
+        <name>get_coordinates</name>
+        <qualifiedname>SeleniumASTVisitor::get_coordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="17" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="108" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1ae3850514ddb1c4398514188481064af1" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::element_from_point</definition>
+        <argsstring>()</argsstring>
+        <name>element_from_point</name>
+        <qualifiedname>SeleniumASTVisitor::element_from_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="18" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a4d4d32a1089b1ba229c41167f4352c9e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <qualifiedname>SeleniumASTVisitor::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="19" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="136" bodyend="140"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a788c7951b7fd9e987f19e775e2e0c288" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SeleniumASTVisitor::SeleniumASTVisitor</definition>
+        <argsstring>(bool keep_xpath)</argsstring>
+        <name>SeleniumASTVisitor</name>
+        <qualifiedname>SeleniumASTVisitor::SeleniumASTVisitor</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>keep_xpath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="21" column="14" bodyfile="src/ast/SeleniumASTVisitor.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a6df7863a4d41171e2251bcca915447dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::visit</definition>
+        <argsstring>(const VisitNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>SeleniumASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a44752149fa1a44dff1fc313948b2ee98">visit</reimplements>
+        <param>
+          <type>const <ref refid="classVisitNode" kindref="compound">VisitNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="22" column="12" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="4" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a3394fef6efe203723ad0f99af24ba2e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::visit</definition>
+        <argsstring>(const ClickNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>SeleniumASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a4678beb531d981819910135b8858a53e">visit</reimplements>
+        <param>
+          <type>const <ref refid="classClickNode" kindref="compound">ClickNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="23" column="12" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="10" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a2f9881425630c56df561b5c83a360762" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::visit</definition>
+        <argsstring>(const TypeNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>SeleniumASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1aeccf96f0ab398a61232dc446cc531904">visit</reimplements>
+        <param>
+          <type>const <ref refid="classTypeNode" kindref="compound">TypeNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="24" column="12" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a7d4af98b0a9d8fdb34c2cf74622ec3c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::visit</definition>
+        <argsstring>(const CheckNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>SeleniumASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a47627f9820fb4988190dc1a82bd01a97">visit</reimplements>
+        <param>
+          <type>const <ref refid="classCheckNode" kindref="compound">CheckNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="25" column="12" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="22" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a38253ea801602b7b65dc694f9e1d2924" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::visit</definition>
+        <argsstring>(const TestNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>SeleniumASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1adc2d6fe7bad666275db5ecfdaeb5cadb">visit</reimplements>
+        <param>
+          <type>const <ref refid="classTestNode" kindref="compound">TestNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="26" column="12" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="29" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classSeleniumASTVisitor_1a91a46f424869bb88ad1bf327e6101636" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string SeleniumASTVisitor::visit</definition>
+        <argsstring>(const AST &amp;tree) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>SeleniumASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a2471f6e7e3c790f92af037d51fa2accb">visit</reimplements>
+        <param>
+          <type>const <ref refid="classAST" kindref="compound">AST</ref> &amp;</type>
+          <declname>tree</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/SeleniumASTVisitor.h" line="27" column="12" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="47" bodyend="69"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ASTVisitor</label>
+        <link refid="classASTVisitor"/>
+      </node>
+      <node id="1">
+        <label>SeleniumASTVisitor</label>
+        <link refid="classSeleniumASTVisitor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ASTVisitor</label>
+        <link refid="classASTVisitor"/>
+      </node>
+      <node id="1">
+        <label>SeleniumASTVisitor</label>
+        <link refid="classSeleniumASTVisitor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/ast/SeleniumASTVisitor.h" line="10" column="1" bodyfile="src/ast/SeleniumASTVisitor.h" bodystart="10" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classSeleniumASTVisitor_1ae3850514ddb1c4398514188481064af1" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>element_from_point</name></member>
+      <member refid="classSeleniumASTVisitor_1a4d4d32a1089b1ba229c41167f4352c9e" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>end</name></member>
+      <member refid="classSeleniumASTVisitor_1a82d7780bb5c07b75d519140709e815f8" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>generate_init</name></member>
+      <member refid="classSeleniumASTVisitor_1aab137f0966d4f3bcb686eed007b63f02" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>generate_seeclick_helper</name></member>
+      <member refid="classSeleniumASTVisitor_1a6ea19e7e034109cbbaea10f8f2ff753a" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>generate_xpath_helper</name></member>
+      <member refid="classSeleniumASTVisitor_1a85cc29818f4b7161ef8285339c5defb4" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>get_coordinates</name></member>
+      <member refid="classSeleniumASTVisitor_1ab45b4de204310b368157ac1f579a05df" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>init_hooks</name></member>
+      <member refid="classSeleniumASTVisitor_1a0be09c2b330fc02681b5415566962db1" prot="private" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>keep_xpath</name></member>
+      <member refid="classSeleniumASTVisitor_1a788c7951b7fd9e987f19e775e2e0c288" prot="public" virt="non-virtual"><scope>SeleniumASTVisitor</scope><name>SeleniumASTVisitor</name></member>
+      <member refid="classSeleniumASTVisitor_1a6df7863a4d41171e2251bcca915447dc" prot="public" virt="virtual"><scope>SeleniumASTVisitor</scope><name>visit</name></member>
+      <member refid="classSeleniumASTVisitor_1a3394fef6efe203723ad0f99af24ba2e4" prot="public" virt="virtual"><scope>SeleniumASTVisitor</scope><name>visit</name></member>
+      <member refid="classSeleniumASTVisitor_1a2f9881425630c56df561b5c83a360762" prot="public" virt="virtual"><scope>SeleniumASTVisitor</scope><name>visit</name></member>
+      <member refid="classSeleniumASTVisitor_1a7d4af98b0a9d8fdb34c2cf74622ec3c6" prot="public" virt="virtual"><scope>SeleniumASTVisitor</scope><name>visit</name></member>
+      <member refid="classSeleniumASTVisitor_1a38253ea801602b7b65dc694f9e1d2924" prot="public" virt="virtual"><scope>SeleniumASTVisitor</scope><name>visit</name></member>
+      <member refid="classSeleniumASTVisitor_1a91a46f424869bb88ad1bf327e6101636" prot="public" virt="virtual"><scope>SeleniumASTVisitor</scope><name>visit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

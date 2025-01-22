@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structlex__rule" kind="struct" language="C++" prot="public">
+    <compoundname>lex_rule</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlex__rule_1ac4b76fe6630697d4226b7d2b0720c561" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string lex_rule::regex</definition>
+        <argsstring></argsstring>
+        <name>regex</name>
+        <qualifiedname>lex_rule::regex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="20" column="12" bodyfile="src/scanner.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlex__rule_1a1844f80ef8381002a3791e1f0146cdc8" prot="public" static="no" mutable="no">
+        <type>function&lt; int(const string &amp;)&gt;</type>
+        <definition>function&lt;int(const string&amp;)&gt; lex_rule::lambda</definition>
+        <argsstring></argsstring>
+        <name>lambda</name>
+        <qualifiedname>lex_rule::lambda</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="21" column="14" bodyfile="src/scanner.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/scanner.h" line="19" column="1" bodyfile="src/scanner.h" bodystart="19" bodyend="22"/>
+    <listofallmembers>
+      <member refid="structlex__rule_1a1844f80ef8381002a3791e1f0146cdc8" prot="public" virt="non-virtual"><scope>lex_rule</scope><name>lambda</name></member>
+      <member refid="structlex__rule_1ac4b76fe6630697d4226b7d2b0720c561" prot="public" virt="non-virtual"><scope>lex_rule</scope><name>regex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

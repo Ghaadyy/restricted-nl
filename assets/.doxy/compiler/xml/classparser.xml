@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classparser" kind="class" language="C++" prot="public">
+    <compoundname>parser</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classparser_1ac2162c8ded1786595c90d09731cc22ed" prot="private" static="no" mutable="no">
+        <type>vector&lt; string &gt;</type>
+        <definition>vector&lt;string&gt; parser::errors</definition>
+        <argsstring></argsstring>
+        <name>errors</name>
+        <qualifiedname>parser::errors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="19" column="12" bodyfile="src/parser.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparser_1abcb3866f2dc8e0dc124a2e3c96a2b285" prot="private" static="no" mutable="no">
+        <type><ref refid="classScanner" kindref="compound">Scanner</ref></type>
+        <definition>Scanner parser::scanner</definition>
+        <argsstring></argsstring>
+        <name>scanner</name>
+        <qualifiedname>parser::scanner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="20" column="13" bodyfile="src/parser.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparser_1a5fed01bf7ee4ec7770aa79404be4c474" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int parser::token</definition>
+        <argsstring></argsstring>
+        <name>token</name>
+        <qualifiedname>parser::token</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="21" column="9" bodyfile="src/parser.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparser_1ac2a270caeba7a1dcfaef59f98f2f7fbd" prot="private" static="no" mutable="no">
+        <type><ref refid="classAST" kindref="compound">AST</ref></type>
+        <definition>AST parser::tree</definition>
+        <argsstring></argsstring>
+        <name>tree</name>
+        <qualifiedname>parser::tree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="22" column="9" bodyfile="src/parser.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classparser_1a5eee53838157637f89d138c51ce8b3fc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::program</definition>
+        <argsstring>()</argsstring>
+        <name>program</name>
+        <qualifiedname>parser::program</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="24" column="10" bodyfile="src/parser.cpp" bodystart="8" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a753dfff13ab8520dc2677b33e64d9d95" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::body</definition>
+        <argsstring>()</argsstring>
+        <name>body</name>
+        <qualifiedname>parser::body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="25" column="10" bodyfile="src/parser.cpp" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a62d58868e0c541328d97e76b923d2e2f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::action</definition>
+        <argsstring>()</argsstring>
+        <name>action</name>
+        <qualifiedname>parser::action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="26" column="10" bodyfile="src/parser.cpp" bodystart="43" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a9887b43b6c2cf6f5b2c573a13c6c94b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::elem_type</definition>
+        <argsstring>()</argsstring>
+        <name>elem_type</name>
+        <qualifiedname>parser::elem_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="27" column="10" bodyfile="src/parser.cpp" bodystart="87" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1ad5eedfae3192317aab36b64c2011afc3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::test</definition>
+        <argsstring>()</argsstring>
+        <name>test</name>
+        <qualifiedname>parser::test</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="28" column="10" bodyfile="src/parser.cpp" bodystart="16" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a452171c310ef711c8f26b3df0d231ac9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::visit</definition>
+        <argsstring>()</argsstring>
+        <name>visit</name>
+        <qualifiedname>parser::visit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="29" column="10" bodyfile="src/parser.cpp" bodystart="61" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1ae1b812ad065d33792514e34177cb948d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::click</definition>
+        <argsstring>()</argsstring>
+        <name>click</name>
+        <qualifiedname>parser::click</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="30" column="10" bodyfile="src/parser.cpp" bodystart="96" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1ad997d56e9f4c5e39e878033cc4b846b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::hover</definition>
+        <argsstring>()</argsstring>
+        <name>hover</name>
+        <qualifiedname>parser::hover</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="31" column="10" bodyfile="src/parser.cpp" bodystart="160" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a84426140597660f078c60ac1bf90142a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::check</definition>
+        <argsstring>()</argsstring>
+        <name>check</name>
+        <qualifiedname>parser::check</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="32" column="10" bodyfile="src/parser.cpp" bodystart="126" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1aa934d6ef45d4bb826b24a450eb626933" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::type</definition>
+        <argsstring>()</argsstring>
+        <name>type</name>
+        <qualifiedname>parser::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="33" column="10" bodyfile="src/parser.cpp" bodystart="187" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a79dc9cc6430a50c9a0860fa507d4e5bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::state</definition>
+        <argsstring>()</argsstring>
+        <name>state</name>
+        <qualifiedname>parser::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="34" column="10" bodyfile="src/parser.cpp" bodystart="224" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1ac6d11d9370d1a280a1a3b185100d83ac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool parser::recoverFromError</definition>
+        <argsstring>(const vector&lt; enum Tokens &gt; &amp;)</argsstring>
+        <name>recoverFromError</name>
+        <qualifiedname>parser::recoverFromError</qualifiedname>
+        <param>
+          <type>const vector&lt; enum Tokens &gt; &amp;</type>
+          <defname>syncSet</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="36" column="10" bodyfile="src/parser.cpp" bodystart="233" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a84b58cf1646638244037641f0d9e7cc5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void parser::reportError</definition>
+        <argsstring>(const string &amp;expectedToken)</argsstring>
+        <name>reportError</name>
+        <qualifiedname>parser::reportError</qualifiedname>
+        <param>
+          <type>const string &amp;</type>
+          <declname>expectedToken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="37" column="10" bodyfile="src/parser.cpp" bodystart="249" bodyend="251"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classparser_1ab53f94331050057d1c933bbd2d62939e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>parser::parser</definition>
+        <argsstring>(string &amp;&amp;content)</argsstring>
+        <name>parser</name>
+        <qualifiedname>parser::parser</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="40" column="14" bodyfile="src/parser.cpp" bodystart="5" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classparser_1a9111637eccda5354731043a3e398e025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>expected&lt; <ref refid="classAST" kindref="compound">AST</ref>, vector&lt; string &gt; &gt;</type>
+        <definition>expected&lt; AST, vector&lt; string &gt; &gt; parser::parse</definition>
+        <argsstring>()</argsstring>
+        <name>parse</name>
+        <qualifiedname>parser::parse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/parser.h" line="42" column="14" bodyfile="src/parser.cpp" bodystart="253" bodyend="260"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/parser.h" line="17" column="1" bodyfile="src/parser.h" bodystart="17" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classparser_1a62d58868e0c541328d97e76b923d2e2f" prot="private" virt="non-virtual"><scope>parser</scope><name>action</name></member>
+      <member refid="classparser_1a753dfff13ab8520dc2677b33e64d9d95" prot="private" virt="non-virtual"><scope>parser</scope><name>body</name></member>
+      <member refid="classparser_1a84426140597660f078c60ac1bf90142a" prot="private" virt="non-virtual"><scope>parser</scope><name>check</name></member>
+      <member refid="classparser_1ae1b812ad065d33792514e34177cb948d" prot="private" virt="non-virtual"><scope>parser</scope><name>click</name></member>
+      <member refid="classparser_1a9887b43b6c2cf6f5b2c573a13c6c94b7" prot="private" virt="non-virtual"><scope>parser</scope><name>elem_type</name></member>
+      <member refid="classparser_1ac2162c8ded1786595c90d09731cc22ed" prot="private" virt="non-virtual"><scope>parser</scope><name>errors</name></member>
+      <member refid="classparser_1ad997d56e9f4c5e39e878033cc4b846b1" prot="private" virt="non-virtual"><scope>parser</scope><name>hover</name></member>
+      <member refid="classparser_1a9111637eccda5354731043a3e398e025" prot="public" virt="non-virtual"><scope>parser</scope><name>parse</name></member>
+      <member refid="classparser_1ab53f94331050057d1c933bbd2d62939e" prot="public" virt="non-virtual"><scope>parser</scope><name>parser</name></member>
+      <member refid="classparser_1a5eee53838157637f89d138c51ce8b3fc" prot="private" virt="non-virtual"><scope>parser</scope><name>program</name></member>
+      <member refid="classparser_1ac6d11d9370d1a280a1a3b185100d83ac" prot="private" virt="non-virtual"><scope>parser</scope><name>recoverFromError</name></member>
+      <member refid="classparser_1a84b58cf1646638244037641f0d9e7cc5" prot="private" virt="non-virtual"><scope>parser</scope><name>reportError</name></member>
+      <member refid="classparser_1abcb3866f2dc8e0dc124a2e3c96a2b285" prot="private" virt="non-virtual"><scope>parser</scope><name>scanner</name></member>
+      <member refid="classparser_1a79dc9cc6430a50c9a0860fa507d4e5bd" prot="private" virt="non-virtual"><scope>parser</scope><name>state</name></member>
+      <member refid="classparser_1ad5eedfae3192317aab36b64c2011afc3" prot="private" virt="non-virtual"><scope>parser</scope><name>test</name></member>
+      <member refid="classparser_1a5fed01bf7ee4ec7770aa79404be4c474" prot="private" virt="non-virtual"><scope>parser</scope><name>token</name></member>
+      <member refid="classparser_1ac2a270caeba7a1dcfaef59f98f2f7fbd" prot="private" virt="non-virtual"><scope>parser</scope><name>tree</name></member>
+      <member refid="classparser_1aa934d6ef45d4bb826b24a450eb626933" prot="private" virt="non-virtual"><scope>parser</scope><name>type</name></member>
+      <member refid="classparser_1a452171c310ef711c8f26b3df0d231ac9" prot="private" virt="non-virtual"><scope>parser</scope><name>visit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classActionNode" kind="class"><name>ActionNode</name>
+    <member refid="classActionNode_1a8fdbd1874948957c218f44c2698d3695" kind="function"><name>ActionNode</name></member>
+    <member refid="classActionNode_1a7eb8e8964012e90b58a924404e350ce8" kind="function"><name>accept</name></member>
+  </compound>
+  <compound refid="classAST" kind="class"><name>AST</name>
+    <member refid="classAST_1a935cca79ff1094ef84a3eaeb5b519535" kind="variable"><name>tests</name></member>
+    <member refid="classAST_1abe2e8b0027f2aa49137697dc1f35dcdb" kind="function"><name>accept</name></member>
+  </compound>
+  <compound refid="classASTVisitor" kind="class"><name>ASTVisitor</name>
+    <member refid="classASTVisitor_1a44752149fa1a44dff1fc313948b2ee98" kind="function"><name>visit</name></member>
+    <member refid="classASTVisitor_1a4678beb531d981819910135b8858a53e" kind="function"><name>visit</name></member>
+    <member refid="classASTVisitor_1aeccf96f0ab398a61232dc446cc531904" kind="function"><name>visit</name></member>
+    <member refid="classASTVisitor_1a47627f9820fb4988190dc1a82bd01a97" kind="function"><name>visit</name></member>
+    <member refid="classASTVisitor_1adc2d6fe7bad666275db5ecfdaeb5cadb" kind="function"><name>visit</name></member>
+    <member refid="classASTVisitor_1a2471f6e7e3c790f92af037d51fa2accb" kind="function"><name>visit</name></member>
+  </compound>
+  <compound refid="classCheckNode" kind="class"><name>CheckNode</name>
+    <member refid="classCheckNode_1a465dc41076e0456be769726846abcdc6" kind="variable"><name>element_type</name></member>
+    <member refid="classCheckNode_1a7b655dafbaa3834302efcddca1943ced" kind="variable"><name>description</name></member>
+    <member refid="classCheckNode_1af19a56e0ef8df44ab908607e33d37181" kind="variable"><name>state</name></member>
+    <member refid="classCheckNode_1ac35a96cb629c0d39af85e85f42541427" kind="function"><name>CheckNode</name></member>
+    <member refid="classCheckNode_1a0118c51e86656c3f7c8d6f91de64f184" kind="function"><name>accept</name></member>
+    <member refid="classCheckNode_1abb4837ee80a372c9e2c1bb9d4302e914" kind="function"><name>get_element_type</name></member>
+    <member refid="classCheckNode_1a6cb68be32e212f871053d7b1f67adf20" kind="function"><name>get_description</name></member>
+    <member refid="classCheckNode_1aee019b04f7db6cd6e3cc416c55f90987" kind="function"><name>get_state</name></member>
+  </compound>
+  <compound refid="classClickNode" kind="class"><name>ClickNode</name>
+    <member refid="classClickNode_1a839eb69047df83fce1ee49d1449ff32a" kind="variable"><name>element_type</name></member>
+    <member refid="classClickNode_1abe8e534243f29d63a926aadab0096949" kind="variable"><name>description</name></member>
+    <member refid="classClickNode_1a4156fa2ef9fea2687e7f9d9bed25de0a" kind="function"><name>ClickNode</name></member>
+    <member refid="classClickNode_1aa974ec33eee5672c0b49567d5c1dcefc" kind="function"><name>accept</name></member>
+    <member refid="classClickNode_1abd9e196bd30154bd7d1a9b8d7ea6b925" kind="function"><name>get_element_type</name></member>
+    <member refid="classClickNode_1acd7324bf36cc1f3a853c079dc083dae8" kind="function"><name>get_description</name></member>
+  </compound>
+  <compound refid="classJsonASTVisitor" kind="class"><name>JsonASTVisitor</name>
+    <member refid="classJsonASTVisitor_1ac84c0fec090863ebbd73a51728a1fd4f" kind="function"><name>visit</name></member>
+    <member refid="classJsonASTVisitor_1a9f7de26ac49c9dec7b34e19f3252ab62" kind="function"><name>visit</name></member>
+    <member refid="classJsonASTVisitor_1a5bf2f6eff01bd155548cd10b3ff52d73" kind="function"><name>visit</name></member>
+    <member refid="classJsonASTVisitor_1a71e57288a7731b2c448b9617c9526304" kind="function"><name>visit</name></member>
+    <member refid="classJsonASTVisitor_1a2b62aa37bcbd31d7c9b9dad50d8465ab" kind="function"><name>visit</name></member>
+    <member refid="classJsonASTVisitor_1a3450c4211f0e8b94bb6c49fa71c17009" kind="function"><name>visit</name></member>
+  </compound>
+  <compound refid="structlex__rule" kind="struct"><name>lex_rule</name>
+    <member refid="structlex__rule_1ac4b76fe6630697d4226b7d2b0720c561" kind="variable"><name>regex</name></member>
+    <member refid="structlex__rule_1a1844f80ef8381002a3791e1f0146cdc8" kind="variable"><name>lambda</name></member>
+  </compound>
+  <compound refid="classparser" kind="class"><name>parser</name>
+    <member refid="classparser_1ac2162c8ded1786595c90d09731cc22ed" kind="variable"><name>errors</name></member>
+    <member refid="classparser_1abcb3866f2dc8e0dc124a2e3c96a2b285" kind="variable"><name>scanner</name></member>
+    <member refid="classparser_1a5fed01bf7ee4ec7770aa79404be4c474" kind="variable"><name>token</name></member>
+    <member refid="classparser_1ac2a270caeba7a1dcfaef59f98f2f7fbd" kind="variable"><name>tree</name></member>
+    <member refid="classparser_1a5eee53838157637f89d138c51ce8b3fc" kind="function"><name>program</name></member>
+    <member refid="classparser_1a753dfff13ab8520dc2677b33e64d9d95" kind="function"><name>body</name></member>
+    <member refid="classparser_1a62d58868e0c541328d97e76b923d2e2f" kind="function"><name>action</name></member>
+    <member refid="classparser_1a9887b43b6c2cf6f5b2c573a13c6c94b7" kind="function"><name>elem_type</name></member>
+    <member refid="classparser_1ad5eedfae3192317aab36b64c2011afc3" kind="function"><name>test</name></member>
+    <member refid="classparser_1a452171c310ef711c8f26b3df0d231ac9" kind="function"><name>visit</name></member>
+    <member refid="classparser_1ae1b812ad065d33792514e34177cb948d" kind="function"><name>click</name></member>
+    <member refid="classparser_1ad997d56e9f4c5e39e878033cc4b846b1" kind="function"><name>hover</name></member>
+    <member refid="classparser_1a84426140597660f078c60ac1bf90142a" kind="function"><name>check</name></member>
+    <member refid="classparser_1aa934d6ef45d4bb826b24a450eb626933" kind="function"><name>type</name></member>
+    <member refid="classparser_1a79dc9cc6430a50c9a0860fa507d4e5bd" kind="function"><name>state</name></member>
+    <member refid="classparser_1ac6d11d9370d1a280a1a3b185100d83ac" kind="function"><name>recoverFromError</name></member>
+    <member refid="classparser_1a84b58cf1646638244037641f0d9e7cc5" kind="function"><name>reportError</name></member>
+    <member refid="classparser_1ab53f94331050057d1c933bbd2d62939e" kind="function"><name>parser</name></member>
+    <member refid="classparser_1a9111637eccda5354731043a3e398e025" kind="function"><name>parse</name></member>
+  </compound>
+  <compound refid="classScanner" kind="class"><name>Scanner</name>
+    <member refid="classScanner_1a012664845ed9d7f35afac6c6afbf0620" kind="variable"><name>line_count</name></member>
+    <member refid="classScanner_1a9ed221d10bd45d12a0f45b8c61ff0318" kind="variable"><name>yytext</name></member>
+    <member refid="classScanner_1a6e03d7772b61256fb7510ffb76b6bd5e" kind="variable"><name>yyinput</name></member>
+    <member refid="classScanner_1a0269ca47a6935c0a1ef6fabf74a33bf0" kind="variable"><name>token</name></member>
+    <member refid="classScanner_1a076e03814ad0c1331bb7bd7bbc159cb1" kind="variable"><name>position</name></member>
+    <member refid="classScanner_1a27ec59531807045e1d850584bf317ef4" kind="variable"><name>rules</name></member>
+    <member refid="classScanner_1a76c83bb040884f5ab5333bcf0f123374" kind="function"><name>Scanner</name></member>
+    <member refid="classScanner_1a7863c5cfdf6dd3b6a8d61572ecba6efa" kind="function"><name>line_number</name></member>
+    <member refid="classScanner_1aa6c7c47e34334122c9d795b9a9926ecd" kind="function"><name>yylex</name></member>
+    <member refid="classScanner_1a582d4ea956c18a87b7a2ef716366fd19" kind="function"><name>getTokenName</name></member>
+  </compound>
+  <compound refid="classSeleniumASTVisitor" kind="class"><name>SeleniumASTVisitor</name>
+    <member refid="classSeleniumASTVisitor_1a0be09c2b330fc02681b5415566962db1" kind="variable"><name>keep_xpath</name></member>
+    <member refid="classSeleniumASTVisitor_1a82d7780bb5c07b75d519140709e815f8" kind="function"><name>generate_init</name></member>
+    <member refid="classSeleniumASTVisitor_1a6ea19e7e034109cbbaea10f8f2ff753a" kind="function"><name>generate_xpath_helper</name></member>
+    <member refid="classSeleniumASTVisitor_1aab137f0966d4f3bcb686eed007b63f02" kind="function"><name>generate_seeclick_helper</name></member>
+    <member refid="classSeleniumASTVisitor_1ab45b4de204310b368157ac1f579a05df" kind="function"><name>init_hooks</name></member>
+    <member refid="classSeleniumASTVisitor_1a85cc29818f4b7161ef8285339c5defb4" kind="function"><name>get_coordinates</name></member>
+    <member refid="classSeleniumASTVisitor_1ae3850514ddb1c4398514188481064af1" kind="function"><name>element_from_point</name></member>
+    <member refid="classSeleniumASTVisitor_1a4d4d32a1089b1ba229c41167f4352c9e" kind="function"><name>end</name></member>
+    <member refid="classSeleniumASTVisitor_1a788c7951b7fd9e987f19e775e2e0c288" kind="function"><name>SeleniumASTVisitor</name></member>
+    <member refid="classSeleniumASTVisitor_1a6df7863a4d41171e2251bcca915447dc" kind="function"><name>visit</name></member>
+    <member refid="classSeleniumASTVisitor_1a3394fef6efe203723ad0f99af24ba2e4" kind="function"><name>visit</name></member>
+    <member refid="classSeleniumASTVisitor_1a2f9881425630c56df561b5c83a360762" kind="function"><name>visit</name></member>
+    <member refid="classSeleniumASTVisitor_1a7d4af98b0a9d8fdb34c2cf74622ec3c6" kind="function"><name>visit</name></member>
+    <member refid="classSeleniumASTVisitor_1a38253ea801602b7b65dc694f9e1d2924" kind="function"><name>visit</name></member>
+    <member refid="classSeleniumASTVisitor_1a91a46f424869bb88ad1bf327e6101636" kind="function"><name>visit</name></member>
+  </compound>
+  <compound refid="classTestNode" kind="class"><name>TestNode</name>
+    <member refid="classTestNode_1a983999ea39d8c5e77a96b9e253260508" kind="variable"><name>testName</name></member>
+    <member refid="classTestNode_1ab8d18cbbbf3e3176246199d78a8592af" kind="variable"><name>actions</name></member>
+    <member refid="classTestNode_1aec1cb675dd5697bd06408ef3e62ffe78" kind="function"><name>accept</name></member>
+  </compound>
+  <compound refid="classTypeNode" kind="class"><name>TypeNode</name>
+    <member refid="classTypeNode_1aa9ba7a63accb0edc70477f17c939624b" kind="variable"><name>content</name></member>
+    <member refid="classTypeNode_1a65c7ce78bc44ce4895a703c8cb792ed9" kind="variable"><name>element_type</name></member>
+    <member refid="classTypeNode_1a37d308f4c1d63100fcd472742172d267" kind="variable"><name>description</name></member>
+    <member refid="classTypeNode_1abc8d5020fb4efa89507673bb14c8da17" kind="function"><name>TypeNode</name></member>
+    <member refid="classTypeNode_1a3b573a359d4803a1b69e258786ec0f64" kind="function"><name>accept</name></member>
+    <member refid="classTypeNode_1a75d76722c58d4155385709f9997040bc" kind="function"><name>get_content</name></member>
+    <member refid="classTypeNode_1aea2001d582ce9885776e612bbdcbf2f9" kind="function"><name>get_element_type</name></member>
+    <member refid="classTypeNode_1af1cc36213bab28343a889fcf72dbfcd5" kind="function"><name>get_description</name></member>
+  </compound>
+  <compound refid="classVisitNode" kind="class"><name>VisitNode</name>
+    <member refid="classVisitNode_1a3e84a39545ce0e4bd2f99c63a2823d9c" kind="variable"><name>url</name></member>
+    <member refid="classVisitNode_1a7297f8489195aa3c216528ec87164128" kind="function"><name>VisitNode</name></member>
+    <member refid="classVisitNode_1a136c7a923fa60c5acc418d41c3b816f3" kind="function"><name>accept</name></member>
+    <member refid="classVisitNode_1a3af4428ee7a6522b4e92212586481b03" kind="function"><name>get_url</name></member>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="AST_8cpp" kind="file"><name>AST.cpp</name>
+  </compound>
+  <compound refid="AST_8h" kind="file"><name>AST.h</name>
+  </compound>
+  <compound refid="JsonASTVisitor_8cpp" kind="file"><name>JsonASTVisitor.cpp</name>
+    <member refid="JsonASTVisitor_8cpp_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
+  </compound>
+  <compound refid="JsonASTVisitor_8h" kind="file"><name>JsonASTVisitor.h</name>
+  </compound>
+  <compound refid="SeleniumASTVisitor_8cpp" kind="file"><name>SeleniumASTVisitor.cpp</name>
+  </compound>
+  <compound refid="SeleniumASTVisitor_8h" kind="file"><name>SeleniumASTVisitor.h</name>
+  </compound>
+  <compound refid="parser_8cpp" kind="file"><name>parser.cpp</name>
+    <member refid="parser_8cpp_1a1a2aaad2f42ad198a2e6c97dc7681137" kind="define"><name>DLL_API</name></member>
+    <member refid="parser_8cpp_1a393f2334deca6db414c7ec4e01e73b79" kind="function"><name>parse</name></member>
+  </compound>
+  <compound refid="parser_8h" kind="file"><name>parser.h</name>
+  </compound>
+  <compound refid="scanner_8cpp" kind="file"><name>scanner.cpp</name>
+    <member refid="scanner_8cpp_1a535c523bcae99838d32ed279a1ce2a8f" kind="variable"><name>yysval</name></member>
+  </compound>
+  <compound refid="scanner_8h" kind="file"><name>scanner.h</name>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8af" kind="enum"><name>Tokens</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa34bd7d347b1e8b10e915bde476404e20" kind="enumvalue"><name>TEST_NAME</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afab03e8ec91b0d074a03df67327675f025" kind="enumvalue"><name>CLICK</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa901e848e10f7b2a60e799cbd837178be" kind="enumvalue"><name>VISIT</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa7d67f007544f534278ecca3cdca12565" kind="enumvalue"><name>BUTTON</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afaf2fe1bf26da6f8a451f054e30b3ce0f3" kind="enumvalue"><name>LINK</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa9a4a47c1606e295076055a9cc4373197" kind="enumvalue"><name>TEXT</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa3501d25cdde2b141c20edb67965fb692" kind="enumvalue"><name>IMAGE</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afaf2028b2ce81ddefcce798c0300e9a872" kind="enumvalue"><name>DISPLAYED</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa41ae0a505430bf564b119bc82db7592d" kind="enumvalue"><name>HIDDEN</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa0e233b90b54e7846bbfeaaf66d965965" kind="enumvalue"><name>CHECK_IF</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa84f3a4bc24f5069e00e9895f8f2ec7dc" kind="enumvalue"><name>WITH_DESC</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa621907356237dd9d13895aa937cb27ad" kind="enumvalue"><name>HOVER_OVER</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afab1b5d0afb72584d41c26b1fe2c1be0fc" kind="enumvalue"><name>NLD</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa7859c6fa207d555e4f392f308b4b9d7c" kind="enumvalue"><name>URL</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa977d478dacaae531f95695750d1e9d03" kind="enumvalue"><name>ON</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afab47ea8bb955afd0adc0ef98517dd6084" kind="enumvalue"><name>TYPE</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa59ae17a687995046ac7025dcc53156e3" kind="enumvalue"><name>CONTENT</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afaad080c3559b964f64a0bf3babee794ae" kind="enumvalue"><name>LEFT_BRACE</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afa720e33700869f857881e7f50bdfb6943" kind="enumvalue"><name>RIGHT_BRACE</name></member>
+    <member refid="scanner_8h_1a7722396ed46bc111e7b794948986f8afae310c909d76b003d016bef8bdf16936a" kind="enumvalue"><name>INPUT</name></member>
+    <member refid="scanner_8h_1a535c523bcae99838d32ed279a1ce2a8f" kind="variable"><name>yysval</name></member>
+  </compound>
+  <compound refid="dir_203e5988f1ed315d29383d699972de6f" kind="dir"><name>src/ast</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

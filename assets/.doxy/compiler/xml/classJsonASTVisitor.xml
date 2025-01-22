@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classJsonASTVisitor" kind="class" language="C++" prot="public">
+    <compoundname>JsonASTVisitor</compoundname>
+    <basecompoundref refid="classASTVisitor" prot="public" virt="non-virtual">ASTVisitor</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classJsonASTVisitor_1ac84c0fec090863ebbd73a51728a1fd4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string JsonASTVisitor::visit</definition>
+        <argsstring>(const VisitNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>JsonASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a44752149fa1a44dff1fc313948b2ee98">visit</reimplements>
+        <param>
+          <type>const <ref refid="classVisitNode" kindref="compound">VisitNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/JsonASTVisitor.h" line="12" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classJsonASTVisitor_1a9f7de26ac49c9dec7b34e19f3252ab62" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string JsonASTVisitor::visit</definition>
+        <argsstring>(const ClickNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>JsonASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a4678beb531d981819910135b8858a53e">visit</reimplements>
+        <param>
+          <type>const <ref refid="classClickNode" kindref="compound">ClickNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/JsonASTVisitor.h" line="13" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="20" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classJsonASTVisitor_1a5bf2f6eff01bd155548cd10b3ff52d73" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string JsonASTVisitor::visit</definition>
+        <argsstring>(const TypeNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>JsonASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1aeccf96f0ab398a61232dc446cc531904">visit</reimplements>
+        <param>
+          <type>const <ref refid="classTypeNode" kindref="compound">TypeNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/JsonASTVisitor.h" line="14" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="30" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classJsonASTVisitor_1a71e57288a7731b2c448b9617c9526304" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string JsonASTVisitor::visit</definition>
+        <argsstring>(const CheckNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>JsonASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a47627f9820fb4988190dc1a82bd01a97">visit</reimplements>
+        <param>
+          <type>const <ref refid="classCheckNode" kindref="compound">CheckNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/JsonASTVisitor.h" line="15" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="42" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classJsonASTVisitor_1a2b62aa37bcbd31d7c9b9dad50d8465ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string JsonASTVisitor::visit</definition>
+        <argsstring>(const TestNode &amp;node) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>JsonASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1adc2d6fe7bad666275db5ecfdaeb5cadb">visit</reimplements>
+        <param>
+          <type>const <ref refid="classTestNode" kindref="compound">TestNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/JsonASTVisitor.h" line="16" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="53" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classJsonASTVisitor_1a3450c4211f0e8b94bb6c49fa71c17009" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string JsonASTVisitor::visit</definition>
+        <argsstring>(const AST &amp;tree) override</argsstring>
+        <name>visit</name>
+        <qualifiedname>JsonASTVisitor::visit</qualifiedname>
+        <reimplements refid="classASTVisitor_1a2471f6e7e3c790f92af037d51fa2accb">visit</reimplements>
+        <param>
+          <type>const <ref refid="classAST" kindref="compound">AST</ref> &amp;</type>
+          <declname>tree</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/JsonASTVisitor.h" line="17" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="69" bodyend="82"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ASTVisitor</label>
+        <link refid="classASTVisitor"/>
+      </node>
+      <node id="1">
+        <label>JsonASTVisitor</label>
+        <link refid="classJsonASTVisitor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ASTVisitor</label>
+        <link refid="classASTVisitor"/>
+      </node>
+      <node id="1">
+        <label>JsonASTVisitor</label>
+        <link refid="classJsonASTVisitor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/ast/JsonASTVisitor.h" line="10" column="1" bodyfile="src/ast/JsonASTVisitor.h" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classJsonASTVisitor_1ac84c0fec090863ebbd73a51728a1fd4f" prot="public" virt="virtual"><scope>JsonASTVisitor</scope><name>visit</name></member>
+      <member refid="classJsonASTVisitor_1a9f7de26ac49c9dec7b34e19f3252ab62" prot="public" virt="virtual"><scope>JsonASTVisitor</scope><name>visit</name></member>
+      <member refid="classJsonASTVisitor_1a5bf2f6eff01bd155548cd10b3ff52d73" prot="public" virt="virtual"><scope>JsonASTVisitor</scope><name>visit</name></member>
+      <member refid="classJsonASTVisitor_1a71e57288a7731b2c448b9617c9526304" prot="public" virt="virtual"><scope>JsonASTVisitor</scope><name>visit</name></member>
+      <member refid="classJsonASTVisitor_1a2b62aa37bcbd31d7c9b9dad50d8465ab" prot="public" virt="virtual"><scope>JsonASTVisitor</scope><name>visit</name></member>
+      <member refid="classJsonASTVisitor_1a3450c4211f0e8b94bb6c49fa71c17009" prot="public" virt="virtual"><scope>JsonASTVisitor</scope><name>visit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

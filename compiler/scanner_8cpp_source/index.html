@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Antoine Karam and Ghady Youssef" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File scanner.cpp - RNL Compiler</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File scanner.cpp";
+        var mkdocs_page_input_path = "compiler/scanner_8cpp_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> RNL Compiler
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Contributing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../codegen/">Adding a Code Generator</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hooks/">Hooks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nat-lang/">Natural Language Descriptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compiler Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >API</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../_a_s_t_8h.md">AST</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parser_8h/">Parser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../scanner_8h/">Scanner</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_selenium_a_s_t_visitor_8h.md">JsonASTVisitor</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_json_a_s_t_visitor_8h.md">SeleniumASTVisitor</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">RNL Compiler</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File scanner.cpp</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Ghaadyy/restricted-nl/edit/main/docs/compiler/scanner_8cpp_source.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-scannercpp">File scanner.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_68267d1309a1af8e8297ef4c3efbcdba/"><strong>src</strong></a> <strong>&gt;</strong> <a href="../scanner_8cpp/"><strong>scanner.cpp</strong></a></p>
+<p><a href="../scanner_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">#include &quot;scanner.h&quot;
+
+string yysval;
+
+Scanner::Scanner(string&amp;&amp; content) :
+    yyinput { content }, position { 0 }, token { 0ll } {
+
+    if(content.empty()) return;
+
+    rules = vector&lt;lex_rule&gt;({
+        {&quot;click&quot;, [&amp;](const string &amp; s) { return CLICK;}},
+        {&quot;visit&quot;, [&amp;](const string &amp; s) { return VISIT;}},
+        {&quot;button&quot;, [&amp;](const string &amp; s) { yysval = s; return BUTTON;}},
+        {&quot;link&quot;, [&amp;](const string &amp; s) { yysval = s; return LINK;}},
+        {&quot;text&quot;, [&amp;](const string &amp; s) { yysval = s; return TEXT;}},
+        {&quot;input&quot;, [&amp;](const string &amp; s) { yysval = s; return INPUT;}},
+        {&quot;image&quot;, [&amp;](const string &amp; s) { yysval = s; return IMAGE;}},
+        {&quot;is displayed&quot;, [&amp;](const string &amp; s) { return DISPLAYED;}},
+        {&quot;is hidden&quot;, [&amp;](const string &amp; s) { return HIDDEN;}},
+        {&quot;check if&quot;, [&amp;](const string &amp; s) { return CHECK_IF;}},
+        {&quot;with description&quot;, [&amp;](const string &amp; s) { return WITH_DESC;}},
+        {&quot;hover over&quot;, [&amp;](const string &amp; s) { return HOVER_OVER;}},
+        {&quot;on&quot;, [&amp;](const string &amp; s) { return ON;}},
+        {&quot;type&quot;, [&amp;](const string &amp; s) { return TYPE;}},
+        {&quot;[{]&quot;, [&amp;](const string &amp; s) { return LEFT_BRACE;}},
+        {&quot;[}]&quot;, [&amp;](const string &amp; s) { return RIGHT_BRACE;}},
+        {&quot;[\&quot;]https://[a-zA-Z0-9./]*[\&quot;]&quot;, [&amp;](const string &amp; s) { yysval = s; return URL;}},
+        {&quot;[a-zA-Z][a-zA-Z0-9]*&quot;, [&amp;](const string &amp; s) { yysval = s; return TEST_NAME;}},
+        {R&quot;([&quot;][a-zA-Z0-9 /@='\]\[]*[&quot;])&quot;, [&amp;](const string &amp; s) { yysval = s; return NLD;}},
+        {&quot;[[:space:]]+&quot;, [&amp;](const string&amp; match) {
+            for (char c : match) {
+                if (c == '\n') {
+                    ++line_count;
+                }
+            }
+            return -1;
+        }}, // (\s, \t et \n)
+        {&quot;.&quot;, [&amp;](const string&amp; s) { return (int)s[0]; }}
+    });
+}
+
+string Scanner::getTokenName(int tokenId) {
+    static const std::unordered_map&lt;int, std::string&gt; tokenNames = {
+            {257, &quot;TEST_NAME&quot;}, {258, &quot;CLICK&quot;}, {259, &quot;VISIT&quot;}, {260, &quot;BUTTON&quot;},
+            {261, &quot;LINK&quot;}, {262, &quot;TEXT&quot;}, {263, &quot;IMAGE&quot;}, {264, &quot;DISPLAYED&quot;},
+            {265, &quot;HIDDEN&quot;}, {266, &quot;CHECK_IF&quot;}, {267, &quot;WITH_DESC&quot;}, {268, &quot;HOVER_OVER&quot;},
+            {269, &quot;NLD&quot;}, {270, &quot;URL&quot;}, {271, &quot;ON&quot;}, {272, &quot;TYPE&quot;},
+            {273, &quot;CONTENT&quot;}, {274, &quot;LEFT_BRACE&quot;}, {275, &quot;RIGHT_BRACE&quot;}, {276, &quot;INPUT&quot;}
+    };
+
+    auto it = tokenNames.find(tokenId);
+    return it != tokenNames.end() ? it-&gt;second : &quot;UNKNOWN&quot;;
+}
+
+int Scanner::line_number() const {
+    return line_count;
+}
+
+int Scanner::yylex() {
+    smatch m;
+    while (true) {
+        if (yyinput.length() == position) return 0;
+        for (auto&amp; rule : rules)
+        {
+            if (regex_search(yyinput.cbegin() + position, yyinput.cend(), m,
+                             regex(rule.regex), regex_constants::match_continuous)) {
+                yytext = m.str();
+                position += m.length();
+                token = rule.lambda(yytext);
+                if (token != -1) return token; else break;
+            }
+        }
+    }
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><b>Antoine Karam & Ghady Youssef</b></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Ghaadyy/restricted-nl/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

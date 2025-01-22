@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Antoine Karam and Ghady Youssef" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File parser.cpp - RNL Compiler</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File parser.cpp";
+        var mkdocs_page_input_path = "compiler/parser_8cpp_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> RNL Compiler
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Contributing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../codegen/">Adding a Code Generator</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hooks/">Hooks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nat-lang/">Natural Language Descriptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compiler Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >API</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../_a_s_t_8h.md">AST</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parser_8h/">Parser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../scanner_8h/">Scanner</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_selenium_a_s_t_visitor_8h.md">JsonASTVisitor</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_json_a_s_t_visitor_8h.md">SeleniumASTVisitor</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">RNL Compiler</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File parser.cpp</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Ghaadyy/restricted-nl/edit/main/docs/compiler/parser_8cpp_source.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-parsercpp">File parser.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_68267d1309a1af8e8297ef4c3efbcdba/"><strong>src</strong></a> <strong>&gt;</strong> <a href="../parser_8cpp/"><strong>parser.cpp</strong></a></p>
+<p><a href="../parser_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">#include &quot;parser.h&quot;
+#include &lt;cstring&gt;
+#include &quot;ast/SeleniumASTVisitor.h&quot;
+
+parser::parser(string&amp;&amp; content)
+    : scanner { Scanner(std::move(content)) } {}
+
+bool parser::program() { //program -&gt; test program | epsilon
+    if(token == 0) return true; // program -&gt; epsilon
+    if(!test()) return false;
+    if(!program()) return false;
+
+    return true; // program -&gt; test program
+}
+
+bool parser::test() {
+    if(token == TEST_NAME) {
+        tree.tests.push_back(TestNode(yysval, vector&lt;ActionNode*&gt;()));
+        token = scanner.yylex();
+        if(token == LEFT_BRACE) {
+            token = scanner.yylex();
+            if(!body()){
+                return recoverFromError({TEST_NAME});
+            }
+
+            if(token != RIGHT_BRACE) {
+                reportError(&quot;RIGHT BRACE&quot;);
+                return recoverFromError({TEST_NAME});
+            }
+        }else{
+            reportError(&quot;LEFT BRACE&quot;);
+            return recoverFromError({TEST_NAME});
+        }
+
+        token = scanner.yylex();
+        return true;
+    }
+
+    reportError(&quot;TEST NAME&quot;);
+    return recoverFromError({TEST_NAME});
+}
+
+bool parser::action() {
+    switch (token) {
+        case CLICK:
+            return click();
+        case HOVER_OVER:
+            return hover();
+        case VISIT:
+            return visit();
+        case TYPE:
+            return type();
+        case CHECK_IF:
+            return check();
+        default:
+            return false;
+    }
+}
+
+
+bool parser::visit() {
+    if(token == VISIT) {
+        token = scanner.yylex();
+
+        if(token != URL) {
+            reportError(&quot;URL&quot;);
+            return recoverFromError({CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE});
+        }
+
+        tree.tests.back().actions.push_back(new VisitNode(std::move(yysval)));
+
+        token = scanner.yylex();
+        return true;
+    }
+
+    return false;
+}
+
+bool parser::body() {
+    if(token == CLICK || token == HOVER_OVER || token == TYPE || token == CHECK_IF || token == VISIT) {
+        return action() &amp;&amp; body();
+    }
+
+    return true;
+}
+
+bool parser::elem_type() {
+    if(token == BUTTON || token == LINK || token == TEXT || token == IMAGE || token == INPUT){
+        token = scanner.yylex();
+        return true;
+    }
+
+    return false;
+}
+
+bool parser::click() {
+    vector&lt;Tokens&gt; recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
+    if(token == CLICK) {
+        token = scanner.yylex();
+        string element_type = yysval;
+        if(!elem_type()){
+            reportError(&quot;ELEMENT TYPE&quot;);
+            return recoverFromError(recoveryTokens);
+        }
+        if(token == WITH_DESC) {
+            token = scanner.yylex();
+
+            if(token != NLD) {
+                reportError(&quot;NLD&quot;);
+                return recoverFromError(recoveryTokens);
+            }
+        }else{
+            reportError(&quot;WITH DESCRIPTION&quot;);
+            return recoverFromError(recoveryTokens);
+        }
+
+        tree.tests.back().actions.push_back(new ClickNode(std::move(element_type), std::move(yysval)));
+
+        token = scanner.yylex();
+        return true;
+    }
+
+    return false;
+}
+
+bool parser::check() {
+    vector&lt;Tokens&gt; recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
+    if(token == CHECK_IF) {
+        token = scanner.yylex();
+        string element_type = yysval;
+        if(!elem_type()){
+            reportError(&quot;ELEMENT TYPE&quot;);
+            return recoverFromError(recoveryTokens);
+        }
+        if(token == WITH_DESC) {
+            token = scanner.yylex();
+            if(token != NLD){
+                reportError(&quot;NLD&quot;);
+                return recoverFromError(recoveryTokens);
+            }
+
+            string xpath = yysval;
+            token = scanner.yylex();
+            tree.tests.back().actions.push_back(new CheckNode(std::move(element_type), std::move(xpath), token == DISPLAYED));
+            if(state()){
+                return true;
+            }else{
+                reportError(&quot;STATE&quot;);
+                return recoverFromError(recoveryTokens);
+            }
+        }else{
+            reportError(&quot;WITH DESCRIPTION&quot;);
+            return recoverFromError(recoveryTokens);
+        }
+    }
+
+    return false;
+}
+
+bool parser::hover() {
+    vector&lt;Tokens&gt; recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
+    if(token == HOVER_OVER) {
+        token = scanner.yylex();
+        if(!elem_type()){
+            reportError(&quot;ELEMENT TYPE&quot;);
+            return recoverFromError(recoveryTokens);
+        }
+        if(token == WITH_DESC) {
+            token = scanner.yylex();
+
+            if(token != NLD){
+                reportError(&quot;NLD&quot;);
+                return recoverFromError(recoveryTokens);
+            }
+        } else {
+            reportError(&quot;WITH DESCRIPTION&quot;);
+            return recoverFromError(recoveryTokens);
+        }
+
+        token = scanner.yylex();
+        return true;
+    }
+
+    return false;
+}
+
+bool parser::type() {
+    vector&lt;Tokens&gt; recoveryTokens = {CLICK, HOVER_OVER, VISIT, TYPE, CHECK_IF, RIGHT_BRACE};
+    if(token != TYPE) return false;
+    token = scanner.yylex();
+    if(token != NLD) {
+        reportError(&quot;CONTENT&quot;);
+        return recoverFromError(recoveryTokens);
+    } // TODO: IT SHOULD BE CONTENT
+    string content = yysval;
+    token = scanner.yylex();
+    if(token != ON){
+        reportError(&quot;ON&quot;);
+        return recoverFromError(recoveryTokens);
+    }
+    token = scanner.yylex();
+    string element_type = yysval;
+    if(!elem_type()){
+        reportError(&quot;ELEMENT TYPE&quot;);
+        return recoverFromError(recoveryTokens);
+    }
+    if(token != WITH_DESC){
+        reportError(&quot;WITH DESCRIPTION&quot;);
+        return recoverFromError(recoveryTokens);
+    }
+    token = scanner.yylex();
+    if(token != NLD){
+        reportError(&quot;NLD&quot;);
+        return recoverFromError(recoveryTokens);
+    }
+
+
+    tree.tests.back().actions.push_back(new TypeNode(std::move(content), std::move(element_type), std::move(yysval)));
+
+    token = scanner.yylex();
+    return true;
+}
+
+bool parser::state() {
+    if(token == DISPLAYED || token == HIDDEN) {
+        token = scanner.yylex();
+        return true;
+    }
+
+    return false;
+}
+
+bool parser::recoverFromError(const vector&lt;enum Tokens&gt;&amp; syncSet) {
+    while (token != 0) {
+        for (auto syncToken : syncSet) {
+            if (token == syncToken) {
+                cout &lt;&lt; &quot;[Recovery] Found synchronizing token: &quot; &lt;&lt; Scanner::getTokenName(token) &lt;&lt; &quot; at line &quot; &lt;&lt;
+                        to_string(scanner.line_number()) &lt;&lt; endl;
+                return true;
+            }
+        }
+        token = scanner.yylex();
+    }
+
+    cerr &lt;&lt; &quot;Failed to recover. Reached EOF.\n&quot;;
+    return false;
+}
+
+void parser::reportError(const string&amp; expectedToken) {
+    errors.push_back(&quot;Expected &quot; + expectedToken + &quot;, but found &quot; + Scanner::getTokenName(token) + &quot; instead at line &quot; + std::to_string(scanner.line_number()));
+}
+
+expected&lt;AST, vector&lt;string&gt;&gt; parser::parse() {
+    token = scanner.yylex();
+    if (program() &amp;&amp; errors.empty()) {
+        return tree;
+    }
+
+    return unexpected(errors);
+}
+
+#ifdef _WIN32
+#define DLL_API __declspec(dllexport)
+#else
+#define DLL_API __attribute__((visibility(&quot;default&quot;)))
+#endif
+extern &quot;C&quot; DLL_API bool parse(const char *path, const char** code, const char** errors[], size_t* error_count) {
+    parser p(path);
+    auto res =  p.parse();
+    if(res.has_value()) {
+        const auto&amp; tree = res.value();
+        ASTVisitor* visitor = new SeleniumASTVisitor(true); // defaults to true but this will be removed later
+        string output = tree.accept(*visitor);
+        *code = strdup(output.c_str());
+        return true;
+    }
+
+    auto&amp; errs = res.error();
+
+    *error_count = errs.size();
+    *errors = new const char*[*error_count];
+    for (size_t i = 0; i &lt; *error_count; ++i) {
+        char* err = new char[errs[i].size() + 1];
+        strcpy(err, errs[i].c_str());
+        (*errors)[i] = err;
+    }
+
+    return false;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><b>Antoine Karam & Ghady Youssef</b></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Ghaadyy/restricted-nl/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

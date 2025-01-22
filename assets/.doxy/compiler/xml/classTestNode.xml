@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classTestNode" kind="class" language="C++" prot="public">
+    <compoundname>TestNode</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classTestNode_1a983999ea39d8c5e77a96b9e253260508" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string TestNode::testName</definition>
+        <argsstring></argsstring>
+        <name>testName</name>
+        <qualifiedname>TestNode::testName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="68" column="12" bodyfile="src/ast/AST.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classTestNode_1ab8d18cbbbf3e3176246199d78a8592af" prot="public" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classActionNode" kindref="compound">ActionNode</ref> * &gt;</type>
+        <definition>vector&lt;ActionNode*&gt; TestNode::actions</definition>
+        <argsstring></argsstring>
+        <name>actions</name>
+        <qualifiedname>TestNode::actions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="69" column="12" bodyfile="src/ast/AST.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classTestNode_1aec1cb675dd5697bd06408ef3e62ffe78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string TestNode::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const</argsstring>
+        <name>accept</name>
+        <qualifiedname>TestNode::accept</qualifiedname>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="70" column="12" bodyfile="src/ast/AST.cpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ast/AST.h" line="66" column="1" bodyfile="src/ast/AST.h" bodystart="66" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classTestNode_1aec1cb675dd5697bd06408ef3e62ffe78" prot="public" virt="non-virtual"><scope>TestNode</scope><name>accept</name></member>
+      <member refid="classTestNode_1ab8d18cbbbf3e3176246199d78a8592af" prot="public" virt="non-virtual"><scope>TestNode</scope><name>actions</name></member>
+      <member refid="classTestNode_1a983999ea39d8c5e77a96b9e253260508" prot="public" virt="non-virtual"><scope>TestNode</scope><name>testName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

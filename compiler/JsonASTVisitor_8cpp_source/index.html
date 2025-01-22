@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Antoine Karam and Ghady Youssef" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>File JsonASTVisitor.cpp - RNL Compiler</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "File JsonASTVisitor.cpp";
+        var mkdocs_page_input_path = "compiler/JsonASTVisitor_8cpp_source.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> RNL Compiler
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Contributing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../codegen/">Adding a Code Generator</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../hooks/">Hooks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../nat-lang/">Natural Language Descriptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compiler Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >API</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="../_a_s_t_8h.md">AST</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../parser_8h/">Parser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../scanner_8h/">Scanner</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_selenium_a_s_t_visitor_8h.md">JsonASTVisitor</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="../_json_a_s_t_visitor_8h.md">SeleniumASTVisitor</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">RNL Compiler</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">File JsonASTVisitor.cpp</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Ghaadyy/restricted-nl/edit/main/docs/compiler/JsonASTVisitor_8cpp_source.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="file-jsonastvisitorcpp">File JsonASTVisitor.cpp</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_203e5988f1ed315d29383d699972de6f/"><strong>ast</strong></a> <strong>&gt;</strong> <a href="../JsonASTVisitor_8cpp/"><strong>JsonASTVisitor.cpp</strong></a></p>
+<p><a href="../JsonASTVisitor_8cpp/">Go to the documentation of this file</a></p>
+<pre><code class="language-C++">//
+// Created by A-Karam on 1/21/2025.
+//
+
+#include &quot;JsonASTVisitor.h&quot;
+#include &lt;nlohmann/json.hpp&gt;
+#include &lt;sstream&gt;
+
+using json = nlohmann::json;
+
+string JsonASTVisitor::visit(const VisitNode &amp;node) {
+    json json_visit = {
+            {&quot;type&quot;, &quot;VisitNode&quot;},
+            {&quot;url&quot;, node.get_url()}
+    };
+
+    return json_visit.dump();
+}
+
+string JsonASTVisitor::visit(const ClickNode &amp;node) {
+    json json_click = {
+            {&quot;type&quot;, &quot;ClickNode&quot;},
+            {&quot;description&quot;, node.get_description()},
+            {&quot;element_type&quot;, node.get_element_type()}
+    };
+
+    return json_click.dump();
+}
+
+string JsonASTVisitor::visit(const TypeNode &amp;node) {
+
+    json json_type = {
+            {&quot;type&quot;, &quot;TypeNode&quot;},
+            {&quot;description&quot;, node.get_description()},
+            {&quot;content&quot;, node.get_content()},
+            {&quot;element_type&quot;, node.get_element_type()}
+    };
+
+    return json_type.dump();
+}
+
+string JsonASTVisitor::visit(const CheckNode &amp;node) {
+    json json_check = {
+            {&quot;type&quot;, &quot;CheckNode&quot;},
+            {&quot;description&quot;, node.get_description()},
+            {&quot;element_type&quot;, node.get_element_type()},
+            {&quot;state&quot;, node.get_state()}
+    };
+
+    return json_check.dump();
+}
+
+string JsonASTVisitor::visit(const TestNode &amp;node) {
+    vector&lt;json&gt; json_actions;
+
+    for(auto&amp; action : node.actions) {
+        json_actions.push_back(json::parse(action-&gt;accept(*this)));
+    }
+
+    json json_test = {
+            {&quot;type&quot;, &quot;TestNode&quot;},
+            {&quot;testName&quot;, node.testName},
+            {&quot;actions&quot;, json_actions}
+    };
+
+    return json_test.dump();
+}
+
+string JsonASTVisitor::visit(const AST &amp;tree) {
+    vector&lt;json&gt; json_tests;
+
+    for(auto&amp; test : tree.tests) {
+        json_tests.push_back(json::parse(test.accept(*this)));
+    }
+
+    json json_ast = {
+            {&quot;type&quot;, &quot;AST&quot;},
+            {&quot;tests&quot;, json_tests}
+    };
+
+    return json_ast.dump();
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><b>Antoine Karam & Ghady Youssef</b></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Ghaadyy/restricted-nl/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

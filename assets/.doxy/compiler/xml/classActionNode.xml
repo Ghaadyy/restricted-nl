@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classActionNode" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>ActionNode</compoundname>
+    <derivedcompoundref refid="classCheckNode" prot="public" virt="non-virtual">CheckNode</derivedcompoundref>
+    <derivedcompoundref refid="classClickNode" prot="public" virt="non-virtual">ClickNode</derivedcompoundref>
+    <derivedcompoundref refid="classTypeNode" prot="public" virt="non-virtual">TypeNode</derivedcompoundref>
+    <derivedcompoundref refid="classVisitNode" prot="public" virt="non-virtual">VisitNode</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classActionNode_1a8fdbd1874948957c218f44c2698d3695" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ActionNode::ActionNode</definition>
+        <argsstring>()=default</argsstring>
+        <name>ActionNode</name>
+        <qualifiedname>ActionNode::ActionNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="15" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classActionNode_1a7eb8e8964012e90b58a924404e350ce8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>string</type>
+        <definition>virtual string ActionNode::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const =0</argsstring>
+        <name>accept</name>
+        <qualifiedname>ActionNode::accept</qualifiedname>
+        <reimplementedby refid="classVisitNode_1a136c7a923fa60c5acc418d41c3b816f3">accept</reimplementedby>
+        <reimplementedby refid="classClickNode_1aa974ec33eee5672c0b49567d5c1dcefc">accept</reimplementedby>
+        <reimplementedby refid="classTypeNode_1a3b573a359d4803a1b69e258786ec0f64">accept</reimplementedby>
+        <reimplementedby refid="classCheckNode_1a0118c51e86656c3f7c8d6f91de64f184">accept</reimplementedby>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="16" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="2">
+        <label>CheckNode</label>
+        <link refid="classCheckNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ClickNode</label>
+        <link refid="classClickNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TypeNode</label>
+        <link refid="classTypeNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>VisitNode</label>
+        <link refid="classVisitNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/ast/AST.h" line="13" column="1" bodyfile="src/ast/AST.h" bodystart="13" bodyend="17"/>
+    <listofallmembers>
+      <member refid="classActionNode_1a7eb8e8964012e90b58a924404e350ce8" prot="public" virt="pure-virtual"><scope>ActionNode</scope><name>accept</name></member>
+      <member refid="classActionNode_1a8fdbd1874948957c218f44c2698d3695" prot="public" virt="non-virtual"><scope>ActionNode</scope><name>ActionNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

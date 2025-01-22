@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><meta name="author" content="Antoine Karam and Ghady Youssef" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>RNL Compiler</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> RNL Compiler
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#about-the-project">About the Project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grammar">Grammar</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-project">Building the project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-compiler">Using the compiler</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cli-arguments">CLI arguments</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Contributing</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="codegen/">Adding a Code Generator</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core Concepts</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="hooks/">Hooks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="nat-lang/">Natural Language Descriptions</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Compiler Reference</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >API</a>
+    <ul>
+                <li class="toctree-l2"><a class="" href="compiler/_a_s_t_8h.md">AST</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="compiler/parser_8h/">Parser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="compiler/scanner_8h/">Scanner</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="compiler/_selenium_a_s_t_visitor_8h.md">JsonASTVisitor</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="compiler/_json_a_s_t_visitor_8h.md">SeleniumASTVisitor</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">RNL Compiler</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Ghaadyy/restricted-nl/edit/main/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="restricted-natural-language-compiler">Restricted Natural Language Compiler</h1>
+<h2 id="about-the-project">About the Project</h2>
+<p>This project contains the source code for the compiler of the restricted natural language for automated web testing.
+The compiler generates a script for libraries such as Selenium <em>(support for other libraries is coming soon)</em>.</p>
+<h2 id="example">Example</h2>
+<p>Writing a library-agnostic script is straightforward.</p>
+<p>The primary goals of this language are:</p>
+<ul>
+<li>Write library-agnostic scripts easily</li>
+<li>Readable like plain English</li>
+<li>Robust tests with <strong>Smart Web Element Locators</strong></li>
+</ul>
+<p>This simple script goes to the GitHub home page and tries to sign in with a dummy account.</p>
+<pre><code>githubSignIn {
+   visit &quot;https://github.com&quot;
+   click link with description &quot;sign in present in the top right corner&quot;
+   check if image with description &quot;GitHub logo&quot; is displayed
+   type &quot;johndoe&quot; on input with description &quot;the username input field&quot;
+   type &quot;secretpassword&quot; on input with description &quot;the password input filed&quot;
+   click button with description &quot;sign in button&quot;
+}
+</code></pre>
+<h2 id="grammar">Grammar</h2>
+<p>You can find below the <strong>LL(1)</strong> grammar of the language.</p>
+<pre><code>program     ::= test program | epsilon
+test        ::= TEST_NAME { body }
+body        ::= action body | epsilon
+action      ::= click | check | type | visit
+elem_type   ::= BUTTON | LINK | TEXT | IMAGE | INPUT
+
+visit       ::= VISIT URL
+click       ::= CLICK elem_type WITH_DESC NLD
+check       ::= CHECK_IF elem_type WITH_DESC NLD state
+type        ::= TYPE CONTENT ON elem_type WITH_DESC NLD
+
+state       ::= DISPLAYED | HIDDEN
+</code></pre>
+<p><code>UPPER_CASE</code> refers to terminals, <code>lower_case</code> refers to non-terminals.</p>
+<p>We aim to support more actions in the future, however, the possible actions for the moment are: click, type <em>(with visit and check being utility actions useful for testing)</em>.</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>In order to use the compiler on your machine or within another project, you will need a stable C++ compiler such as <code>g++</code> (<code>g++-14</code> is a working version) and <a href="https://cmake.org">CMake</a>, a minimum working version is 3.10.</p>
+<h3 id="dependencies">Dependencies</h3>
+<p>This project has minimal dependencies. We depend on <a href="https://github.com/CLIUtils/CLI11">CLI11</a> to provide the CLI tool and <a href="https://github.com/nlohmann/json">nlohmann/json</a> to parse and generate the JSON version of the AST.</p>
+<h3 id="building-the-project">Building the project</h3>
+<pre><code class="language-bash">git clone https://github.com/Ghaadyy/restricted-nl.git
+cd restricted-nl/
+./install.sh
+</code></pre>
+<p><code>install.sh</code> is a script which fetches the source code from the <a href="https://github.com/Ghaadyy/restricted-nl">repository</a> and builds it using <a href="https://cmake.org">CMake</a>.
+The installation directory for the compiler is <code>/usr/local/bin</code>, it should bet already available in the <code>PATH</code> environment variable (if not, add it to have global access).</p>
+<p>This script uses a <code>g++-14</code> as the compiler, make sure to change it or install it as needed.</p>
+<h3 id="using-the-compiler">Using the compiler</h3>
+<pre><code>$ rnlc -i in.txt -o out.js -t selenium
+
+Compiled successfully
+</code></pre>
+<h3 id="cli-arguments">CLI arguments</h3>
+<pre><code>$ rnlc --help
+
+Restricted Natural Language Compiler
+Usage: rnlc [OPTIONS]
+
+Options:
+  -h,--help                         Print this help message and exit
+  -i,--input TEXT REQUIRED          Input file path
+  -o,--output TEXT REQUIRED         Output file path
+  -t,--target TEXT:{json,selenium}  [selenium] 
+                                    Output target (json, selenium)
+  --keep-xpath [0]                  Keep XPATH instead of natural description (use this for testing purposes only)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="codegen/" class="btn btn-neutral float-right" title="Adding a Code Generator">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p><b>Antoine Karam & Ghady Youssef</b></p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Ghaadyy/restricted-nl/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+      <span><a href="codegen/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-01-22 22:15:06.203838+00:00
+-->

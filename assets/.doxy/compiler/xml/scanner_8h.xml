@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="scanner_8h" kind="file" language="C++">
+    <compoundname>scanner.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">map</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">regex</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="parser_8h" local="yes">src/parser.h</includedby>
+    <includedby refid="scanner_8cpp" local="yes">src/scanner.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/scanner.h</label>
+        <link refid="scanner_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="4">
+        <label>functional</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="7">
+        <label>regex</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/parser.h</label>
+        <link refid="parser_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/scanner.h</label>
+        <link refid="scanner_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structlex__rule" prot="public">lex_rule</innerclass>
+    <innerclass refid="classScanner" prot="public">Scanner</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="scanner_8h_1a7722396ed46bc111e7b794948986f8af" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Tokens</name>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa34bd7d347b1e8b10e915bde476404e20" prot="public">
+          <name>TEST_NAME</name>
+          <initializer>= 257</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afab03e8ec91b0d074a03df67327675f025" prot="public">
+          <name>CLICK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa901e848e10f7b2a60e799cbd837178be" prot="public">
+          <name>VISIT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa7d67f007544f534278ecca3cdca12565" prot="public">
+          <name>BUTTON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afaf2fe1bf26da6f8a451f054e30b3ce0f3" prot="public">
+          <name>LINK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa9a4a47c1606e295076055a9cc4373197" prot="public">
+          <name>TEXT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa3501d25cdde2b141c20edb67965fb692" prot="public">
+          <name>IMAGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afaf2028b2ce81ddefcce798c0300e9a872" prot="public">
+          <name>DISPLAYED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa41ae0a505430bf564b119bc82db7592d" prot="public">
+          <name>HIDDEN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa0e233b90b54e7846bbfeaaf66d965965" prot="public">
+          <name>CHECK_IF</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa84f3a4bc24f5069e00e9895f8f2ec7dc" prot="public">
+          <name>WITH_DESC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa621907356237dd9d13895aa937cb27ad" prot="public">
+          <name>HOVER_OVER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afab1b5d0afb72584d41c26b1fe2c1be0fc" prot="public">
+          <name>NLD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa7859c6fa207d555e4f392f308b4b9d7c" prot="public">
+          <name>URL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa977d478dacaae531f95695750d1e9d03" prot="public">
+          <name>ON</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afab47ea8bb955afd0adc0ef98517dd6084" prot="public">
+          <name>TYPE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa59ae17a687995046ac7025dcc53156e3" prot="public">
+          <name>CONTENT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afaad080c3559b964f64a0bf3babee794ae" prot="public">
+          <name>LEFT_BRACE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afa720e33700869f857881e7f50bdfb6943" prot="public">
+          <name>RIGHT_BRACE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="scanner_8h_1a7722396ed46bc111e7b794948986f8afae310c909d76b003d016bef8bdf16936a" prot="public">
+          <name>INPUT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="14" column="1" bodyfile="src/scanner.h" bodystart="14" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="scanner_8h_1a535c523bcae99838d32ed279a1ce2a8f" prot="public" static="no" extern="yes" mutable="no">
+        <type>string</type>
+        <definition>string yysval</definition>
+        <argsstring></argsstring>
+        <name>yysval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="17" column="15" bodyfile="src/scanner.cpp" bodystart="3" bodyend="-1" declfile="src/scanner.h" declline="17" declcolumn="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RESTRICTED_NL_SCANNER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RESTRICTED_NL_SCANNER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;regex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>Tokens<sp/>{<sp/><sp/><sp/>TEST_NAME<sp/>=<sp/>257,<sp/>CLICK,<sp/>VISIT,<sp/>BUTTON,<sp/>LINK,<sp/>TEXT,<sp/>IMAGE,<sp/>DISPLAYED,<sp/>HIDDEN,<sp/>CHECK_IF,<sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>WITH_DESC,<sp/>HOVER_OVER,<sp/>NLD,<sp/>URL,<sp/>ON,<sp/>TYPE,<sp/>CONTENT,<sp/>LEFT_BRACE,<sp/>RIGHT_BRACE,<sp/>INPUT<sp/>};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>yysval;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="structlex__rule" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structlex__rule" kindref="compound">lex_rule</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>regex;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>function&lt;int(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">&amp;)&gt;<sp/>lambda;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classScanner" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classScanner" kindref="compound">Scanner</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_count<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>yytext;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>yyinput;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>token;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>position<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;lex_rule&gt;<sp/>rules;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classScanner" kindref="compound">Scanner</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">&amp;&amp;<sp/>content);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>getTokenName(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tokenId);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line_number()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>yylex();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//RESTRICTED_NL_SCANNER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/scanner.h"/>
+  </compounddef>
+</doxygen>

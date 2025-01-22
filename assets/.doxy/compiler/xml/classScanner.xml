@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classScanner" kind="class" language="C++" prot="public">
+    <compoundname>Scanner</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classScanner_1a012664845ed9d7f35afac6c6afbf0620" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Scanner::line_count</definition>
+        <argsstring></argsstring>
+        <name>line_count</name>
+        <qualifiedname>Scanner::line_count</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="26" column="9" bodyfile="src/scanner.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScanner_1a9ed221d10bd45d12a0f45b8c61ff0318" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Scanner::yytext</definition>
+        <argsstring></argsstring>
+        <name>yytext</name>
+        <qualifiedname>Scanner::yytext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="27" column="12" bodyfile="src/scanner.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScanner_1a6e03d7772b61256fb7510ffb76b6bd5e" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Scanner::yyinput</definition>
+        <argsstring></argsstring>
+        <name>yyinput</name>
+        <qualifiedname>Scanner::yyinput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="28" column="12" bodyfile="src/scanner.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScanner_1a0269ca47a6935c0a1ef6fabf74a33bf0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Scanner::token</definition>
+        <argsstring></argsstring>
+        <name>token</name>
+        <qualifiedname>Scanner::token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="29" column="9" bodyfile="src/scanner.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScanner_1a076e03814ad0c1331bb7bd7bbc159cb1" prot="private" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long Scanner::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>Scanner::position</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="30" column="15" bodyfile="src/scanner.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classScanner_1a27ec59531807045e1d850584bf317ef4" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structlex__rule" kindref="compound">lex_rule</ref> &gt;</type>
+        <definition>vector&lt;lex_rule&gt; Scanner::rules</definition>
+        <argsstring></argsstring>
+        <name>rules</name>
+        <qualifiedname>Scanner::rules</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="31" column="12" bodyfile="src/scanner.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classScanner_1a76c83bb040884f5ab5333bcf0f123374" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Scanner::Scanner</definition>
+        <argsstring>(string &amp;&amp;content)</argsstring>
+        <name>Scanner</name>
+        <qualifiedname>Scanner::Scanner</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="34" column="14" bodyfile="src/scanner.cpp" bodystart="5" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classScanner_1a7863c5cfdf6dd3b6a8d61572ecba6efa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scanner::line_number</definition>
+        <argsstring>() const</argsstring>
+        <name>line_number</name>
+        <qualifiedname>Scanner::line_number</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="38" column="9" bodyfile="src/scanner.cpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classScanner_1aa6c7c47e34334122c9d795b9a9926ecd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Scanner::yylex</definition>
+        <argsstring>()</argsstring>
+        <name>yylex</name>
+        <qualifiedname>Scanner::yylex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="40" column="9" bodyfile="src/scanner.cpp" bodystart="59" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classScanner_1a582d4ea956c18a87b7a2ef716366fd19" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Scanner::getTokenName</definition>
+        <argsstring>(int tokenId)</argsstring>
+        <name>getTokenName</name>
+        <qualifiedname>Scanner::getTokenName</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>tokenId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/scanner.h" line="36" column="19" bodyfile="src/scanner.cpp" bodystart="42" bodyend="53"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/scanner.h" line="24" column="1" bodyfile="src/scanner.h" bodystart="24" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classScanner_1a582d4ea956c18a87b7a2ef716366fd19" prot="public" virt="non-virtual"><scope>Scanner</scope><name>getTokenName</name></member>
+      <member refid="classScanner_1a012664845ed9d7f35afac6c6afbf0620" prot="private" virt="non-virtual"><scope>Scanner</scope><name>line_count</name></member>
+      <member refid="classScanner_1a7863c5cfdf6dd3b6a8d61572ecba6efa" prot="public" virt="non-virtual"><scope>Scanner</scope><name>line_number</name></member>
+      <member refid="classScanner_1a076e03814ad0c1331bb7bd7bbc159cb1" prot="private" virt="non-virtual"><scope>Scanner</scope><name>position</name></member>
+      <member refid="classScanner_1a27ec59531807045e1d850584bf317ef4" prot="private" virt="non-virtual"><scope>Scanner</scope><name>rules</name></member>
+      <member refid="classScanner_1a76c83bb040884f5ab5333bcf0f123374" prot="public" virt="non-virtual"><scope>Scanner</scope><name>Scanner</name></member>
+      <member refid="classScanner_1a0269ca47a6935c0a1ef6fabf74a33bf0" prot="private" virt="non-virtual"><scope>Scanner</scope><name>token</name></member>
+      <member refid="classScanner_1a6e03d7772b61256fb7510ffb76b6bd5e" prot="private" virt="non-virtual"><scope>Scanner</scope><name>yyinput</name></member>
+      <member refid="classScanner_1aa6c7c47e34334122c9d795b9a9926ecd" prot="public" virt="non-virtual"><scope>Scanner</scope><name>yylex</name></member>
+      <member refid="classScanner_1a9ed221d10bd45d12a0f45b8c61ff0318" prot="private" virt="non-virtual"><scope>Scanner</scope><name>yytext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

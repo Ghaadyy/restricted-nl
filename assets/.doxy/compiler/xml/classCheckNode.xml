@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCheckNode" kind="class" language="C++" prot="public">
+    <compoundname>CheckNode</compoundname>
+    <basecompoundref refid="classActionNode" prot="public" virt="non-virtual">ActionNode</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCheckNode_1a465dc41076e0456be769726846abcdc6" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string CheckNode::element_type</definition>
+        <argsstring></argsstring>
+        <name>element_type</name>
+        <qualifiedname>CheckNode::element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="55" column="12" bodyfile="src/ast/AST.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCheckNode_1a7b655dafbaa3834302efcddca1943ced" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string CheckNode::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <qualifiedname>CheckNode::description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="56" column="12" bodyfile="src/ast/AST.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCheckNode_1af19a56e0ef8df44ab908607e33d37181" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool CheckNode::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>CheckNode::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="57" column="10" bodyfile="src/ast/AST.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCheckNode_1ac35a96cb629c0d39af85e85f42541427" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CheckNode::CheckNode</definition>
+        <argsstring>(string &amp;&amp;element_type, string &amp;&amp;description, bool state)</argsstring>
+        <name>CheckNode</name>
+        <qualifiedname>CheckNode::CheckNode</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>element_type</declname>
+        </param>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="59" column="14" bodyfile="src/ast/AST.cpp" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classCheckNode_1a0118c51e86656c3f7c8d6f91de64f184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>string</type>
+        <definition>string CheckNode::accept</definition>
+        <argsstring>(ASTVisitor &amp;visitor) const override</argsstring>
+        <name>accept</name>
+        <qualifiedname>CheckNode::accept</qualifiedname>
+        <reimplements refid="classActionNode_1a7eb8e8964012e90b58a924404e350ce8">accept</reimplements>
+        <param>
+          <type><ref refid="classASTVisitor" kindref="compound">ASTVisitor</ref> &amp;</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="60" column="12" bodyfile="src/ast/AST.cpp" bodystart="23" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classCheckNode_1abb4837ee80a372c9e2c1bb9d4302e914" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string CheckNode::get_element_type</definition>
+        <argsstring>() const</argsstring>
+        <name>get_element_type</name>
+        <qualifiedname>CheckNode::get_element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="61" column="12" bodyfile="src/ast/AST.cpp" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classCheckNode_1a6cb68be32e212f871053d7b1f67adf20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string CheckNode::get_description</definition>
+        <argsstring>() const</argsstring>
+        <name>get_description</name>
+        <qualifiedname>CheckNode::get_description</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="62" column="12" bodyfile="src/ast/AST.cpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classCheckNode_1aee019b04f7db6cd6e3cc416c55f90987" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CheckNode::get_state</definition>
+        <argsstring>() const</argsstring>
+        <name>get_state</name>
+        <qualifiedname>CheckNode::get_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="63" column="10" bodyfile="src/ast/AST.cpp" bodystart="59" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>CheckNode</label>
+        <link refid="classCheckNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionNode</label>
+        <link refid="classActionNode"/>
+      </node>
+      <node id="1">
+        <label>CheckNode</label>
+        <link refid="classCheckNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/ast/AST.h" line="53" column="1" bodyfile="src/ast/AST.h" bodystart="53" bodyend="64"/>
+    <listofallmembers>
+      <member refid="classCheckNode_1a0118c51e86656c3f7c8d6f91de64f184" prot="public" virt="virtual"><scope>CheckNode</scope><name>accept</name></member>
+      <member refid="classActionNode_1a8fdbd1874948957c218f44c2698d3695" prot="public" virt="non-virtual"><scope>CheckNode</scope><name>ActionNode</name></member>
+      <member refid="classCheckNode_1ac35a96cb629c0d39af85e85f42541427" prot="public" virt="non-virtual"><scope>CheckNode</scope><name>CheckNode</name></member>
+      <member refid="classCheckNode_1a7b655dafbaa3834302efcddca1943ced" prot="private" virt="non-virtual"><scope>CheckNode</scope><name>description</name></member>
+      <member refid="classCheckNode_1a465dc41076e0456be769726846abcdc6" prot="private" virt="non-virtual"><scope>CheckNode</scope><name>element_type</name></member>
+      <member refid="classCheckNode_1a6cb68be32e212f871053d7b1f67adf20" prot="public" virt="non-virtual"><scope>CheckNode</scope><name>get_description</name></member>
+      <member refid="classCheckNode_1abb4837ee80a372c9e2c1bb9d4302e914" prot="public" virt="non-virtual"><scope>CheckNode</scope><name>get_element_type</name></member>
+      <member refid="classCheckNode_1aee019b04f7db6cd6e3cc416c55f90987" prot="public" virt="non-virtual"><scope>CheckNode</scope><name>get_state</name></member>
+      <member refid="classCheckNode_1af19a56e0ef8df44ab908607e33d37181" prot="private" virt="non-virtual"><scope>CheckNode</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
