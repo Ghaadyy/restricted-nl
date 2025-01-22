@@ -1,0 +1,37 @@
+site_name: RNL Compiler
+site_author: Antoine Karam and Ghady Youssef
+repo_url: https://github.com/Ghaadyy/restricted-nl/
+copyright: <b>Antoine Karam & Ghady Youssef</b>
+edit_uri: edit/main/docs/
+
+nav:
+  - Home: index.md
+  - Contributing:
+      - Adding a Code Generator: codegen.md
+  - Core Concepts:
+      - Hooks: hooks.md
+      - Natural Language Descriptions: nat-lang.md
+  - Compiler Reference:
+      - API:
+          - AST: compiler/_a_s_t_8h.md
+          - Parser: compiler/parser_8h.md
+          - Scanner: compiler/scanner_8h.md
+          - JsonASTVisitor: compiler/_selenium_a_s_t_visitor_8h.md
+          - SeleniumASTVisitor: compiler/_json_a_s_t_visitor_8h.md
+
+theme:
+  name: readthedocs
+
+markdown_extensions:
+  - admonition
+
+plugins:
+  - search
+  - mkdoxy:
+      projects:
+        compiler:
+          src-dirs: src/
+          full-doc: True # if you want to generate full documentation
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+            RECURSIVE: True # recursive search in source directories
