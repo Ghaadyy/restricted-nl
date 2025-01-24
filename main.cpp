@@ -5,69 +5,89 @@
 #include <fstream>
 #include <CLI/CLI.hpp>
 
-using namespace std;
+std::string in_path;
+std::string out_path;
+std::string out_target;
+bool keep_xpath;
+
+std::string read_source(std::istream& stream) {
+    std::string file, line;
+    while (std::getline(stream, line)) file += line + "\n";
+    return file;
+}
+
+void show_errors(const std::vector<std::string>& errors) {
+    for (const auto &err: errors) {
+        std::cerr << err << std::endl;
+    }
+    std::cerr << "Compilation failed" << std::endl;
+}
+
+void output_code(const std::string& path, const std::string& code) {
+    if (path.empty()) {
+        std::cout << code;
+    } else {
+        std::ofstream file(path);
+        file << code;
+        file.close();
+    }
+}
+
+void config_app(CLI::App& app) {
+    app.add_option("-i,--input", in_path, "Input file path");
+    app.add_option("-o,--output", out_path, "Output file path");
+    app.add_option("-t,--target", out_target, "Output target (json, selenium)")
+            ->check(CLI::IsMember({"json", "selenium"}))->default_val("selenium");
+    app.add_flag("--keep-xpath", keep_xpath,
+                 "Keep XPATH instead of natural description (use this for testing purposes only)")->default_val(false);
+}
 
 int main(int argc, char** argv) {
     CLI::App app{"Restricted Natural Language Compiler"};
-
     argv = app.ensure_utf8(argv);
-
-    std::string in_path;
-    std::string out_path;
-    std::string out_target;
-    bool keep_xpath;
-
-    app.add_option("-i,--input", in_path, "Input file path")->required();
-    app.add_option("-o,--output", out_path, "Output file path")->required();
-    app.add_option("-t,--target", out_target, "Output target (json, selenium)")
-        ->check(CLI::IsMember({"json", "selenium"}))->default_val("selenium");
-    app.add_flag("--keep-xpath", keep_xpath, "Keep XPATH instead of natural description (use this for testing purposes only)")->default_val(false);
+    config_app(app);
 
     try {
         app.parse(argc, argv);
-    } catch (const CLI::ParseError& e) {
+    } catch (const CLI::ParseError &e) {
         return app.exit(e);
     }
 
-    ifstream infile = ifstream(in_path);
-    ofstream outfile = ofstream(out_path);
+    std::string file;
 
-    string line;
-    string file;
-    if (infile.is_open()) {
-        while (getline(infile, line)) {
-            file += line + "\n";
+    if (in_path.empty()) {
+        file = read_source(std::cin);
+    } else {
+        std::ifstream infile(in_path);
+        if (infile.is_open()) {
+            file = read_source(infile);
+            infile.close();
+        } else {
+            std::cerr << "Could not find input file." << std::endl;
+            return -1;
         }
-        infile.close();
-    }
-    else {
-        cerr << "Unable to open file!" << endl;
-        return -1;
     }
 
     parser p(std::move(file));
-    auto res =  p.parse();
-    if(res.has_value()) {
-        const auto& tree = res.value();
-        ASTVisitor* visitor;
+    auto res = p.parse();
 
-        if(out_target == "json") {
+    if (res.has_value()) {
+        const auto &tree = res.value();
+        ASTVisitor *visitor;
+
+        if (out_target == "json") {
             visitor = new JsonASTVisitor();
-        } else if(out_target == "selenium") {
+        } else if (out_target == "selenium") {
             visitor = new SeleniumASTVisitor(keep_xpath);
         } else {
-            cerr << "Invalid output target specified" << endl;
+            std::cerr << "Invalid output target specified" << std::endl;
             return -1;
         }
 
-        string code = tree.accept(*visitor);
-        outfile << code;
-        cout << "Compiled Successfully" << endl;
+        std::string code = tree.accept(*visitor);
+        output_code(out_path, code);
     } else {
-        for(const auto& err : res.error()) {
-            cout << err << endl;
-        }
-        cerr << "Compilation failed";
+        show_errors(res.error());
     }
 
     return 0;
