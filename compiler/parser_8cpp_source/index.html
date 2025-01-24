@@ -100,7 +100,6 @@
 <p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_68267d1309a1af8e8297ef4c3efbcdba/"><strong>src</strong></a> <strong>&gt;</strong> <a href="../parser_8cpp/"><strong>parser.cpp</strong></a></p>
 <p><a href="../parser_8cpp/">Go to the documentation of this file</a></p>
 <pre><code class="language-C++">#include &quot;parser.h&quot;
-#include &lt;cstring&gt;
 #include &quot;ast/SeleniumASTVisitor.h&quot;
 
 parser::parser(string&amp;&amp; content)
@@ -335,7 +334,7 @@ bool parser::recoverFromError(const vector&lt;enum Tokens&gt;&amp; syncSet) {
     while (token != 0) {
         for (auto syncToken : syncSet) {
             if (token == syncToken) {
-                cout &lt;&lt; &quot;[Recovery] Found synchronizing token: &quot; &lt;&lt; Scanner::getTokenName(token) &lt;&lt; &quot; at line &quot; &lt;&lt;
+                cerr &lt;&lt; &quot;[Recovery] Found synchronizing token: &quot; &lt;&lt; Scanner::getTokenName(token) &lt;&lt; &quot; at line &quot; &lt;&lt;
                         to_string(scanner.line_number()) &lt;&lt; endl;
                 return true;
             }
@@ -358,35 +357,6 @@ expected&lt;AST, vector&lt;string&gt;&gt; parser::parse() {
     }
 
     return unexpected(errors);
-}
-
-#ifdef _WIN32
-#define DLL_API __declspec(dllexport)
-#else
-#define DLL_API __attribute__((visibility(&quot;default&quot;)))
-#endif
-extern &quot;C&quot; DLL_API bool parse(const char *path, const char** code, const char** errors[], size_t* error_count) {
-    parser p(path);
-    auto res =  p.parse();
-    if(res.has_value()) {
-        const auto&amp; tree = res.value();
-        ASTVisitor* visitor = new SeleniumASTVisitor(true); // defaults to true but this will be removed later
-        string output = tree.accept(*visitor);
-        *code = strdup(output.c_str());
-        return true;
-    }
-
-    auto&amp; errs = res.error();
-
-    *error_count = errs.size();
-    *errors = new const char*[*error_count];
-    for (size_t i = 0; i &lt; *error_count; ++i) {
-        char* err = new char[errs[i].size() + 1];
-        strcpy(err, errs[i].c_str());
-        (*errors)[i] = err;
-    }
-
-    return false;
 }
 </code></pre>
               

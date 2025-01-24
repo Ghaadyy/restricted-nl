@@ -133,8 +133,6 @@
   <compound refid="SeleniumASTVisitor_8h" kind="file"><name>SeleniumASTVisitor.h</name>
   </compound>
   <compound refid="parser_8cpp" kind="file"><name>parser.cpp</name>
-    <member refid="parser_8cpp_1a1a2aaad2f42ad198a2e6c97dc7681137" kind="define"><name>DLL_API</name></member>
-    <member refid="parser_8cpp_1a393f2334deca6db414c7ec4e01e73b79" kind="function"><name>parse</name></member>
   </compound>
   <compound refid="parser_8h" kind="file"><name>parser.h</name>
   </compound>

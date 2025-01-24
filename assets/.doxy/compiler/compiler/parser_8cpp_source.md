@@ -9,7 +9,6 @@
 
 ```C++
 #include "parser.h"
-#include <cstring>
 #include "ast/SeleniumASTVisitor.h"
 
 parser::parser(string&& content)
@@ -244,7 +243,7 @@ bool parser::recoverFromError(const vector<enum Tokens>& syncSet) {
     while (token != 0) {
         for (auto syncToken : syncSet) {
             if (token == syncToken) {
-                cout << "[Recovery] Found synchronizing token: " << Scanner::getTokenName(token) << " at line " <<
+                cerr << "[Recovery] Found synchronizing token: " << Scanner::getTokenName(token) << " at line " <<
                         to_string(scanner.line_number()) << endl;
                 return true;
             }
@@ -267,35 +266,6 @@ expected<AST, vector<string>> parser::parse() {
     }
 
     return unexpected(errors);
-}
-
-#ifdef _WIN32
-#define DLL_API __declspec(dllexport)
-#else
-#define DLL_API __attribute__((visibility("default")))
-#endif
-extern "C" DLL_API bool parse(const char *path, const char** code, const char** errors[], size_t* error_count) {
-    parser p(path);
-    auto res =  p.parse();
-    if(res.has_value()) {
-        const auto& tree = res.value();
-        ASTVisitor* visitor = new SeleniumASTVisitor(true); // defaults to true but this will be removed later
-        string output = tree.accept(*visitor);
-        *code = strdup(output.c_str());
-        return true;
-    }
-
-    auto& errs = res.error();
-
-    *error_count = errs.size();
-    *errors = new const char*[*error_count];
-    for (size_t i = 0; i < *error_count; ++i) {
-        char* err = new char[errs[i].size() + 1];
-        strcpy(err, errs[i].c_str());
-        (*errors)[i] = err;
-    }
-
-    return false;
 }
 ```
 

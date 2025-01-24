@@ -5,7 +5,7 @@ Here is a list of all files with brief descriptions:
 
 
 * **dir** [**src**](dir_68267d1309a1af8e8297ef4c3efbcdba.md)     
-    * **file** [**parser.cpp**](parser_8cpp.md)     
+    * **file** [**parser.cpp**](parser_8cpp.md) 
     * **file** [**parser.h**](parser_8h.md)     
     * **file** [**scanner.cpp**](scanner_8cpp.md)     
     * **file** [**scanner.h**](scanner_8h.md)     

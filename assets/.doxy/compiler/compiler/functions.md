@@ -2,11 +2,6 @@
 # Functions
 
 
-
-## p
-
-* **parse** ([**parser.cpp**](parser_8cpp.md))
-
-
+Nothing related to **Functions** found.
 
 
