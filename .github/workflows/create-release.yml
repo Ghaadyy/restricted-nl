@@ -53,7 +53,7 @@ jobs:
           mkdir -p release-artifacts
           version="${{ github.ref_name }}"
           if [ "${{ matrix.os }}" == "windows-latest" ]; then
-            zip -r release-artifacts/build-windows-${version}.zip ${{ steps.strings.outputs.build-output-dir }}
+            zip -r release-artifacts/build-windows-${version}.zip $(cygpath -u "${{ steps.strings.outputs.build-output-dir }}")
           elif [ "${{ matrix.os }}" == "macos-latest" ]; then
             zip -r release-artifacts/build-macos-${version}.zip ${{ steps.strings.outputs.build-output-dir }}
           else
