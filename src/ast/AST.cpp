@@ -12,6 +12,12 @@ VisitNode::VisitNode(string &&url) : url(std::move(url)), ActionNode() {}
 
 CheckNode::CheckNode(string &&element_type, string &&description, bool state) : element_type(std::move(element_type)), description(std::move(description)), state(state), ActionNode() {}
 
+TestNode::TestNode(string&& testName, vector<ActionNode *> actions) : testName(std::move(testName)), actions(std::move(actions)) {}
+
+AST::AST() : tests(vector<TestNode>()) {}
+
+AST::AST(vector<TestNode> tests) : tests(std::move(tests)) {}
+
 string ClickNode::accept(ASTVisitor &visitor) const {
     return visitor.visit(*this);
 }

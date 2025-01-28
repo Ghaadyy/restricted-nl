@@ -2,7 +2,7 @@
 #include "ast/SeleniumASTVisitor.h"
 
 parser::parser(string&& content)
-    : scanner { Scanner(std::move(content)) } {}
+    : scanner { Scanner(std::move(content)) }, tree(AST()) {}
 
 bool parser::program() { //program -> test program | epsilon
     if(token == 0) return true; // program -> epsilon
@@ -14,7 +14,7 @@ bool parser::program() { //program -> test program | epsilon
 
 bool parser::test() {
     if(token == TEST_NAME) {
-        tree.tests.push_back(TestNode(yysval, vector<ActionNode*>()));
+        tree.tests.emplace_back(std::move(yysval), vector<ActionNode*>());
         token = scanner.yylex();
         if(token == LEFT_BRACE) {
             token = scanner.yylex();
