@@ -56,6 +56,8 @@
 
 | Type | Name |
 | ---: | :--- |
+|   | [**AST**](#function-ast-12) (vector&lt; [**TestNode**](classTestNode.md) &gt; tests) <br> |
+|   | [**AST**](#function-ast-22) () <br> |
 |  string | [**accept**](#function-accept) ([**ASTVisitor**](classASTVisitor.md) & visitor) const<br> |
 
 
@@ -102,6 +104,34 @@ vector<TestNode> AST::tests;
 <hr>
 ## Public Functions Documentation
 
+
+
+
+### function AST [1/2]
+
+```C++
+explicit AST::AST (
+    vector< TestNode > tests
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function AST [2/2]
+
+```C++
+explicit AST::AST () 
+```
+
+
+
+
+<hr>
 
 
 

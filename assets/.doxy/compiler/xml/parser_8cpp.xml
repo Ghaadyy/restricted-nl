@@ -108,7 +108,7 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ast/SeleniumASTVisitor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal">parser::parser(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">&amp;&amp;<sp/>content)</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>scanner<sp/>{<sp/><ref refid="classScanner" kindref="compound">Scanner</ref>(std::move(content))<sp/>}<sp/>{}</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>scanner<sp/>{<sp/><ref refid="classScanner" kindref="compound">Scanner</ref>(std::move(content))<sp/>},<sp/>tree(<ref refid="classAST" kindref="compound">AST</ref>())<sp/>{}</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>parser::program()<sp/>{<sp/></highlight><highlight class="comment">//program<sp/>-&gt;<sp/>test<sp/>program<sp/>|<sp/>epsilon</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(token<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>program<sp/>-&gt;<sp/>epsilon</highlight><highlight class="normal"></highlight></codeline>
@@ -120,7 +120,7 @@
 <codeline lineno="14"><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>parser::test()<sp/>{</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(token<sp/>==<sp/>TEST_NAME)<sp/>{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree.tests.push_back(<ref refid="classTestNode" kindref="compound">TestNode</ref>(yysval,<sp/>vector&lt;ActionNode*&gt;()));</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tree.tests.emplace_back(std::move(yysval),<sp/>vector&lt;ActionNode*&gt;());</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token<sp/>=<sp/>scanner.yylex();</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(token<sp/>==<sp/>LEFT_BRACE)<sp/>{</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>token<sp/>=<sp/>scanner.yylex();</highlight></codeline>

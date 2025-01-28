@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="47" column="12" bodyfile="src/ast/AST.cpp" bodystart="19" bodyend="21"/>
+        <location file="src/ast/AST.h" line="47" column="12" bodyfile="src/ast/AST.cpp" bodystart="25" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="classTypeNode_1a75d76722c58d4155385709f9997040bc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="48" column="12" bodyfile="src/ast/AST.cpp" bodystart="47" bodyend="49"/>
+        <location file="src/ast/AST.h" line="48" column="12" bodyfile="src/ast/AST.cpp" bodystart="53" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="classTypeNode_1aea2001d582ce9885776e612bbdcbf2f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="49" column="12" bodyfile="src/ast/AST.cpp" bodystart="39" bodyend="41"/>
+        <location file="src/ast/AST.h" line="49" column="12" bodyfile="src/ast/AST.cpp" bodystart="45" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classTypeNode_1af1cc36213bab28343a889fcf72dbfcd5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="50" column="12" bodyfile="src/ast/AST.cpp" bodystart="43" bodyend="45"/>
+        <location file="src/ast/AST.h" line="50" column="12" bodyfile="src/ast/AST.cpp" bodystart="49" bodyend="51"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

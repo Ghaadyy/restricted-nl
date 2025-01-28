@@ -49,18 +49,41 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="70" column="12" bodyfile="src/ast/AST.cpp" bodystart="35" bodyend="37"/>
+        <location file="src/ast/AST.h" line="70" column="12" bodyfile="src/ast/AST.cpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classTestNode_1a6d3d4d1f9ed0e6708950725105b11968" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TestNode::TestNode</definition>
+        <argsstring>(string &amp;&amp;testName, vector&lt; ActionNode * &gt; actions)</argsstring>
+        <name>TestNode</name>
+        <qualifiedname>TestNode::TestNode</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>testName</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classActionNode" kindref="compound">ActionNode</ref> * &gt;</type>
+          <declname>actions</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="71" column="14" bodyfile="src/ast/AST.cpp" bodystart="15" bodyend="15"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ast/AST.h" line="66" column="1" bodyfile="src/ast/AST.h" bodystart="66" bodyend="71"/>
+    <location file="src/ast/AST.h" line="66" column="1" bodyfile="src/ast/AST.h" bodystart="66" bodyend="72"/>
     <listofallmembers>
       <member refid="classTestNode_1aec1cb675dd5697bd06408ef3e62ffe78" prot="public" virt="non-virtual"><scope>TestNode</scope><name>accept</name></member>
       <member refid="classTestNode_1ab8d18cbbbf3e3176246199d78a8592af" prot="public" virt="non-virtual"><scope>TestNode</scope><name>actions</name></member>
       <member refid="classTestNode_1a983999ea39d8c5e77a96b9e253260508" prot="public" virt="non-virtual"><scope>TestNode</scope><name>testName</name></member>
+      <member refid="classTestNode_1a6d3d4d1f9ed0e6708950725105b11968" prot="public" virt="non-virtual"><scope>TestNode</scope><name>TestNode</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

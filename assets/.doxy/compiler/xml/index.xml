@@ -7,6 +7,8 @@
   <compound refid="classAST" kind="class"><name>AST</name>
     <member refid="classAST_1a935cca79ff1094ef84a3eaeb5b519535" kind="variable"><name>tests</name></member>
     <member refid="classAST_1abe2e8b0027f2aa49137697dc1f35dcdb" kind="function"><name>accept</name></member>
+    <member refid="classAST_1ac69fb032dfb192bc55e149aa0c6d4528" kind="function"><name>AST</name></member>
+    <member refid="classAST_1afd378ca7cb3049d6293e8597d31d758d" kind="function"><name>AST</name></member>
   </compound>
   <compound refid="classASTVisitor" kind="class"><name>ASTVisitor</name>
     <member refid="classASTVisitor_1a44752149fa1a44dff1fc313948b2ee98" kind="function"><name>visit</name></member>
@@ -100,6 +102,7 @@
     <member refid="classTestNode_1a983999ea39d8c5e77a96b9e253260508" kind="variable"><name>testName</name></member>
     <member refid="classTestNode_1ab8d18cbbbf3e3176246199d78a8592af" kind="variable"><name>actions</name></member>
     <member refid="classTestNode_1aec1cb675dd5697bd06408ef3e62ffe78" kind="function"><name>accept</name></member>
+    <member refid="classTestNode_1a6d3d4d1f9ed0e6708950725105b11968" kind="function"><name>TestNode</name></member>
   </compound>
   <compound refid="classTypeNode" kind="class"><name>TypeNode</name>
     <member refid="classTypeNode_1aa9ba7a63accb0edc70477f17c939624b" kind="variable"><name>content</name></member>

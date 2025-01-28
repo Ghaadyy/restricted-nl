@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="75" column="12" bodyfile="src/ast/AST.h" bodystart="75" bodyend="-1"/>
+        <location file="src/ast/AST.h" line="76" column="12" bodyfile="src/ast/AST.h" bodystart="76" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -35,16 +35,50 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="76" column="12" bodyfile="src/ast/AST.cpp" bodystart="31" bodyend="33"/>
+        <location file="src/ast/AST.h" line="77" column="12" bodyfile="src/ast/AST.cpp" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classAST_1ac69fb032dfb192bc55e149aa0c6d4528" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AST::AST</definition>
+        <argsstring>(vector&lt; TestNode &gt; tests)</argsstring>
+        <name>AST</name>
+        <qualifiedname>AST::AST</qualifiedname>
+        <param>
+          <type>vector&lt; <ref refid="classTestNode" kindref="compound">TestNode</ref> &gt;</type>
+          <declname>tests</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="78" column="14" bodyfile="src/ast/AST.cpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classAST_1afd378ca7cb3049d6293e8597d31d758d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AST::AST</definition>
+        <argsstring>()</argsstring>
+        <name>AST</name>
+        <qualifiedname>AST::AST</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ast/AST.h" line="79" column="14" bodyfile="src/ast/AST.cpp" bodystart="17" bodyend="17"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/ast/AST.h" line="73" column="1" bodyfile="src/ast/AST.h" bodystart="73" bodyend="77"/>
+    <location file="src/ast/AST.h" line="74" column="1" bodyfile="src/ast/AST.h" bodystart="74" bodyend="80"/>
     <listofallmembers>
       <member refid="classAST_1abe2e8b0027f2aa49137697dc1f35dcdb" prot="public" virt="non-virtual"><scope>AST</scope><name>accept</name></member>
+      <member refid="classAST_1ac69fb032dfb192bc55e149aa0c6d4528" prot="public" virt="non-virtual"><scope>AST</scope><name>AST</name></member>
+      <member refid="classAST_1afd378ca7cb3049d6293e8597d31d758d" prot="public" virt="non-virtual"><scope>AST</scope><name>AST</name></member>
       <member refid="classAST_1a935cca79ff1094ef84a3eaeb5b519535" prot="public" virt="non-virtual"><scope>AST</scope><name>tests</name></member>
     </listofallmembers>
   </compounddef>

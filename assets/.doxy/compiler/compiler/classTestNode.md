@@ -57,6 +57,7 @@
 
 | Type | Name |
 | ---: | :--- |
+|   | [**TestNode**](#function-testnode) (string && testName, vector&lt; [**ActionNode**](classActionNode.md) \* &gt; actions) <br> |
 |  string | [**accept**](#function-accept) ([**ASTVisitor**](classASTVisitor.md) & visitor) const<br> |
 
 
@@ -116,6 +117,22 @@ string TestNode::testName;
 <hr>
 ## Public Functions Documentation
 
+
+
+
+### function TestNode 
+
+```C++
+explicit TestNode::TestNode (
+    string && testName,
+    vector< ActionNode * > actions
+) 
+```
+
+
+
+
+<hr>
 
 
 

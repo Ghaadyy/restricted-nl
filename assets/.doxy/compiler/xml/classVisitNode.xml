@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="24" column="12" bodyfile="src/ast/AST.cpp" bodystart="27" bodyend="29"/>
+        <location file="src/ast/AST.h" line="24" column="12" bodyfile="src/ast/AST.cpp" bodystart="33" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="classVisitNode_1a3af4428ee7a6522b4e92212586481b03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>string</type>

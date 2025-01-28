@@ -127,6 +127,10 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-testnode"><strong>TestNode</strong></a> (string &amp;&amp; testName, vector&lt; <a href="../classActionNode/"><strong>ActionNode</strong></a> * &gt; actions) <br></td>
+</tr>
+<tr>
 <td style="text-align: right;">string</td>
 <td style="text-align: left;"><a href="#function-accept"><strong>accept</strong></a> (<a href="../classASTVisitor/"><strong>ASTVisitor</strong></a> &amp; visitor) const<br></td>
 </tr>
@@ -143,6 +147,14 @@
 </code></pre>
 <hr>
 <h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-testnode">function TestNode</h3>
+<pre><code class="language-C++">explicit TestNode::TestNode (
+    string &amp;&amp; testName,
+    vector&lt; ActionNode * &gt; actions
+) 
+</code></pre>
+<hr>
+
 <h3 id="function-accept">function accept</h3>
 <pre><code class="language-C++">string TestNode::accept (
     ASTVisitor &amp; visitor

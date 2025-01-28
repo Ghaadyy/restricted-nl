@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="36" column="12" bodyfile="src/ast/AST.cpp" bodystart="15" bodyend="17"/>
+        <location file="src/ast/AST.h" line="36" column="12" bodyfile="src/ast/AST.cpp" bodystart="21" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="classClickNode_1abd9e196bd30154bd7d1a9b8d7ea6b925" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="37" column="12" bodyfile="src/ast/AST.cpp" bodystart="63" bodyend="65"/>
+        <location file="src/ast/AST.h" line="37" column="12" bodyfile="src/ast/AST.cpp" bodystart="69" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classClickNode_1acd7324bf36cc1f3a853c079dc083dae8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/AST.h" line="38" column="12" bodyfile="src/ast/AST.cpp" bodystart="67" bodyend="69"/>
+        <location file="src/ast/AST.h" line="38" column="12" bodyfile="src/ast/AST.cpp" bodystart="73" bodyend="75"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

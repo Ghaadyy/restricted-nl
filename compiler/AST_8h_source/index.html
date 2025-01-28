@@ -169,12 +169,15 @@ public:
     string testName;
     vector&lt;ActionNode*&gt; actions;
     string accept(ASTVisitor&amp; visitor) const;
+    explicit TestNode(string&amp;&amp; testName, vector&lt;ActionNode*&gt; actions);
 };
 
 class AST {
 public:
     vector&lt;TestNode&gt; tests;
     string accept(ASTVisitor&amp; visitor) const;
+    explicit AST(vector&lt;TestNode&gt; tests);
+    explicit AST();
 };
 
 class ASTVisitor {
