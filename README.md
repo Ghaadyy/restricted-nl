@@ -53,26 +53,11 @@ We aim to support more actions in the future, however, the possible actions for 
 
 ## Getting Started
 
-### Prerequisites
+### Installation
 
-In order to use the compiler on your machine or within another project, you will need a stable C++ compiler such as `g++` (`g++-14` is a working version) and [CMake](https://cmake.org), a minimum working version is 3.10.
+Head to the [releases](https://github.com/Ghaadyy/restricted-nl/releases/latest) page and download the latest release required version for your machine.
 
-### Dependencies
-
-This project has minimal dependencies. We depend on [CLI11](https://github.com/CLIUtils/CLI11) to provide the CLI tool and [nlohmann/json](https://github.com/nlohmann/json) to parse and generate the JSON version of the AST.
-
-### Building the project
-
-```bash
-git clone https://github.com/Ghaadyy/restricted-nl.git
-cd restricted-nl/
-./install.sh
-```
-
-`install.sh` is a script which fetches the source code from the [repository](https://github.com/Ghaadyy/restricted-nl) and builds it using [CMake](https://cmake.org).
-The installation directory for the compiler is `/usr/local/bin`, it should bet already available in the `PATH` environment variable (if not, add it to have global access).
-
-This script uses a `g++-14` as the compiler, make sure to change it or install it as needed.
+Extract the executable from the archive and add it to your `PATH` environment variable if you wish to use it as a global CLI tool on your system.
 
 ### Using the compiler
 
