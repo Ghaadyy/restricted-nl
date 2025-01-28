@@ -28,6 +28,7 @@ jobs:
       - name: Install Dependencies (Windows)
         if: runner.os == 'Windows'
         run: |
+          choco install zip -y
           choco install mingw --version=12.2.0 -y
           echo "CXX=${{ env.GITHUB_WORKSPACE }}/mingw64/bin/g++.exe" >> $GITHUB_ENV
           echo "CC=${{ env.GITHUB_WORKSPACE }}/mingw64/bin/gcc.exe" >> $GITHUB_ENV
