@@ -57,6 +57,7 @@ jobs:
             zip -r release-artifacts/build-macos-${version}.zip ${{ steps.strings.outputs.build-output-dir }}
           else
             tar -czf release-artifacts/build-linux-${version}.tar.gz -C ${{ steps.strings.outputs.build-output-dir }} .
+          fi
         shell: bash
 
       - name: Upload Build Artifacts
