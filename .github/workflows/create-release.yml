@@ -1,0 +1,94 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        build_type: [Release]
+        cpp_compiler: [g++]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set reusable strings
+        id: strings
+        shell: bash
+        run: |
+          echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+          echo "version=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Install Dependencies (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          choco install mingw --version=12.2.0 -y
+          echo "CXX=${{ env.GITHUB_WORKSPACE }}/mingw64/bin/g++.exe" >> $GITHUB_ENV
+          echo "CC=${{ env.GITHUB_WORKSPACE }}/mingw64/bin/gcc.exe" >> $GITHUB_ENV
+
+      - name: Install Dependencies (macOS)
+        if: runner.os == 'macOS'
+        run: brew install gcc
+
+      - name: Configure CMake
+        run: >
+          cmake -B ${{ steps.strings.outputs.build-output-dir }}
+          -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
+          -DCMAKE_C_COMPILER=${{ matrix.cpp_compiler }}
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -S ${{ github.workspace }}
+
+      - name: Build
+        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+
+      - name: Test
+        working-directory: ${{ steps.strings.outputs.build-output-dir }}
+        run: ctest --build-config ${{ matrix.build_type }}
+
+      - name: Archive Build Artifacts
+        run: |
+          mkdir -p release-artifacts
+          version="${{ github.ref_name }}"
+          if [ "${{ matrix.os }}" == "windows-latest" ]; then
+            zip -r release-artifacts/build-windows-${version}.zip ${{ steps.strings.outputs.build-output-dir }}
+          elif [ "${{ matrix.os }}" == "macos-latest" ]; then
+            zip -r release-artifacts/build-macos-${version}.zip ${{ steps.strings.outputs.build-output-dir }}
+          else
+            tar -czf release-artifacts/build-linux-${version}.tar.gz -C ${{ steps.strings.outputs.build-output-dir }} .
+        shell: bash
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.os }}-build
+          path: release-artifacts
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: ./release-artifacts
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            release-artifacts/build-windows-${{ github.ref_name }}.zip
+            release-artifacts/build-macos-${{ github.ref_name }}.zip
+            release-artifacts/build-linux-${{ github.ref_name }}.tar.gz
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
