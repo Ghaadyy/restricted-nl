@@ -20,4 +20,4 @@ file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.h")
 
 add_executable(restricted_nl main.cpp ${SOURCE_FILES})
 
-target_link_libraries(restricted_nl PRIVATE ${INCLUDE_DIR}/CLI/CLI.hpp)
+target_include_directories(restricted_nl PRIVATE ${INCLUDE_DIR})
