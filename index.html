@@ -50,11 +50,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#building-the-project">Building the project</a>
+    <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#using-the-compiler">Using the compiler</a>
     </li>
@@ -158,18 +154,9 @@ state       ::= DISPLAYED | HIDDEN
 <p><code>UPPER_CASE</code> refers to terminals, <code>lower_case</code> refers to non-terminals.</p>
 <p>We aim to support more actions in the future, however, the possible actions for the moment are: click, type <em>(with visit and check being utility actions useful for testing)</em>.</p>
 <h2 id="getting-started">Getting Started</h2>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>In order to use the compiler on your machine or within another project, you will need a stable C++ compiler such as <code>g++</code> (<code>g++-14</code> is a working version) and <a href="https://cmake.org">CMake</a>, a minimum working version is 3.10.</p>
-<h3 id="dependencies">Dependencies</h3>
-<p>This project has minimal dependencies. We depend on <a href="https://github.com/CLIUtils/CLI11">CLI11</a> to provide the CLI tool and <a href="https://github.com/nlohmann/json">nlohmann/json</a> to parse and generate the JSON version of the AST.</p>
-<h3 id="building-the-project">Building the project</h3>
-<pre><code class="language-bash">git clone https://github.com/Ghaadyy/restricted-nl.git
-cd restricted-nl/
-./install.sh
-</code></pre>
-<p><code>install.sh</code> is a script which fetches the source code from the <a href="https://github.com/Ghaadyy/restricted-nl">repository</a> and builds it using <a href="https://cmake.org">CMake</a>.
-The installation directory for the compiler is <code>/usr/local/bin</code>, it should bet already available in the <code>PATH</code> environment variable (if not, add it to have global access).</p>
-<p>This script uses a <code>g++-14</code> as the compiler, make sure to change it or install it as needed.</p>
+<h3 id="installation">Installation</h3>
+<p>Head to the <a href="https://github.com/Ghaadyy/restricted-nl/releases/latest">releases</a> page and download the latest release required version for your machine.</p>
+<p>Extract the executable from the archive and add it to your <code>PATH</code> environment variable if you wish to use it as a global CLI tool on your system.</p>
 <h3 id="using-the-compiler">Using the compiler</h3>
 <pre><code>$ rnlc -i in.txt -o out.js -t selenium
 
@@ -242,5 +229,5 @@ Options:
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-01-28 11:16:03.352306+00:00
+Build Date UTC : 2025-01-28 11:45:28.829461+00:00
 -->
