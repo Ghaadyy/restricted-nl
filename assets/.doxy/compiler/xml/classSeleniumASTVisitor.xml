@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/SeleniumASTVisitor.h" line="16" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="116" bodyend="134"/>
+        <location file="src/ast/SeleniumASTVisitor.h" line="16" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="116" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classSeleniumASTVisitor_1a85cc29818f4b7161ef8285339c5defb4" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>string</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/SeleniumASTVisitor.h" line="19" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="136" bodyend="140"/>
+        <location file="src/ast/SeleniumASTVisitor.h" line="19" column="19" bodyfile="src/ast/SeleniumASTVisitor.cpp" bodystart="134" bodyend="138"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">

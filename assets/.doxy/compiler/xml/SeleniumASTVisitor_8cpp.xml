@@ -60,20 +60,20 @@
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::visit(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classClickNode" kindref="compound">ClickNode</ref><sp/>&amp;node)<sp/>{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;await<sp/>clickNode(browsingContext,<sp/>driver,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_description()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_element_type()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;await<sp/>clickNode(driver,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_description()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_element_type()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
 <codeline lineno="14"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::visit(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classTypeNode" kindref="compound">TypeNode</ref><sp/>&amp;node)<sp/>{</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;await<sp/>typeNode(browsingContext,<sp/>driver,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_description()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_content()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_element_type()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;await<sp/>typeNode(driver,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_description()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_content()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_element_type()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
 <codeline lineno="20"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::visit(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classCheckNode" kindref="compound">CheckNode</ref><sp/>&amp;node)<sp/>{</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>state<sp/>=<sp/>(node.get_state()<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;true&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;false&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;assert.equal(await<sp/>checkNode(browsingContext,<sp/>driver,<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_element_type()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_description()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>state<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>title),<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>state<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;assert.equal(await<sp/>checkNode(driver,<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_element_type()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node.get_description()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>state<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>title),<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>state<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
 <codeline lineno="27"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
@@ -122,19 +122,19 @@
 <codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::generate_xpath_helper()<sp/>{</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
-<codeline lineno="74"><highlight class="stringliteral">async<sp/>function<sp/>clickNode(browsingContext,<sp/>driver,<sp/>description,<sp/>element_type)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral">async<sp/>function<sp/>clickNode(driver,<sp/>description,<sp/>element_type)<sp/>{</highlight></codeline>
 <codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>element<sp/>=<sp/>await<sp/>driver.findElement(By.xpath(description));</highlight></codeline>
 <codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>element.click();</highlight></codeline>
 <codeline lineno="77"><highlight class="stringliteral">})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="78"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="79"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
-<codeline lineno="80"><highlight class="stringliteral">async<sp/>function<sp/>typeNode(browsingContext,<sp/>driver,<sp/>description,<sp/>content,<sp/>element_type)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral">async<sp/>function<sp/>typeNode(driver,<sp/>description,<sp/>content,<sp/>element_type)<sp/>{</highlight></codeline>
 <codeline lineno="81"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>element<sp/>=<sp/>await<sp/>driver.findElement(By.xpath(description));</highlight></codeline>
 <codeline lineno="82"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>element.sendKeys(content);</highlight></codeline>
 <codeline lineno="83"><highlight class="stringliteral">})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="84"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
-<codeline lineno="86"><highlight class="stringliteral">async<sp/>function<sp/>checkNode(browsingContext,<sp/>driver,<sp/>element_type,<sp/>description,<sp/>state,<sp/>test)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral">async<sp/>function<sp/>checkNode(driver,<sp/>element_type,<sp/>description,<sp/>state,<sp/>test)<sp/>{</highlight></codeline>
 <codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>element<sp/>=<sp/>await<sp/>driver.findElement(By.xpath(description));</highlight></codeline>
 <codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>let<sp/>isDisplayed<sp/>=<sp/>await<sp/>element.isDisplayed();</highlight></codeline>
 <codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>afterEachAssertHook(`${element_type}<sp/>with<sp/>description<sp/>&quot;${description}&quot;<sp/>should<sp/>be<sp/>${state<sp/>?<sp/>&apos;displayed&apos;<sp/>:<sp/>&apos;hidden&apos;}`,<sp/>isDisplayed<sp/>==<sp/>state,<sp/>test);</highlight></codeline>
@@ -147,22 +147,22 @@
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"></highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
-<codeline lineno="99"><highlight class="stringliteral">async<sp/>function<sp/>clickNode(browsingContext,<sp/>driver,<sp/>description,<sp/>element_type)<sp/>{</highlight></codeline>
-<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>[x,<sp/>y]<sp/>=<sp/>await<sp/>getCoordinates(browsingContext,<sp/>description,<sp/>element_type);</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral">async<sp/>function<sp/>clickNode(driver,<sp/>description,<sp/>element_type)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>[x,<sp/>y]<sp/>=<sp/>await<sp/>getCoordinates(driver,<sp/>description,<sp/>element_type);</highlight></codeline>
 <codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>actions<sp/>=<sp/>driver.actions({<sp/>async:<sp/>true<sp/>});</highlight></codeline>
 <codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>actions.move({<sp/>x,<sp/>y<sp/>}).click().perform();</highlight></codeline>
 <codeline lineno="103"><highlight class="stringliteral">})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="104"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="105"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
-<codeline lineno="106"><highlight class="stringliteral">async<sp/>function<sp/>typeNode(browsingContext,<sp/>driver,<sp/>description,<sp/>content,<sp/>element_type)<sp/>{</highlight></codeline>
-<codeline lineno="107"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>[x,<sp/>y]<sp/>=<sp/>await<sp/>getCoordinates(browsingContext,<sp/>description,<sp/>element_type);</highlight></codeline>
+<codeline lineno="106"><highlight class="stringliteral">async<sp/>function<sp/>typeNode(driver,<sp/>description,<sp/>content,<sp/>element_type)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>[x,<sp/>y]<sp/>=<sp/>await<sp/>getCoordinates(driver,<sp/>description,<sp/>element_type);</highlight></codeline>
 <codeline lineno="108"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>actions<sp/>=<sp/>driver.actions({<sp/>async:<sp/>true<sp/>});</highlight></codeline>
 <codeline lineno="109"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>actions.move({<sp/>x,<sp/>y<sp/>}).click().sendKeys(content).perform();</highlight></codeline>
 <codeline lineno="110"><highlight class="stringliteral">})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="111"><highlight class="stringliteral"></highlight></codeline>
 <codeline lineno="112"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(</highlight></codeline>
-<codeline lineno="113"><highlight class="stringliteral">async<sp/>function<sp/>checkNode(browsingContext,<sp/>driver,<sp/>element_type,<sp/>description,<sp/>state,<sp/>test)<sp/>{</highlight></codeline>
-<codeline lineno="114"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>[x,<sp/>y]<sp/>=<sp/>await<sp/>getCoordinates(browsingContext,<sp/>description,<sp/>element_type);</highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral">async<sp/>function<sp/>checkNode(driver,<sp/>element_type,<sp/>description,<sp/>state,<sp/>test)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>const<sp/>[x,<sp/>y]<sp/>=<sp/>await<sp/>getCoordinates(driver,<sp/>description,<sp/>element_type);</highlight></codeline>
 <codeline lineno="115"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>let<sp/>element<sp/>=<sp/>await<sp/>elementFromPoint(driver,<sp/>x,<sp/>y);</highlight></codeline>
 <codeline lineno="116"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>let<sp/>isDisplayed<sp/>=<sp/>await<sp/>element.isDisplayed();</highlight></codeline>
 <codeline lineno="117"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>afterEachAssertHook(`${element_type}<sp/>with<sp/>description<sp/>&quot;${description}&quot;<sp/>should<sp/>be<sp/>${state<sp/>?<sp/>&apos;displayed&apos;<sp/>:<sp/>&apos;hidden&apos;}`,<sp/>isDisplayed<sp/>==<sp/>state,<sp/>test);</highlight></codeline>
@@ -177,106 +177,98 @@
 <codeline lineno="126"><highlight class="normal"></highlight></codeline>
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(describe(&quot;Script&quot;,<sp/>function<sp/>()<sp/>{</highlight></codeline>
 <codeline lineno="128"><highlight class="stringliteral"><sp/><sp/>let<sp/>driver;</highlight></codeline>
-<codeline lineno="129"><highlight class="stringliteral"><sp/><sp/>let<sp/>id;</highlight></codeline>
-<codeline lineno="130"><highlight class="stringliteral"><sp/><sp/>let<sp/>browsingContext;</highlight></codeline>
-<codeline lineno="131"><highlight class="stringliteral"><sp/><sp/>this.timeout(0);</highlight></codeline>
-<codeline lineno="132"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="133"><highlight class="stringliteral"><sp/><sp/>before(beforeHook);</highlight></codeline>
-<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/>beforeEach(beforeEachHook);</highlight></codeline>
-<codeline lineno="135"><highlight class="stringliteral"><sp/><sp/>after(afterHook);</highlight></codeline>
-<codeline lineno="136"><highlight class="stringliteral"><sp/><sp/>afterEach(afterEachHook);</highlight></codeline>
-<codeline lineno="137"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="138"><highlight class="stringliteral"><sp/><sp/>before(async<sp/>function<sp/>()<sp/>{</highlight></codeline>
-<codeline lineno="139"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>driver<sp/>=<sp/>await<sp/>new<sp/>Builder().forBrowser(Browser.CHROME)</highlight></codeline>
-<codeline lineno="140"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setChromeOptions(new<sp/>chrome.Options().enableBidi())</highlight></codeline>
-<codeline lineno="141"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
-<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>driver</highlight></codeline>
-<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>.manage()</highlight></codeline>
-<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>.setTimeouts({<sp/>implicit:<sp/>2147483647,<sp/>pageLoad:<sp/>2147483647<sp/>});</highlight></codeline>
-<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>id<sp/>=<sp/>await<sp/>driver.getWindowHandle();</highlight></codeline>
-<codeline lineno="146"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>browsingContext<sp/>=<sp/>await<sp/>BrowsingContext(driver,<sp/>{</highlight></codeline>
-<codeline lineno="147"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>browsingContextId:<sp/>id,</highlight></codeline>
-<codeline lineno="148"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>});</highlight></codeline>
-<codeline lineno="149"><highlight class="stringliteral"><sp/><sp/>});</highlight></codeline>
-<codeline lineno="150"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="151"><highlight class="stringliteral"><sp/><sp/>after(async<sp/>()<sp/>=&gt;<sp/>{</highlight></codeline>
-<codeline lineno="152"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>driver.quit();</highlight></codeline>
-<codeline lineno="153"><highlight class="stringliteral"><sp/><sp/>});)&quot;</highlight></codeline>
-<codeline lineno="154"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="155"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="156"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
-<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::element_from_point()<sp/>{</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(async<sp/>function<sp/>elementFromPoint(driver,<sp/>x,<sp/>y)<sp/>{</highlight></codeline>
-<codeline lineno="162"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>driver.executeScript(</highlight></codeline>
-<codeline lineno="163"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;return<sp/>document.elementFromPoint(arguments[0],<sp/>arguments[1]);&quot;,</highlight></codeline>
-<codeline lineno="164"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x,</highlight></codeline>
-<codeline lineno="165"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y</highlight></codeline>
-<codeline lineno="166"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="167"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="168"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
-<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::get_coordinates()<sp/>{</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(async<sp/>function<sp/>getCoordinates(browsingContext,<sp/>description,<sp/>element_type)<sp/>{</highlight></codeline>
-<codeline lineno="175"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try<sp/>{</highlight></codeline>
-<codeline lineno="176"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>res<sp/>=<sp/>await<sp/>fetch(getServerURL(),<sp/>{</highlight></codeline>
-<codeline lineno="177"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>method:<sp/>&quot;POST&quot;,</highlight></codeline>
-<codeline lineno="178"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headers:<sp/>{</highlight></codeline>
-<codeline lineno="179"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Content-Type&quot;:<sp/>&quot;application/json&quot;,</highlight></codeline>
-<codeline lineno="180"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Authorization&quot;:<sp/>`Bearer<sp/>${getToken()}`</highlight></codeline>
-<codeline lineno="181"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
-<codeline lineno="182"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>body:<sp/>JSON.stringify({</highlight></codeline>
-<codeline lineno="183"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>image:<sp/>await<sp/>browsingContext.captureScreenshot(),</highlight></codeline>
-<codeline lineno="184"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>description:<sp/>description,</highlight></codeline>
-<codeline lineno="185"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>element_type:<sp/>element_type</highlight></codeline>
-<codeline lineno="186"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),</highlight></codeline>
-<codeline lineno="187"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
-<codeline lineno="188"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="189"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>data<sp/>=<sp/>await<sp/>res.json();</highlight></codeline>
-<codeline lineno="190"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="191"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(res.ok)<sp/>{</highlight></codeline>
-<codeline lineno="192"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>data;</highlight></codeline>
-<codeline lineno="193"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
-<codeline lineno="194"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>Error(&quot;Error<sp/>in<sp/>fetching<sp/>coordinates&quot;);</highlight></codeline>
-<codeline lineno="195"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="196"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(error)<sp/>{</highlight></codeline>
-<codeline lineno="197"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>Error(&quot;Error<sp/>in<sp/>fetching<sp/>coordinates&quot;);</highlight></codeline>
-<codeline lineno="198"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="199"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="200"><highlight class="stringliteral"></highlight></codeline>
-<codeline lineno="201"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
-<codeline lineno="202"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::init_hooks()<sp/>{</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"></highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>{<sp/>Builder,<sp/>Browser,<sp/>By<sp/>}<sp/>=<sp/>require(&apos;selenium-webdriver&apos;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>assert<sp/>=<sp/>require(&apos;assert&apos;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>BrowsingContext<sp/>=<sp/>require(\&quot;selenium-webdriver/bidi/browsingContext\&quot;);&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>chrome<sp/>=<sp/>require(\&quot;selenium-webdriver/chrome\&quot;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>fs<sp/>=<sp/>require(\&quot;fs\&quot;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="129"><highlight class="stringliteral"><sp/><sp/>this.timeout(0);</highlight></codeline>
+<codeline lineno="130"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="131"><highlight class="stringliteral"><sp/><sp/>before(beforeHook);</highlight></codeline>
+<codeline lineno="132"><highlight class="stringliteral"><sp/><sp/>beforeEach(beforeEachHook);</highlight></codeline>
+<codeline lineno="133"><highlight class="stringliteral"><sp/><sp/>after(afterHook);</highlight></codeline>
+<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/>afterEach(afterEachHook);</highlight></codeline>
+<codeline lineno="135"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="136"><highlight class="stringliteral"><sp/><sp/>before(async<sp/>function<sp/>()<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>driver<sp/>=<sp/>await<sp/>new<sp/>Builder().forBrowser(Browser.CHROME)</highlight></codeline>
+<codeline lineno="138"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.setChromeOptions(new<sp/>chrome.Options().addArguments(&quot;--window-size=1920,1080&quot;))</highlight></codeline>
+<codeline lineno="139"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.build();</highlight></codeline>
+<codeline lineno="140"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>driver</highlight></codeline>
+<codeline lineno="141"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>.manage()</highlight></codeline>
+<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>.setTimeouts({<sp/>implicit:<sp/>2147483647,<sp/>pageLoad:<sp/>2147483647<sp/>});</highlight></codeline>
+<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="144"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/>after(async<sp/>()<sp/>=&gt;<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>await<sp/>driver.quit();</highlight></codeline>
+<codeline lineno="147"><highlight class="stringliteral"><sp/><sp/>});)&quot;</highlight></codeline>
+<codeline lineno="148"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="149"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="150"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::element_from_point()<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(async<sp/>function<sp/>elementFromPoint(driver,<sp/>x,<sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>await<sp/>driver.executeScript(</highlight></codeline>
+<codeline lineno="157"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;return<sp/>document.elementFromPoint(arguments[0],<sp/>arguments[1]);&quot;,</highlight></codeline>
+<codeline lineno="158"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x,</highlight></codeline>
+<codeline lineno="159"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y</highlight></codeline>
+<codeline lineno="160"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="161"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="162"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::get_coordinates()<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>R</highlight><highlight class="stringliteral">&quot;(async<sp/>function<sp/>getCoordinates(driver,<sp/>description,<sp/>element_type)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>res<sp/>=<sp/>await<sp/>fetch(getServerURL(),<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>method:<sp/>&quot;POST&quot;,</highlight></codeline>
+<codeline lineno="172"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headers:<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Content-Type&quot;:<sp/>&quot;application/json&quot;,</highlight></codeline>
+<codeline lineno="174"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Authorization&quot;:<sp/>`Bearer<sp/>${getToken()}`</highlight></codeline>
+<codeline lineno="175"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="176"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>body:<sp/>JSON.stringify({</highlight></codeline>
+<codeline lineno="177"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>image:<sp/>await<sp/>driver.takeScreenshot(),</highlight></codeline>
+<codeline lineno="178"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>description:<sp/>description,</highlight></codeline>
+<codeline lineno="179"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>element_type:<sp/>element_type</highlight></codeline>
+<codeline lineno="180"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),</highlight></codeline>
+<codeline lineno="181"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="182"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="183"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>data<sp/>=<sp/>await<sp/>res.json();</highlight></codeline>
+<codeline lineno="184"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="185"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(res.ok)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>data;</highlight></codeline>
+<codeline lineno="187"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>Error(&quot;Error<sp/>in<sp/>fetching<sp/>coordinates&quot;);</highlight></codeline>
+<codeline lineno="189"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>catch<sp/>(error)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>new<sp/>Error(&quot;Error<sp/>in<sp/>fetching<sp/>coordinates&quot;);</highlight></codeline>
+<codeline lineno="192"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>})&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="194"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="195"><highlight class="stringliteral"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::init_hooks()<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>{<sp/>Builder,<sp/>Browser,<sp/>By<sp/>}<sp/>=<sp/>require(&apos;selenium-webdriver&apos;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>assert<sp/>=<sp/>require(&apos;assert&apos;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;const<sp/>chrome<sp/>=<sp/>require(\&quot;selenium-webdriver/chrome\&quot;);&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>beforeHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>beforeEachHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>afterHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>afterEachHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>afterEachAssertHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>getToken()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>getServerURL()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>beforeHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>beforeEachHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>afterHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>afterEachHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>afterEachAssertHook()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>getToken()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;function<sp/>getServerURL()<sp/>{}&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"></highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
-<codeline lineno="222"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"></highlight></codeline>
-<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::end()<sp/>{</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;});\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
-<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>SeleniumASTVisitor::end()<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>stringstream<sp/>ss;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>ss<sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;});\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/ast/SeleniumASTVisitor.cpp"/>
   </compounddef>

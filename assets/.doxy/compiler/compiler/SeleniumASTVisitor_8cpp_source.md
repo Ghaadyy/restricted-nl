@@ -19,20 +19,20 @@ string SeleniumASTVisitor::visit(const VisitNode &node) {
 
 string SeleniumASTVisitor::visit(const ClickNode &node) {
     stringstream ss;
-    ss << "await clickNode(browsingContext, driver, " << node.get_description() << ", \"" << node.get_element_type() << "\");" << std::endl;
+    ss << "await clickNode(driver, " << node.get_description() << ", \"" << node.get_element_type() << "\");" << std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const TypeNode &node) {
     stringstream ss;
-    ss << "await typeNode(browsingContext, driver, " << node.get_description() << ", " << node.get_content() << ", \"" << node.get_element_type() << "\");" << std::endl;
+    ss << "await typeNode(driver, " << node.get_description() << ", " << node.get_content() << ", \"" << node.get_element_type() << "\");" << std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const CheckNode &node) {
     stringstream ss;
     string state = (node.get_state() ? "true" : "false");
-    ss << "assert.equal(await checkNode(browsingContext, driver, \"" << node.get_element_type() << "\", " << node.get_description() << ", " << state << ", title), " << state  << ");" << std::endl;
+    ss << "assert.equal(await checkNode(driver, \"" << node.get_element_type() << "\", " << node.get_description() << ", " << state << ", title), " << state  << ");" << std::endl;
     return ss.str();
 }
 
@@ -81,19 +81,19 @@ string SeleniumASTVisitor::visit(const AST &tree) {
 string SeleniumASTVisitor::generate_xpath_helper() {
     stringstream ss;
     ss << R"(
-async function clickNode(browsingContext, driver, description, element_type) {
+async function clickNode(driver, description, element_type) {
     const element = await driver.findElement(By.xpath(description));
     await element.click();
 })" << std::endl;
 
     ss << R"(
-async function typeNode(browsingContext, driver, description, content, element_type) {
+async function typeNode(driver, description, content, element_type) {
     const element = await driver.findElement(By.xpath(description));
     await element.sendKeys(content);
 })" << std::endl;
 
     ss << R"(
-async function checkNode(browsingContext, driver, element_type, description, state, test) {
+async function checkNode(driver, element_type, description, state, test) {
     const element = await driver.findElement(By.xpath(description));
     let isDisplayed = await element.isDisplayed();
     await afterEachAssertHook(`${element_type} with description "${description}" should be ${state ? 'displayed' : 'hidden'}`, isDisplayed == state, test);
@@ -106,22 +106,22 @@ string SeleniumASTVisitor::generate_seeclick_helper() {
     stringstream ss;
 
     ss << R"(
-async function clickNode(browsingContext, driver, description, element_type) {
-    const [x, y] = await getCoordinates(browsingContext, description, element_type);
+async function clickNode(driver, description, element_type) {
+    const [x, y] = await getCoordinates(driver, description, element_type);
     const actions = driver.actions({ async: true });
     await actions.move({ x, y }).click().perform();
 })" << std::endl;
 
     ss << R"(
-async function typeNode(browsingContext, driver, description, content, element_type) {
-    const [x, y] = await getCoordinates(browsingContext, description, element_type);
+async function typeNode(driver, description, content, element_type) {
+    const [x, y] = await getCoordinates(driver, description, element_type);
     const actions = driver.actions({ async: true });
     await actions.move({ x, y }).click().sendKeys(content).perform();
 })" << std::endl;
 
     ss << R"(
-async function checkNode(browsingContext, driver, element_type, description, state, test) {
-    const [x, y] = await getCoordinates(browsingContext, description, element_type);
+async function checkNode(driver, element_type, description, state, test) {
+    const [x, y] = await getCoordinates(driver, description, element_type);
     let element = await elementFromPoint(driver, x, y);
     let isDisplayed = await element.isDisplayed();
     await afterEachAssertHook(`${element_type} with description "${description}" should be ${state ? 'displayed' : 'hidden'}`, isDisplayed == state, test);
@@ -136,8 +136,6 @@ string SeleniumASTVisitor::generate_init() {
 
     ss  << R"(describe("Script", function () {
   let driver;
-  let id;
-  let browsingContext;
   this.timeout(0);
 
   before(beforeHook);
@@ -147,15 +145,11 @@ string SeleniumASTVisitor::generate_init() {
 
   before(async function () {
     driver = await new Builder().forBrowser(Browser.CHROME)
-        .setChromeOptions(new chrome.Options().enableBidi())
+        .setChromeOptions(new chrome.Options().addArguments("--window-size=1920,1080"))
         .build();
     await driver
       .manage()
       .setTimeouts({ implicit: 2147483647, pageLoad: 2147483647 });
-    id = await driver.getWindowHandle();
-    browsingContext = await BrowsingContext(driver, {
-        browsingContextId: id,
-    });
   });
 
   after(async () => {
@@ -181,7 +175,7 @@ string SeleniumASTVisitor::element_from_point() {
 string SeleniumASTVisitor::get_coordinates() {
     stringstream ss;
 
-    ss << R"(async function getCoordinates(browsingContext, description, element_type) {
+    ss << R"(async function getCoordinates(driver, description, element_type) {
         try {
             const res = await fetch(getServerURL(), {
                 method: "POST",
@@ -190,7 +184,7 @@ string SeleniumASTVisitor::get_coordinates() {
                     "Authorization": `Bearer ${getToken()}`
                 },
                 body: JSON.stringify({
-                    image: await browsingContext.captureScreenshot(),
+                    image: await driver.takeScreenshot(),
                     description: description,
                     element_type: element_type
                 }),
@@ -216,9 +210,7 @@ string SeleniumASTVisitor::init_hooks() {
 
     ss  << "const { Builder, Browser, By } = require('selenium-webdriver');"                << std::endl;
     ss  << "const assert = require('assert');"                                              << std::endl;
-    ss  << "const BrowsingContext = require(\"selenium-webdriver/bidi/browsingContext\");"  << std::endl;
     ss  << "const chrome = require(\"selenium-webdriver/chrome\");"                         << std::endl;
-    ss  << "const fs = require(\"fs\");"                                                    << std::endl;
 
     ss  << "function beforeHook() {}"                                                   << std::endl;
     ss  << "function beforeEachHook() {}"                                               << std::endl;
