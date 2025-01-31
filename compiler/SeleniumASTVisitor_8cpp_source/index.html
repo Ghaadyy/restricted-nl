@@ -104,26 +104,26 @@
 
 string SeleniumASTVisitor::visit(const VisitNode &amp;node) {
     stringstream ss;
-    ss &lt;&lt; &quot;await driver.get(&quot; &lt;&lt; node.get_url() &lt;&lt; &quot;);&quot; &lt;&lt; std::endl;
+    ss &lt;&lt; &quot;await driver.get('&quot; &lt;&lt; node.get_url() &lt;&lt; &quot;');&quot; &lt;&lt; std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const ClickNode &amp;node) {
     stringstream ss;
-    ss &lt;&lt; &quot;await clickNode(driver, &quot; &lt;&lt; node.get_description() &lt;&lt; &quot;, \&quot;&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;\&quot;);&quot; &lt;&lt; std::endl;
+    ss &lt;&lt; &quot;await clickNode(driver, '&quot; &lt;&lt; node.get_description() &lt;&lt; &quot;', '&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;');&quot; &lt;&lt; std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const TypeNode &amp;node) {
     stringstream ss;
-    ss &lt;&lt; &quot;await typeNode(driver, &quot; &lt;&lt; node.get_description() &lt;&lt; &quot;, &quot; &lt;&lt; node.get_content() &lt;&lt; &quot;, \&quot;&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;\&quot;);&quot; &lt;&lt; std::endl;
+    ss &lt;&lt; &quot;await typeNode(driver, '&quot; &lt;&lt; node.get_description() &lt;&lt; &quot;', '&quot; &lt;&lt; node.get_content() &lt;&lt; &quot;', '&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;');&quot; &lt;&lt; std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const CheckNode &amp;node) {
     stringstream ss;
     string state = (node.get_state() ? &quot;true&quot; : &quot;false&quot;);
-    ss &lt;&lt; &quot;assert.equal(await checkNode(driver, \&quot;&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;\&quot;, &quot; &lt;&lt; node.get_description() &lt;&lt; &quot;, &quot; &lt;&lt; state &lt;&lt; &quot;, title), &quot; &lt;&lt; state  &lt;&lt; &quot;);&quot; &lt;&lt; std::endl;
+    ss &lt;&lt; &quot;assert.equal(await checkNode(driver, '&quot; &lt;&lt; node.get_element_type() &lt;&lt; &quot;', '&quot; &lt;&lt; node.get_description() &lt;&lt; &quot;', &quot; &lt;&lt; state &lt;&lt; &quot;, title), &quot; &lt;&lt; state  &lt;&lt; &quot;);&quot; &lt;&lt; std::endl;
     return ss.str();
 }
 

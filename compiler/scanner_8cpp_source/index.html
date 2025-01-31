@@ -125,9 +125,9 @@ Scanner::Scanner(string&amp;&amp; content) :
         {&quot;type&quot;, [&amp;](const string &amp; s) { return TYPE;}},
         {&quot;[{]&quot;, [&amp;](const string &amp; s) { return LEFT_BRACE;}},
         {&quot;[}]&quot;, [&amp;](const string &amp; s) { return RIGHT_BRACE;}},
-        {&quot;[\&quot;]https://[a-zA-Z0-9./]*[\&quot;]&quot;, [&amp;](const string &amp; s) { yysval = s; return URL;}},
+        {&quot;[\&quot;]https://[a-zA-Z0-9./]*[\&quot;]&quot;, [&amp;](const string &amp; s) { yysval = s.substr(1, s.length() - 2); return URL;}},
         {&quot;[a-zA-Z][a-zA-Z0-9]*&quot;, [&amp;](const string &amp; s) { yysval = s; return TEST_NAME;}},
-        {R&quot;([&quot;][a-zA-Z0-9 /@='\]\[]*[&quot;])&quot;, [&amp;](const string &amp; s) { yysval = s; return NLD;}},
+        {R&quot;([&quot;][a-zA-Z0-9 /@='\]\[]*[&quot;])&quot;, [&amp;](const string &amp; s) { yysval = s.substr(1, s.length() - 2); return NLD;}},
         {&quot;[[:space:]]+&quot;, [&amp;](const string&amp; match) {
             for (char c : match) {
                 if (c == '\n') {

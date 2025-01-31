@@ -13,26 +13,26 @@
 
 string SeleniumASTVisitor::visit(const VisitNode &node) {
     stringstream ss;
-    ss << "await driver.get(" << node.get_url() << ");" << std::endl;
+    ss << "await driver.get('" << node.get_url() << "');" << std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const ClickNode &node) {
     stringstream ss;
-    ss << "await clickNode(driver, " << node.get_description() << ", \"" << node.get_element_type() << "\");" << std::endl;
+    ss << "await clickNode(driver, '" << node.get_description() << "', '" << node.get_element_type() << "');" << std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const TypeNode &node) {
     stringstream ss;
-    ss << "await typeNode(driver, " << node.get_description() << ", " << node.get_content() << ", \"" << node.get_element_type() << "\");" << std::endl;
+    ss << "await typeNode(driver, '" << node.get_description() << "', '" << node.get_content() << "', '" << node.get_element_type() << "');" << std::endl;
     return ss.str();
 }
 
 string SeleniumASTVisitor::visit(const CheckNode &node) {
     stringstream ss;
     string state = (node.get_state() ? "true" : "false");
-    ss << "assert.equal(await checkNode(driver, \"" << node.get_element_type() << "\", " << node.get_description() << ", " << state << ", title), " << state  << ");" << std::endl;
+    ss << "assert.equal(await checkNode(driver, '" << node.get_element_type() << "', '" << node.get_description() << "', " << state << ", title), " << state  << ");" << std::endl;
     return ss.str();
 }
 
