@@ -24,9 +24,9 @@ Scanner::Scanner(string&& content) :
         {"type", [&](const string & s) { return TYPE;}},
         {"[{]", [&](const string & s) { return LEFT_BRACE;}},
         {"[}]", [&](const string & s) { return RIGHT_BRACE;}},
-        {"[\"]https://[a-zA-Z0-9./]*[\"]", [&](const string & s) { yysval = s; return URL;}},
+        {"[\"]https://[a-zA-Z0-9./]*[\"]", [&](const string & s) { yysval = s.substr(1, s.length() - 2); return URL;}},
         {"[a-zA-Z][a-zA-Z0-9]*", [&](const string & s) { yysval = s; return TEST_NAME;}},
-        {R"(["][a-zA-Z0-9 /@='\]\[]*["])", [&](const string & s) { yysval = s; return NLD;}},
+        {R"(["][a-zA-Z0-9 /@='\]\[]*["])", [&](const string & s) { yysval = s.substr(1, s.length() - 2); return NLD;}},
         {"[[:space:]]+", [&](const string& match) {
             for (char c : match) {
                 if (c == '\n') {
