@@ -20,7 +20,7 @@ using json = nlohmann::json;
 
 string JsonASTVisitor::visit(const VisitNode &node) {
     json json_visit = {
-            {"type", "VisitNode"},
+            {"action", "visit"},
             {"url", node.get_url()}
     };
 
@@ -29,9 +29,9 @@ string JsonASTVisitor::visit(const VisitNode &node) {
 
 string JsonASTVisitor::visit(const ClickNode &node) {
     json json_click = {
-            {"type", "ClickNode"},
+            {"action", "click"},
             {"description", node.get_description()},
-            {"element_type", node.get_element_type()}
+            {"elementType", node.get_element_type()}
     };
 
     return json_click.dump();
@@ -40,10 +40,10 @@ string JsonASTVisitor::visit(const ClickNode &node) {
 string JsonASTVisitor::visit(const TypeNode &node) {
 
     json json_type = {
-            {"type", "TypeNode"},
+            {"action", "type"},
             {"description", node.get_description()},
             {"content", node.get_content()},
-            {"element_type", node.get_element_type()}
+            {"elementType", node.get_element_type()}
     };
 
     return json_type.dump();
@@ -51,9 +51,9 @@ string JsonASTVisitor::visit(const TypeNode &node) {
 
 string JsonASTVisitor::visit(const CheckNode &node) {
     json json_check = {
-            {"type", "CheckNode"},
+            {"action", "check"},
             {"description", node.get_description()},
-            {"element_type", node.get_element_type()},
+            {"elementType", node.get_element_type()},
             {"state", node.get_state()}
     };
 
@@ -68,7 +68,6 @@ string JsonASTVisitor::visit(const TestNode &node) {
     }
 
     json json_test = {
-            {"type", "TestNode"},
             {"testName", node.testName},
             {"actions", json_actions}
     };
@@ -84,7 +83,6 @@ string JsonASTVisitor::visit(const AST &tree) {
     }
 
     json json_ast = {
-            {"type", "AST"},
             {"tests", json_tests}
     };
 

@@ -111,7 +111,7 @@ using json = nlohmann::json;
 
 string JsonASTVisitor::visit(const VisitNode &amp;node) {
     json json_visit = {
-            {&quot;type&quot;, &quot;VisitNode&quot;},
+            {&quot;action&quot;, &quot;visit&quot;},
             {&quot;url&quot;, node.get_url()}
     };
 
@@ -120,9 +120,9 @@ string JsonASTVisitor::visit(const VisitNode &amp;node) {
 
 string JsonASTVisitor::visit(const ClickNode &amp;node) {
     json json_click = {
-            {&quot;type&quot;, &quot;ClickNode&quot;},
+            {&quot;action&quot;, &quot;click&quot;},
             {&quot;description&quot;, node.get_description()},
-            {&quot;element_type&quot;, node.get_element_type()}
+            {&quot;elementType&quot;, node.get_element_type()}
     };
 
     return json_click.dump();
@@ -131,10 +131,10 @@ string JsonASTVisitor::visit(const ClickNode &amp;node) {
 string JsonASTVisitor::visit(const TypeNode &amp;node) {
 
     json json_type = {
-            {&quot;type&quot;, &quot;TypeNode&quot;},
+            {&quot;action&quot;, &quot;type&quot;},
             {&quot;description&quot;, node.get_description()},
             {&quot;content&quot;, node.get_content()},
-            {&quot;element_type&quot;, node.get_element_type()}
+            {&quot;elementType&quot;, node.get_element_type()}
     };
 
     return json_type.dump();
@@ -142,9 +142,9 @@ string JsonASTVisitor::visit(const TypeNode &amp;node) {
 
 string JsonASTVisitor::visit(const CheckNode &amp;node) {
     json json_check = {
-            {&quot;type&quot;, &quot;CheckNode&quot;},
+            {&quot;action&quot;, &quot;check&quot;},
             {&quot;description&quot;, node.get_description()},
-            {&quot;element_type&quot;, node.get_element_type()},
+            {&quot;elementType&quot;, node.get_element_type()},
             {&quot;state&quot;, node.get_state()}
     };
 
@@ -159,7 +159,6 @@ string JsonASTVisitor::visit(const TestNode &amp;node) {
     }
 
     json json_test = {
-            {&quot;type&quot;, &quot;TestNode&quot;},
             {&quot;testName&quot;, node.testName},
             {&quot;actions&quot;, json_actions}
     };
@@ -175,7 +174,6 @@ string JsonASTVisitor::visit(const AST &amp;tree) {
     }
 
     json json_ast = {
-            {&quot;type&quot;, &quot;AST&quot;},
             {&quot;tests&quot;, json_tests}
     };
 

@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/JsonASTVisitor.h" line="16" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="53" bodyend="67"/>
+        <location file="src/ast/JsonASTVisitor.h" line="16" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="53" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="classJsonASTVisitor_1a3450c4211f0e8b94bb6c49fa71c17009" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>string</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/ast/JsonASTVisitor.h" line="17" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="69" bodyend="82"/>
+        <location file="src/ast/JsonASTVisitor.h" line="17" column="12" bodyfile="src/ast/JsonASTVisitor.cpp" bodystart="68" bodyend="80"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
