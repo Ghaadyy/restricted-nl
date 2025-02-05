@@ -38,7 +38,7 @@ void output_code(const std::string& path, const std::string& code) {
 void config_app(CLI::App& app) {
     app.add_option("-i,--input", in_path, "Input file path");
     app.add_option("-o,--output", out_path, "Output file path");
-    app.add_option("-t,--target", out_target, "Output target (json, selenium)")
+    app.add_option("-t,--target", out_target, "Output target (json, selenium, decompile)")
             ->check(CLI::IsMember({"json", "selenium", "decompile"}))->default_val("selenium");
     app.add_flag("--keep-xpath", keep_xpath,
                  "Keep XPATH instead of natural description (use this for testing purposes only)")->default_val(false);

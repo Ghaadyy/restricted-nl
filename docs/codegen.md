@@ -6,12 +6,13 @@ Currently, our compiler supports generating code for the [Selenium](https://www.
 
 Our implementation should be straightforward if you are already familiar with the Visitor design pattern.
 
-- The JSON serializer is done though the `JsonASTVisitor`
-- The Selenium codegen is done through the `SeleniumASTVisitor`
+- The `JsonASTVisitor` serializer translates the source code's AST into a JSON format
+- The Selenium code generation is achieved by the `SeleniumASTVisitor`
+- The Decompiler visitor `DecompilerASTVisitor` to generate the corresponding source code from a serialized AST 
 
 ## Serialized AST with JSON
 
-The GitHub example present in the [home page](index.md) produces the following JSON output.
+Compiling he GitHub example present in the [home page](index.md) with `rnlc -t json` produces the following JSON output.
 This feature is useful if you aim to use this compiler within another project to represent this test visually as seen [here](https://github.com/Ghaadyy/fyp).
 
 ```json
@@ -19,41 +20,39 @@ This feature is useful if you aim to use this compiler within another project to
   "tests": [
     {
       "actions": [
-        { "type": "VisitNode", "url": "\"https://github.com\"" },
+        { "action": "visit", "url": "https://github.com" },
         {
-          "description": "\"sign in present in the top right corner\"",
-          "element_type": "link",
-          "type": "ClickNode"
+          "action": "click",
+          "description": "sign in present in the top right corner",
+          "elementType": "link"
         },
         {
-          "description": "\"GitHub logo\"",
-          "element_type": "image",
-          "state": true,
-          "type": "CheckNode"
+          "action": "check",
+          "description": "GitHub logo",
+          "elementType": "image",
+          "state": true
         },
         {
-          "content": "\"johndoe\"",
-          "description": "\"the username input field\"",
-          "element_type": "input",
-          "type": "TypeNode"
+          "action": "type",
+          "content": "johndoe",
+          "description": "the username input field",
+          "elementType": "input"
         },
         {
-          "content": "\"secretpassword\"",
-          "description": "\"the password input filed\"",
-          "element_type": "input",
-          "type": "TypeNode"
+          "action": "type",
+          "content": "secretpassword",
+          "description": "the password input filed",
+          "elementType": "input"
         },
         {
-          "description": "\"sign in button\"",
-          "element_type": "button",
-          "type": "ClickNode"
+          "action": "click",
+          "description": "sign in button",
+          "elementType": "button"
         }
       ],
-      "testName": "githubSignIn",
-      "type": "TestNode"
+      "testName": "githubSignIn"
     }
-  ],
-  "type": "AST"
+  ]
 }
 ```
 
