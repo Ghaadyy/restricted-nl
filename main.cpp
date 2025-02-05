@@ -2,8 +2,8 @@
 #include "src/parser.h"
 #include "src/ast/SeleniumASTVisitor.h"
 #include "src/ast/JsonASTVisitor.h"
-#include "src/ast/ReverseASTVisitor.h"
-#include "src/emitter.h"
+#include "src/ast/SourceASTVisitor.h"
+#include "src/decompiler.h"
 #include <fstream>
 #include <CLI/CLI.hpp>
 
@@ -39,7 +39,7 @@ void config_app(CLI::App& app) {
     app.add_option("-i,--input", in_path, "Input file path");
     app.add_option("-o,--output", out_path, "Output file path");
     app.add_option("-t,--target", out_target, "Output target (json, selenium)")
-            ->check(CLI::IsMember({"json", "selenium", "reverse-ast"}))->default_val("selenium");
+            ->check(CLI::IsMember({"json", "selenium", "decompile"}))->default_val("selenium");
     app.add_flag("--keep-xpath", keep_xpath,
                  "Keep XPATH instead of natural description (use this for testing purposes only)")->default_val(false);
 }
@@ -71,8 +71,8 @@ int main(int argc, char** argv) {
     }
 
     parser p(std::move(file));
-    emitter r(std::move(file));
-    auto res = out_target != "reverse-ast" ? p.parse() : r.convert();
+    decompiler r(std::move(file));
+    auto res = out_target != "decompile" ? p.parse() : r.convert();
 
     if (res.has_value()) {
         const auto &tree = res.value();
@@ -82,8 +82,8 @@ int main(int argc, char** argv) {
             visitor = new JsonASTVisitor();
         } else if (out_target == "selenium") {
             visitor = new SeleniumASTVisitor(keep_xpath);
-        } else if (out_target == "reverse-ast"){
-            visitor = new ReverseASTVisitor();
+        } else if (out_target == "decompile"){
+            visitor = new SourceASTVisitor();
         } else {
             std::cerr << "Invalid output target specified" << std::endl;
             return -1;

@@ -2,8 +2,8 @@
 // Created by A-Karam on 2/2/2025.
 //
 
-#ifndef RESTRICTED_NL_EMITTER_H
-#define RESTRICTED_NL_EMITTER_H
+#ifndef RESTRICTED_NL_DECOMPILER_H
+#define RESTRICTED_NL_DECOMPILER_H
 
 
 #include <string>
@@ -14,7 +14,7 @@
 using json = nlohmann::json;
 using namespace std;
 
-class emitter {
+class decompiler {
 private:
     const string ast;
     vector<string> errors;
@@ -23,10 +23,10 @@ private:
     TestNode* parseTestNode(const json &test);
 
 public:
-    explicit emitter(string&& ast);
+    explicit decompiler(string&& ast);
 
     expected<AST, vector<string>> convert();
 };
 
 
-#endif //RESTRICTED_NL_EMITTER_H
+#endif //RESTRICTED_NL_DECOMPILER_H

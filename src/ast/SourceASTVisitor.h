@@ -2,13 +2,13 @@
 // Created by A-Karam on 2/2/2025.
 //
 
-#ifndef RESTRICTED_NL_REVERSEASTVISITOR_H
-#define RESTRICTED_NL_REVERSEASTVISITOR_H
+#ifndef RESTRICTED_NL_SOURCEASTVISITOR_H
+#define RESTRICTED_NL_SOURCEASTVISITOR_H
 
 
 #include "AST.h"
 
-class ReverseASTVisitor : public ASTVisitor {
+class SourceASTVisitor : public ASTVisitor {
 public:
     string visit(const VisitNode& node) override;
     string visit(const ClickNode& node) override;
@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif //RESTRICTED_NL_REVERSEASTVISITOR_H
+#endif //RESTRICTED_NL_SOURCEASTVISITOR_H

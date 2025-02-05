@@ -2,11 +2,11 @@
 // Created by A-Karam on 2/2/2025.
 //
 
-#include "emitter.h"
+#include "decompiler.h"
 
-emitter::emitter(string &&ast) : ast(ast) {}
+decompiler::decompiler(string &&ast) : ast(ast) {}
 
-expected<AST, vector<string>> emitter::convert() {
+expected<AST, vector<string>> decompiler::convert() {
     try {
         json parsedAST = json::parse(ast);
         vector<TestNode> tests;
@@ -27,7 +27,7 @@ expected<AST, vector<string>> emitter::convert() {
     }
 }
 
-ActionNode* emitter::parseActionNode(const json &action) {
+ActionNode* decompiler::parseActionNode(const json &action) {
     try{
         string type = action.at("action");
 
@@ -50,7 +50,7 @@ ActionNode* emitter::parseActionNode(const json &action) {
     }
 }
 
-TestNode* emitter::parseTestNode(const json &test) {
+TestNode* decompiler::parseTestNode(const json &test) {
     try{
         string testName = test.at("testName");
         vector<ActionNode*> actions;
