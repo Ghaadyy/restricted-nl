@@ -110,51 +110,50 @@
 <h2 id="the-visitor-pattern">The Visitor Pattern</h2>
 <p>Our implementation should be straightforward if you are already familiar with the Visitor design pattern.</p>
 <ul>
-<li>The JSON serializer is done though the <code>JsonASTVisitor</code></li>
-<li>The Selenium codegen is done through the <code>SeleniumASTVisitor</code></li>
+<li>The <code>JsonASTVisitor</code> serializer translates the source code's AST into a JSON format</li>
+<li>The Selenium code generation is achieved by the <code>SeleniumASTVisitor</code></li>
+<li>The Decompiler visitor <code>DecompilerASTVisitor</code> to generate the corresponding source code from a serialized AST </li>
 </ul>
 <h2 id="serialized-ast-with-json">Serialized AST with JSON</h2>
-<p>The GitHub example present in the <a href="../">home page</a> produces the following JSON output.
+<p>Compiling he GitHub example present in the <a href="../">home page</a> with <code>rnlc -t json</code> produces the following JSON output.
 This feature is useful if you aim to use this compiler within another project to represent this test visually as seen <a href="https://github.com/Ghaadyy/fyp">here</a>.</p>
 <pre><code class="language-json">{
   &quot;tests&quot;: [
     {
       &quot;actions&quot;: [
-        { &quot;type&quot;: &quot;VisitNode&quot;, &quot;url&quot;: &quot;\&quot;https://github.com\&quot;&quot; },
+        { &quot;action&quot;: &quot;visit&quot;, &quot;url&quot;: &quot;https://github.com&quot; },
         {
-          &quot;description&quot;: &quot;\&quot;sign in present in the top right corner\&quot;&quot;,
-          &quot;element_type&quot;: &quot;link&quot;,
-          &quot;type&quot;: &quot;ClickNode&quot;
+          &quot;action&quot;: &quot;click&quot;,
+          &quot;description&quot;: &quot;sign in present in the top right corner&quot;,
+          &quot;elementType&quot;: &quot;link&quot;
         },
         {
-          &quot;description&quot;: &quot;\&quot;GitHub logo\&quot;&quot;,
-          &quot;element_type&quot;: &quot;image&quot;,
-          &quot;state&quot;: true,
-          &quot;type&quot;: &quot;CheckNode&quot;
+          &quot;action&quot;: &quot;check&quot;,
+          &quot;description&quot;: &quot;GitHub logo&quot;,
+          &quot;elementType&quot;: &quot;image&quot;,
+          &quot;state&quot;: true
         },
         {
-          &quot;content&quot;: &quot;\&quot;johndoe\&quot;&quot;,
-          &quot;description&quot;: &quot;\&quot;the username input field\&quot;&quot;,
-          &quot;element_type&quot;: &quot;input&quot;,
-          &quot;type&quot;: &quot;TypeNode&quot;
+          &quot;action&quot;: &quot;type&quot;,
+          &quot;content&quot;: &quot;johndoe&quot;,
+          &quot;description&quot;: &quot;the username input field&quot;,
+          &quot;elementType&quot;: &quot;input&quot;
         },
         {
-          &quot;content&quot;: &quot;\&quot;secretpassword\&quot;&quot;,
-          &quot;description&quot;: &quot;\&quot;the password input filed\&quot;&quot;,
-          &quot;element_type&quot;: &quot;input&quot;,
-          &quot;type&quot;: &quot;TypeNode&quot;
+          &quot;action&quot;: &quot;type&quot;,
+          &quot;content&quot;: &quot;secretpassword&quot;,
+          &quot;description&quot;: &quot;the password input filed&quot;,
+          &quot;elementType&quot;: &quot;input&quot;
         },
         {
-          &quot;description&quot;: &quot;\&quot;sign in button\&quot;&quot;,
-          &quot;element_type&quot;: &quot;button&quot;,
-          &quot;type&quot;: &quot;ClickNode&quot;
+          &quot;action&quot;: &quot;click&quot;,
+          &quot;description&quot;: &quot;sign in button&quot;,
+          &quot;elementType&quot;: &quot;button&quot;
         }
       ],
-      &quot;testName&quot;: &quot;githubSignIn&quot;,
-      &quot;type&quot;: &quot;TestNode&quot;
+      &quot;testName&quot;: &quot;githubSignIn&quot;
     }
-  ],
-  &quot;type&quot;: &quot;AST&quot;
+  ]
 }
 </code></pre>
 <h2 id="supporting-a-new-target">Supporting a New Target</h2>

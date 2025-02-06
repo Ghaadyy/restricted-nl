@@ -4,6 +4,7 @@
     <compoundname>ASTVisitor</compoundname>
     <derivedcompoundref refid="classJsonASTVisitor" prot="public" virt="non-virtual">JsonASTVisitor</derivedcompoundref>
     <derivedcompoundref refid="classSeleniumASTVisitor" prot="public" virt="non-virtual">SeleniumASTVisitor</derivedcompoundref>
+    <derivedcompoundref refid="classSourceASTVisitor" prot="public" virt="non-virtual">SourceASTVisitor</derivedcompoundref>
     <sectiondef kind="public-func">
       <memberdef kind="function" id="classASTVisitor_1a44752149fa1a44dff1fc313948b2ee98" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>string</type>
@@ -13,6 +14,7 @@
         <qualifiedname>ASTVisitor::visit</qualifiedname>
         <reimplementedby refid="classJsonASTVisitor_1ac84c0fec090863ebbd73a51728a1fd4f">visit</reimplementedby>
         <reimplementedby refid="classSeleniumASTVisitor_1a6df7863a4d41171e2251bcca915447dc">visit</reimplementedby>
+        <reimplementedby refid="classSourceASTVisitor_1aff40d6bbbc9e7b44b927e031f94a1a6d">visit</reimplementedby>
         <param>
           <type>const <ref refid="classVisitNode" kindref="compound">VisitNode</ref> &amp;</type>
           <declname>node</declname>
@@ -33,6 +35,7 @@
         <qualifiedname>ASTVisitor::visit</qualifiedname>
         <reimplementedby refid="classJsonASTVisitor_1a9f7de26ac49c9dec7b34e19f3252ab62">visit</reimplementedby>
         <reimplementedby refid="classSeleniumASTVisitor_1a3394fef6efe203723ad0f99af24ba2e4">visit</reimplementedby>
+        <reimplementedby refid="classSourceASTVisitor_1aa14185df181015fa5f391cd1230522bc">visit</reimplementedby>
         <param>
           <type>const <ref refid="classClickNode" kindref="compound">ClickNode</ref> &amp;</type>
           <declname>node</declname>
@@ -53,6 +56,7 @@
         <qualifiedname>ASTVisitor::visit</qualifiedname>
         <reimplementedby refid="classJsonASTVisitor_1a5bf2f6eff01bd155548cd10b3ff52d73">visit</reimplementedby>
         <reimplementedby refid="classSeleniumASTVisitor_1a2f9881425630c56df561b5c83a360762">visit</reimplementedby>
+        <reimplementedby refid="classSourceASTVisitor_1a9362419e802579a9cc1bc2f14f121aee">visit</reimplementedby>
         <param>
           <type>const <ref refid="classTypeNode" kindref="compound">TypeNode</ref> &amp;</type>
           <declname>node</declname>
@@ -73,6 +77,7 @@
         <qualifiedname>ASTVisitor::visit</qualifiedname>
         <reimplementedby refid="classJsonASTVisitor_1a71e57288a7731b2c448b9617c9526304">visit</reimplementedby>
         <reimplementedby refid="classSeleniumASTVisitor_1a7d4af98b0a9d8fdb34c2cf74622ec3c6">visit</reimplementedby>
+        <reimplementedby refid="classSourceASTVisitor_1a5c3561129eaa03deca60c1e41a947936">visit</reimplementedby>
         <param>
           <type>const <ref refid="classCheckNode" kindref="compound">CheckNode</ref> &amp;</type>
           <declname>node</declname>
@@ -93,6 +98,7 @@
         <qualifiedname>ASTVisitor::visit</qualifiedname>
         <reimplementedby refid="classJsonASTVisitor_1a2b62aa37bcbd31d7c9b9dad50d8465ab">visit</reimplementedby>
         <reimplementedby refid="classSeleniumASTVisitor_1a38253ea801602b7b65dc694f9e1d2924">visit</reimplementedby>
+        <reimplementedby refid="classSourceASTVisitor_1aad3c1f4cf1e2695585ec343256c388e5">visit</reimplementedby>
         <param>
           <type>const <ref refid="classTestNode" kindref="compound">TestNode</ref> &amp;</type>
           <declname>node</declname>
@@ -113,6 +119,7 @@
         <qualifiedname>ASTVisitor::visit</qualifiedname>
         <reimplementedby refid="classJsonASTVisitor_1a3450c4211f0e8b94bb6c49fa71c17009">visit</reimplementedby>
         <reimplementedby refid="classSeleniumASTVisitor_1a91a46f424869bb88ad1bf327e6101636">visit</reimplementedby>
+        <reimplementedby refid="classSourceASTVisitor_1a78f3df5bd5ad24fb8c7ac1c827d0ed2a">visit</reimplementedby>
         <param>
           <type>const <ref refid="classAST" kindref="compound">AST</ref> &amp;</type>
           <declname>tree</declname>
@@ -144,6 +151,12 @@
       <node id="3">
         <label>SeleniumASTVisitor</label>
         <link refid="classSeleniumASTVisitor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SourceASTVisitor</label>
+        <link refid="classSourceASTVisitor"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>

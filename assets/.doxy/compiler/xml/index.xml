@@ -36,6 +36,14 @@
     <member refid="classClickNode_1abd9e196bd30154bd7d1a9b8d7ea6b925" kind="function"><name>get_element_type</name></member>
     <member refid="classClickNode_1acd7324bf36cc1f3a853c079dc083dae8" kind="function"><name>get_description</name></member>
   </compound>
+  <compound refid="classdecompiler" kind="class"><name>decompiler</name>
+    <member refid="classdecompiler_1a8bbc2142accbed78d4710a82d9aeefdf" kind="variable"><name>ast</name></member>
+    <member refid="classdecompiler_1a53d403332d89374e3416a814bb3fe4cb" kind="variable"><name>errors</name></member>
+    <member refid="classdecompiler_1a49054514e463a0f439b787bf6a387917" kind="function"><name>parseActionNode</name></member>
+    <member refid="classdecompiler_1a103063d925e61d86304003e218e3bae4" kind="function"><name>parseTestNode</name></member>
+    <member refid="classdecompiler_1ab83afb35aaedd5ac4d1dfd40e521f6a9" kind="function"><name>decompiler</name></member>
+    <member refid="classdecompiler_1ae5e258b1bcd5e295c26190edb074020f" kind="function"><name>convert</name></member>
+  </compound>
   <compound refid="classJsonASTVisitor" kind="class"><name>JsonASTVisitor</name>
     <member refid="classJsonASTVisitor_1ac84c0fec090863ebbd73a51728a1fd4f" kind="function"><name>visit</name></member>
     <member refid="classJsonASTVisitor_1a9f7de26ac49c9dec7b34e19f3252ab62" kind="function"><name>visit</name></member>
@@ -98,6 +106,14 @@
     <member refid="classSeleniumASTVisitor_1a38253ea801602b7b65dc694f9e1d2924" kind="function"><name>visit</name></member>
     <member refid="classSeleniumASTVisitor_1a91a46f424869bb88ad1bf327e6101636" kind="function"><name>visit</name></member>
   </compound>
+  <compound refid="classSourceASTVisitor" kind="class"><name>SourceASTVisitor</name>
+    <member refid="classSourceASTVisitor_1aff40d6bbbc9e7b44b927e031f94a1a6d" kind="function"><name>visit</name></member>
+    <member refid="classSourceASTVisitor_1aa14185df181015fa5f391cd1230522bc" kind="function"><name>visit</name></member>
+    <member refid="classSourceASTVisitor_1a9362419e802579a9cc1bc2f14f121aee" kind="function"><name>visit</name></member>
+    <member refid="classSourceASTVisitor_1a5c3561129eaa03deca60c1e41a947936" kind="function"><name>visit</name></member>
+    <member refid="classSourceASTVisitor_1aad3c1f4cf1e2695585ec343256c388e5" kind="function"><name>visit</name></member>
+    <member refid="classSourceASTVisitor_1a78f3df5bd5ad24fb8c7ac1c827d0ed2a" kind="function"><name>visit</name></member>
+  </compound>
   <compound refid="classTestNode" kind="class"><name>TestNode</name>
     <member refid="classTestNode_1a983999ea39d8c5e77a96b9e253260508" kind="variable"><name>testName</name></member>
     <member refid="classTestNode_1ab8d18cbbbf3e3176246199d78a8592af" kind="variable"><name>actions</name></member>
@@ -134,6 +150,15 @@
   <compound refid="SeleniumASTVisitor_8cpp" kind="file"><name>SeleniumASTVisitor.cpp</name>
   </compound>
   <compound refid="SeleniumASTVisitor_8h" kind="file"><name>SeleniumASTVisitor.h</name>
+  </compound>
+  <compound refid="SourceASTVisitor_8cpp" kind="file"><name>SourceASTVisitor.cpp</name>
+  </compound>
+  <compound refid="SourceASTVisitor_8h" kind="file"><name>SourceASTVisitor.h</name>
+  </compound>
+  <compound refid="decompiler_8cpp" kind="file"><name>decompiler.cpp</name>
+  </compound>
+  <compound refid="decompiler_8h" kind="file"><name>decompiler.h</name>
+    <member refid="decompiler_8h_1ab701e3ac61a85b337ec5c1abaad6742d" kind="typedef"><name>json</name></member>
   </compound>
   <compound refid="parser_8cpp" kind="file"><name>parser.cpp</name>
   </compound>

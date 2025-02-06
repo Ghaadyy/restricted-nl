@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classdecompiler" kind="class" language="C++" prot="public">
+    <compoundname>decompiler</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdecompiler_1a8bbc2142accbed78d4710a82d9aeefdf" prot="private" static="no" mutable="no">
+        <type>const string</type>
+        <definition>const string decompiler::ast</definition>
+        <argsstring></argsstring>
+        <name>ast</name>
+        <qualifiedname>decompiler::ast</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decompiler.h" line="19" column="18" bodyfile="src/decompiler.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdecompiler_1a53d403332d89374e3416a814bb3fe4cb" prot="private" static="no" mutable="no">
+        <type>vector&lt; string &gt;</type>
+        <definition>vector&lt;string&gt; decompiler::errors</definition>
+        <argsstring></argsstring>
+        <name>errors</name>
+        <qualifiedname>decompiler::errors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decompiler.h" line="20" column="12" bodyfile="src/decompiler.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classdecompiler_1a49054514e463a0f439b787bf6a387917" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classActionNode" kindref="compound">ActionNode</ref> *</type>
+        <definition>ActionNode * decompiler::parseActionNode</definition>
+        <argsstring>(const json &amp;action)</argsstring>
+        <name>parseActionNode</name>
+        <qualifiedname>decompiler::parseActionNode</qualifiedname>
+        <param>
+          <type>const json &amp;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decompiler.h" line="22" column="16" bodyfile="src/decompiler.cpp" bodystart="30" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classdecompiler_1a103063d925e61d86304003e218e3bae4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classTestNode" kindref="compound">TestNode</ref> *</type>
+        <definition>TestNode * decompiler::parseTestNode</definition>
+        <argsstring>(const json &amp;test)</argsstring>
+        <name>parseTestNode</name>
+        <qualifiedname>decompiler::parseTestNode</qualifiedname>
+        <param>
+          <type>const json &amp;</type>
+          <declname>test</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decompiler.h" line="23" column="14" bodyfile="src/decompiler.cpp" bodystart="53" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdecompiler_1ab83afb35aaedd5ac4d1dfd40e521f6a9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>decompiler::decompiler</definition>
+        <argsstring>(string &amp;&amp;ast)</argsstring>
+        <name>decompiler</name>
+        <qualifiedname>decompiler::decompiler</qualifiedname>
+        <param>
+          <type>string &amp;&amp;</type>
+          <declname>ast</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decompiler.h" line="26" column="14" bodyfile="src/decompiler.cpp" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classdecompiler_1ae5e258b1bcd5e295c26190edb074020f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>expected&lt; <ref refid="classAST" kindref="compound">AST</ref>, vector&lt; string &gt; &gt;</type>
+        <definition>expected&lt; AST, vector&lt; string &gt; &gt; decompiler::convert</definition>
+        <argsstring>()</argsstring>
+        <name>convert</name>
+        <qualifiedname>decompiler::convert</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/decompiler.h" line="28" column="14" bodyfile="src/decompiler.cpp" bodystart="9" bodyend="28"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/decompiler.h" line="17" column="1" bodyfile="src/decompiler.h" bodystart="17" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classdecompiler_1a8bbc2142accbed78d4710a82d9aeefdf" prot="private" virt="non-virtual"><scope>decompiler</scope><name>ast</name></member>
+      <member refid="classdecompiler_1ae5e258b1bcd5e295c26190edb074020f" prot="public" virt="non-virtual"><scope>decompiler</scope><name>convert</name></member>
+      <member refid="classdecompiler_1ab83afb35aaedd5ac4d1dfd40e521f6a9" prot="public" virt="non-virtual"><scope>decompiler</scope><name>decompiler</name></member>
+      <member refid="classdecompiler_1a53d403332d89374e3416a814bb3fe4cb" prot="private" virt="non-virtual"><scope>decompiler</scope><name>errors</name></member>
+      <member refid="classdecompiler_1a49054514e463a0f439b787bf6a387917" prot="private" virt="non-virtual"><scope>decompiler</scope><name>parseActionNode</name></member>
+      <member refid="classdecompiler_1a103063d925e61d86304003e218e3bae4" prot="private" virt="non-virtual"><scope>decompiler</scope><name>parseTestNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

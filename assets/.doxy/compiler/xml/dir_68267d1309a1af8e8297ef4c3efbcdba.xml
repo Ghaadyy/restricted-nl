@@ -3,6 +3,8 @@
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
     <compoundname>src</compoundname>
     <innerdir refid="dir_203e5988f1ed315d29383d699972de6f">src/ast</innerdir>
+    <innerfile refid="decompiler_8cpp">decompiler.cpp</innerfile>
+    <innerfile refid="decompiler_8h">decompiler.h</innerfile>
     <innerfile refid="parser_8cpp">parser.cpp</innerfile>
     <innerfile refid="parser_8h">parser.h</innerfile>
     <innerfile refid="scanner_8cpp">scanner.cpp</innerfile>

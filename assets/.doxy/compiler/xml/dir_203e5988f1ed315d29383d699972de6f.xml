@@ -8,6 +8,8 @@
     <innerfile refid="JsonASTVisitor_8h">JsonASTVisitor.h</innerfile>
     <innerfile refid="SeleniumASTVisitor_8cpp">SeleniumASTVisitor.cpp</innerfile>
     <innerfile refid="SeleniumASTVisitor_8h">SeleniumASTVisitor.h</innerfile>
+    <innerfile refid="SourceASTVisitor_8cpp">SourceASTVisitor.cpp</innerfile>
+    <innerfile refid="SourceASTVisitor_8h">SourceASTVisitor.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

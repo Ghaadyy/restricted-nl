@@ -21,6 +21,8 @@
 
 | Type | Name |
 | ---: | :--- |
+| file | [**decompiler.cpp**](decompiler_8cpp.md) <br> |
+| file | [**decompiler.h**](decompiler_8h.md) <br> |
 | file | [**parser.cpp**](parser_8cpp.md) <br> |
 | file | [**parser.h**](parser_8h.md) <br> |
 | file | [**scanner.cpp**](scanner_8cpp.md) <br> |

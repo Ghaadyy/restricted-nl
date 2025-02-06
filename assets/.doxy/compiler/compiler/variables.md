@@ -5,7 +5,7 @@
 
 ## j
 
-* **json** ([**JsonASTVisitor.cpp**](JsonASTVisitor_8cpp.md))
+* **json** ([**decompiler.h**](decompiler_8h.md), [**JsonASTVisitor.cpp**](JsonASTVisitor_8cpp.md))
 
 
 ## t
