@@ -76,10 +76,10 @@ Restricted Natural Language Compiler
 Usage: rnlc [OPTIONS]
 
 Options:
-  -h,--help                         Print this help message and exit
-  -i,--input TEXT REQUIRED          Input file path
-  -o,--output TEXT REQUIRED         Output file path
-  -t,--target TEXT:{json,selenium}  [selenium] 
-                                    Output target (json, selenium)
-  --keep-xpath [0]                  Keep XPATH instead of natural description (use this for testing purposes only)
+  -h,--help                   Print this help message and exit
+  -i,--input TEXT             Input file path
+  -o,--output TEXT            Output file path
+  -t,--target TEXT:{json,selenium,decompile} [selenium] 
+                              Output target (json, selenium)
+  --keep-xpath [0]            Keep XPATH instead of natural description (use this for testing purposes only)
 ```
