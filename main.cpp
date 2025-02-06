@@ -4,6 +4,7 @@
 #include "src/ast/JsonASTVisitor.h"
 #include "src/ast/SourceASTVisitor.h"
 #include "src/decompiler.h"
+#include <cstdlib>
 #include <fstream>
 #include <CLI/CLI.hpp>
 
@@ -35,6 +36,18 @@ void output_code(const std::string& path, const std::string& code) {
     }
 }
 
+void parse_env() {
+    const char* env_input = std::getenv("RNL_INPUT");
+    const char* env_output = std::getenv("RNL_OUTPUT");
+    const char* env_target = std::getenv("RNL_TARGET");
+    const char* env_keep_xpath = std::getenv("RNL_KEEP_XPATH");
+
+    if (env_input) in_path = env_input;
+    if (env_output) out_path = env_output;
+    if (env_target) out_target = env_target;
+    if (env_keep_xpath) keep_xpath = std::string(env_keep_xpath) == "1";
+}
+
 void config_app(CLI::App& app) {
     app.add_option("-i,--input", in_path, "Input file path");
     app.add_option("-o,--output", out_path, "Output file path");
@@ -42,6 +55,8 @@ void config_app(CLI::App& app) {
             ->check(CLI::IsMember({"json", "selenium", "decompile"}))->default_val("selenium");
     app.add_flag("--keep-xpath", keep_xpath,
                  "Keep XPATH instead of natural description (use this for testing purposes only)")->default_val(false);
+
+    parse_env();
 }
 
 int main(int argc, char** argv) {
