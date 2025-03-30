@@ -56,6 +56,8 @@ jobs:
             zip -r release-artifacts/build-windows-${version}.zip $(cygpath -u "${{ steps.strings.outputs.build-output-dir }}")
           elif [ "${{ matrix.os }}" == "macos-latest" ]; then
             zip -r release-artifacts/build-macos-${version}.zip ${{ steps.strings.outputs.build-output-dir }}
+          elif [ "${{ matrix.os }}" == "ubuntu-24.04-arm" ]; then
+            tar -czf release-artifacts/build-linux-arm64-${version}.tar.gz -C ${{ steps.strings.outputs.build-output-dir }} .
           else
             tar -czf release-artifacts/build-linux-${version}.tar.gz -C ${{ steps.strings.outputs.build-output-dir }} .
           fi
@@ -86,7 +88,7 @@ jobs:
             ./release-artifacts/windows-latest-build/build-windows-${{ github.ref_name }}.zip
             ./release-artifacts/macos-latest-build/build-macos-${{ github.ref_name }}.zip
             ./release-artifacts/ubuntu-latest-build/build-linux-${{ github.ref_name }}.tar.gz
-            ./release-artifacts/ubuntu-24.04-arm-build/build-linux-${{ github.ref_name }}.tar.gz
+            ./release-artifacts/ubuntu-24.04-arm-build/build-linux-arm64-${{ github.ref_name }}.tar.gz
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
