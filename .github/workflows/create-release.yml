@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, ubuntu-24.04-arm, windows-latest, macos-latest]
         build_type: [Release]
 
     steps:
@@ -86,6 +86,7 @@ jobs:
             ./release-artifacts/windows-latest-build/build-windows-${{ github.ref_name }}.zip
             ./release-artifacts/macos-latest-build/build-macos-${{ github.ref_name }}.zip
             ./release-artifacts/ubuntu-latest-build/build-linux-${{ github.ref_name }}.tar.gz
+            ./release-artifacts/ubuntu-24.04-arm-build/build-linux-${{ github.ref_name }}.tar.gz
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
